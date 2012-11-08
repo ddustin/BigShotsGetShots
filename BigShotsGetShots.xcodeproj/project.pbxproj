@@ -58,7 +58,6 @@
 		587E0F43164C5C350000229A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F42164C5C350000229A /* ViewController.xib */; };
 		587E0F44164C5C8A0000229A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0F41164C5BFA0000229A /* ViewController.m */; };
 		587E0F48164C62890000229A /* pg1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F46164C624B0000229A /* pg1.svg */; };
-		587E0F49164C62890000229A /* pg1.svgz in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F47164C624B0000229A /* pg1.svgz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,11 +154,10 @@
 		587E0F39164C5AEF0000229A /* CALayerFilm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerFilm.m; sourceTree = "<group>"; };
 		587E0F3B164C5AEF0000229A /* CALayerExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerExporter.h; sourceTree = "<group>"; };
 		587E0F3C164C5AEF0000229A /* CALayerExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerExporter.m; sourceTree = "<group>"; };
-		587E0F40164C5BFA0000229A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = SVGKit/XCodeProjects/SVGPadDemo/Classes/ViewController.h; sourceTree = "<group>"; };
-		587E0F41164C5BFA0000229A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = SVGKit/XCodeProjects/SVGPadDemo/Classes/ViewController.m; sourceTree = "<group>"; };
-		587E0F42164C5C350000229A /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController.xib; path = SVGKit/XCodeProjects/SVGPadDemo/ViewController.xib; sourceTree = "<group>"; };
+		587E0F40164C5BFA0000229A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = BigShotsGetShots/ViewController.h; sourceTree = "<group>"; };
+		587E0F41164C5BFA0000229A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = BigShotsGetShots/ViewController.m; sourceTree = "<group>"; };
+		587E0F42164C5C350000229A /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController.xib; path = BigShotsGetShots/ViewController.xib; sourceTree = "<group>"; };
 		587E0F46164C624B0000229A /* pg1.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pg1.svg; sourceTree = "<group>"; };
-		587E0F47164C624B0000229A /* pg1.svgz */ = {isa = PBXFileReference; lastKnownFileType = file; path = pg1.svgz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				587E0F46164C624B0000229A /* pg1.svg */,
-				587E0F47164C624B0000229A /* pg1.svgz */,
 				587E0F33164C57F80000229A /* Lion.svg */,
 				587E0F40164C5BFA0000229A /* ViewController.h */,
 				587E0F41164C5BFA0000229A /* ViewController.m */,
@@ -434,7 +431,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				587E0F48164C62890000229A /* pg1.svg in Resources */,
-				587E0F49164C62890000229A /* pg1.svgz in Resources */,
 				587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */,
 				587E0E9A164C4A720000229A /* 2.svg in Resources */,
 				587E0EA6164C4DC90000229A /* test.png in Resources */,
