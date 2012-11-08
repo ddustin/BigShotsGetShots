@@ -7,15 +7,30 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
+@interface AppDelegate()
+
+@property (nonatomic, strong) ViewController *viewController;
+
+@end
 
 @implementation AppDelegate
-
 @synthesize window = _window;
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.viewController = [ViewController new];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"svg"];
+    
+    UIImage *img = [UIImage imageWithContentsOfFile:path];
+    
+    [self.window addSubview:self.viewController.view];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
