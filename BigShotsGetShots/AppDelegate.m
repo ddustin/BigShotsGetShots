@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SVGDocumentView.h"
+#import "ViewController.h"
 
 @interface AppDelegate()
 
@@ -25,11 +27,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"svg"];
-    
-    UIImage *img = [UIImage imageWithContentsOfFile:path];
-    
     [self.window addSubview:self.viewController.view];
+    
+    self.viewController.detailItem = @"pg1";
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

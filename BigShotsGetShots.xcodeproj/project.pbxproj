@@ -14,8 +14,6 @@
 		587E0E8F164C40FC0000229A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0E8E164C40FC0000229A /* main.m */; };
 		587E0E93164C40FC0000229A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0E92164C40FC0000229A /* AppDelegate.m */; };
 		587E0E9A164C4A720000229A /* 2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 587E0E99164C4A720000229A /* 2.svg */; };
-		587E0E9E164C4A8F0000229A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0E9C164C4A8F0000229A /* ViewController.m */; };
-		587E0E9F164C4A8F0000229A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 587E0E9D164C4A8F0000229A /* ViewController.xib */; };
 		587E0EA4164C4AEE0000229A /* VectorGraphic.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0EA3164C4AEE0000229A /* VectorGraphic.m */; };
 		587E0EA6164C4DC90000229A /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 587E0EA5164C4DC90000229A /* test.png */; };
 		587E0EC6164C52AE0000229A /* SVGDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0EC1164C52AE0000229A /* SVGDocumentView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -53,6 +51,14 @@
 		587E0F29164C52BE0000229A /* CGPathAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0F00164C52BE0000229A /* CGPathAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		587E0F2B164C54250000229A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0F2A164C54250000229A /* QuartzCore.framework */; };
 		587E0F2D164C54420000229A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0F2C164C54420000229A /* libxml2.dylib */; };
+		587E0F34164C57F80000229A /* Lion.svg in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F33164C57F80000229A /* Lion.svg */; };
+		587E0F3D164C5AEF0000229A /* CALayerCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0F37164C5AEF0000229A /* CALayerCamera.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		587E0F3E164C5AEF0000229A /* CALayerFilm.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0F39164C5AEF0000229A /* CALayerFilm.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		587E0F3F164C5AEF0000229A /* CALayerExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0F3C164C5AEF0000229A /* CALayerExporter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		587E0F43164C5C350000229A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F42164C5C350000229A /* ViewController.xib */; };
+		587E0F44164C5C8A0000229A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0F41164C5BFA0000229A /* ViewController.m */; };
+		587E0F48164C62890000229A /* pg1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F46164C624B0000229A /* pg1.svg */; };
+		587E0F49164C62890000229A /* pg1.svgz in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F47164C624B0000229A /* pg1.svgz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,9 +73,6 @@
 		587E0E91164C40FC0000229A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		587E0E92164C40FC0000229A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		587E0E99164C4A720000229A /* 2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 2.svg; sourceTree = "<group>"; };
-		587E0E9B164C4A8F0000229A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		587E0E9C164C4A8F0000229A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		587E0E9D164C4A8F0000229A /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		587E0EA2164C4AEE0000229A /* VectorGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorGraphic.h; sourceTree = "<group>"; };
 		587E0EA3164C4AEE0000229A /* VectorGraphic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorGraphic.m; sourceTree = "<group>"; };
 		587E0EA5164C4DC90000229A /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
@@ -145,6 +148,18 @@
 		587E0F0B164C52BE0000229A /* SVGParserStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGParserStyles.m; sourceTree = "<group>"; };
 		587E0F2A164C54250000229A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		587E0F2C164C54420000229A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		587E0F33164C57F80000229A /* Lion.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Lion.svg; path = SVGKit/Samples/Lion.svg; sourceTree = "<group>"; };
+		587E0F36164C5AEF0000229A /* CALayerCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerCamera.h; sourceTree = "<group>"; };
+		587E0F37164C5AEF0000229A /* CALayerCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerCamera.m; sourceTree = "<group>"; };
+		587E0F38164C5AEF0000229A /* CALayerFilm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerFilm.h; sourceTree = "<group>"; };
+		587E0F39164C5AEF0000229A /* CALayerFilm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerFilm.m; sourceTree = "<group>"; };
+		587E0F3B164C5AEF0000229A /* CALayerExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerExporter.h; sourceTree = "<group>"; };
+		587E0F3C164C5AEF0000229A /* CALayerExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerExporter.m; sourceTree = "<group>"; };
+		587E0F40164C5BFA0000229A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = SVGKit/XCodeProjects/SVGPadDemo/Classes/ViewController.h; sourceTree = "<group>"; };
+		587E0F41164C5BFA0000229A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = SVGKit/XCodeProjects/SVGPadDemo/Classes/ViewController.m; sourceTree = "<group>"; };
+		587E0F42164C5C350000229A /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController.xib; path = SVGKit/XCodeProjects/SVGPadDemo/ViewController.xib; sourceTree = "<group>"; };
+		587E0F46164C624B0000229A /* pg1.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pg1.svg; sourceTree = "<group>"; };
+		587E0F47164C624B0000229A /* pg1.svgz */ = {isa = PBXFileReference; lastKnownFileType = file; path = pg1.svgz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +181,15 @@
 		587E0E73164C40FB0000229A = {
 			isa = PBXGroup;
 			children = (
-				587E0EC9164C52BE0000229A /* Core */,
-				587E0EBF164C52AE0000229A /* iOS */,
+				587E0F46164C624B0000229A /* pg1.svg */,
+				587E0F47164C624B0000229A /* pg1.svgz */,
+				587E0F33164C57F80000229A /* Lion.svg */,
+				587E0F40164C5BFA0000229A /* ViewController.h */,
+				587E0F41164C5BFA0000229A /* ViewController.m */,
+				587E0F42164C5C350000229A /* ViewController.xib */,
+				587E0F35164C5AEF0000229A /* calayer-camera */,
+				587E0F3A164C5AEF0000229A /* calayer-exporter */,
+				587E0F2E164C54810000229A /* SVGKit */,
 				587E0EA5164C4DC90000229A /* test.png */,
 				587E0E99164C4A720000229A /* 2.svg */,
 				587E0E88164C40FC0000229A /* BigShotsGetShots */,
@@ -203,7 +225,6 @@
 				587E0E91164C40FC0000229A /* AppDelegate.h */,
 				587E0E92164C40FC0000229A /* AppDelegate.m */,
 				587E0E89164C40FC0000229A /* Supporting Files */,
-				587E0EA0164C4A960000229A /* ViewController */,
 			);
 			path = BigShotsGetShots;
 			sourceTree = "<group>";
@@ -217,16 +238,6 @@
 				587E0E90164C40FC0000229A /* BigShotsGetShots-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		587E0EA0164C4A960000229A /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				587E0E9B164C4A8F0000229A /* ViewController.h */,
-				587E0E9C164C4A8F0000229A /* ViewController.m */,
-				587E0E9D164C4A8F0000229A /* ViewController.xib */,
-			);
-			name = ViewController;
 			sourceTree = "<group>";
 		};
 		587E0EA1164C4ADB0000229A /* VectorGraphic */ = {
@@ -249,7 +260,7 @@
 				587E0EC5164C52AE0000229A /* SVGView.m */,
 			);
 			name = iOS;
-			path = SVGKit/XCodeProjects/SVGKit/../../iOS;
+			path = SVGKit/iOS;
 			sourceTree = "<group>";
 		};
 		587E0EC9164C52BE0000229A /* Core */ = {
@@ -312,7 +323,7 @@
 				587E0F00164C52BE0000229A /* CGPathAdditions.m */,
 			);
 			name = Core;
-			path = SVGKit/XCodeProjects/SVGKit/../../Core;
+			path = SVGKit/Core;
 			sourceTree = "<group>";
 		};
 		587E0ECA164C52BE0000229A /* Elements */ = {
@@ -338,6 +349,37 @@
 				587E0F0B164C52BE0000229A /* SVGParserStyles.m */,
 			);
 			path = ParserExtentions;
+			sourceTree = "<group>";
+		};
+		587E0F2E164C54810000229A /* SVGKit */ = {
+			isa = PBXGroup;
+			children = (
+				587E0EC9164C52BE0000229A /* Core */,
+				587E0EBF164C52AE0000229A /* iOS */,
+			);
+			name = SVGKit;
+			sourceTree = "<group>";
+		};
+		587E0F35164C5AEF0000229A /* calayer-camera */ = {
+			isa = PBXGroup;
+			children = (
+				587E0F36164C5AEF0000229A /* CALayerCamera.h */,
+				587E0F37164C5AEF0000229A /* CALayerCamera.m */,
+				587E0F38164C5AEF0000229A /* CALayerFilm.h */,
+				587E0F39164C5AEF0000229A /* CALayerFilm.m */,
+			);
+			name = "calayer-camera";
+			path = "SVGKit/calayer-camera";
+			sourceTree = "<group>";
+		};
+		587E0F3A164C5AEF0000229A /* calayer-exporter */ = {
+			isa = PBXGroup;
+			children = (
+				587E0F3B164C5AEF0000229A /* CALayerExporter.h */,
+				587E0F3C164C5AEF0000229A /* CALayerExporter.m */,
+			);
+			name = "calayer-exporter";
+			path = "SVGKit/calayer-exporter";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,10 +433,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				587E0F48164C62890000229A /* pg1.svg in Resources */,
+				587E0F49164C62890000229A /* pg1.svgz in Resources */,
 				587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */,
 				587E0E9A164C4A720000229A /* 2.svg in Resources */,
-				587E0E9F164C4A8F0000229A /* ViewController.xib in Resources */,
 				587E0EA6164C4DC90000229A /* test.png in Resources */,
+				587E0F34164C57F80000229A /* Lion.svg in Resources */,
+				587E0F43164C5C350000229A /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +452,6 @@
 			files = (
 				587E0E8F164C40FC0000229A /* main.m in Sources */,
 				587E0E93164C40FC0000229A /* AppDelegate.m in Sources */,
-				587E0E9E164C4A8F0000229A /* ViewController.m in Sources */,
 				587E0EA4164C4AEE0000229A /* VectorGraphic.m in Sources */,
 				587E0EC6164C52AE0000229A /* SVGDocumentView.m in Sources */,
 				587E0EC7164C52AE0000229A /* SVGPathView.m in Sources */,
@@ -442,6 +486,10 @@
 				587E0F27164C52BE0000229A /* SVGDefsElement.m in Sources */,
 				587E0F28164C52BE0000229A /* SVGCircleElement.m in Sources */,
 				587E0F29164C52BE0000229A /* CGPathAdditions.m in Sources */,
+				587E0F3D164C5AEF0000229A /* CALayerCamera.m in Sources */,
+				587E0F3E164C5AEF0000229A /* CALayerFilm.m in Sources */,
+				587E0F3F164C5AEF0000229A /* CALayerExporter.m in Sources */,
+				587E0F44164C5C8A0000229A /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
