@@ -15,11 +15,17 @@
 
 @property (nonatomic, strong) ViewController *viewController;
 
+@property (nonatomic, strong) NSMutableArray *detailNames;
+
+@property (nonatomic, assign) NSInteger index;
+
 @end
 
 @implementation AppDelegate
 @synthesize window = _window;
 @synthesize viewController;
+@synthesize detailNames;
+@synthesize index;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
