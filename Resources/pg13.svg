@@ -3,13 +3,6 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1440px"
 	 height="960px" viewBox="0 0 1440 960" enable-background="new 0 0 1440 960" xml:space="preserve">
-<g id="Layer_1">
-	<g id="kLRe4N_1_">
-		
-			<image overflow="visible" width="1440" height="960" id="kLRe4N_2_" xlink:href="36EEBA112E35CEBA.jpg"  transform="matrix(1.0001 0 0 1.0001 0 0)">
-		</image>
-	</g>
-</g>
 <g id="SEA">
 	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="720.0195" y1="572.8291" x2="720.0195" y2="824.8539">
 		<stop  offset="0" style="stop-color:#5BC0AC"/>
@@ -1296,7 +1289,7 @@
 		<ellipse fill="#107139" cx="805.216" cy="203.771" rx="2.511" ry="1.794"/>
 	</g>
 </g>
-<g id="Layer_13">
+<g id="hero">
 	<path fill="#ED1C24" d="M650.14,388.164c0,0-64.146-21.891-87.564-121.164c-13.746,51.927,5.6,113.528,62.619,150.691
 		C638.939,402.928,650.14,388.164,650.14,388.164z"/>
 	<path fill="#ED1C24" d="M741.776,388.164c0,0,67.821-21.891,92.582-121.164c14.533,51.927-5.921,113.528-66.207,150.691
@@ -2047,7 +2040,7 @@
 			C1278.98,726.154,1279.531,712.13,1276.588,682.709z"/>
 	</g>
 </g>
-<g id="Layer_14">
+<g id="ribbons">
 	<path fill="#ED1C24" d="M885.082,157.606c-13.498,34.499,12,83.996,1.5,106.495c-10.499,22.499-19.498,43.498-19.498,43.498
 		l22.498-6c0,0,10.5-15,16.5-52.498c5.999-37.498-13.5-73.497,0-97.495C900.082,150.107,885.082,157.606,885.082,157.606z"/>
 	<path fill="#00AEEF" d="M481.603,330.098c-13.498,34.499,12,83.996,1.5,106.495c-10.499,22.499-19.498,43.498-19.498,43.498
