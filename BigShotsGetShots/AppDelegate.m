@@ -27,6 +27,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    self.window.rootViewController = self.viewController;
     [self.window addSubview:self.viewController.view];
     
     self.viewController.detailItem = @"pg1";

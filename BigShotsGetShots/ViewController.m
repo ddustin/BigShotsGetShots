@@ -60,8 +60,19 @@
 	_name = [name copy];
     
     [self.scrollView addSubview:self.contentView];
-    [self.scrollView setContentSize:CGSizeMake(document.width, document.height)];
+    [self.scrollView setContentSize:CGSizeMake(MAX(self.scrollView.frame.size.width + 1, document.width), MAX(self.scrollView.frame.size.height + 1, document.height))];
     [self.scrollView zoomToRect:CGRectMake(0, 0, document.width * .75, document.height * .55) animated:NO];
+    
+	CALayer *layer = [self.contentView.document layerWithIdentifier:@"PABLO"];
+	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+	animation.duration = 0.95f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = [NSNumber numberWithFloat:0.1f];
+	animation.toValue = [NSNumber numberWithFloat:-0.1f];
+	
+	[layer addAnimation:animation forKey:@"shakingHead"];
 }
 
 - (IBAction)animate:(id)sender {
@@ -112,7 +123,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+	return interfaceOrientation == UIInterfaceOrientationLandscapeLeft;
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
