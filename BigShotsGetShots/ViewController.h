@@ -12,8 +12,6 @@
 @interface ViewController : UIViewController < UIPopoverControllerDelegate, UISplitViewControllerDelegate, UIScrollViewDelegate> {
   @private
 	NSString *_name;
-    UITextView* _exportText;
-    NSMutableString* _exportLog;
 }
 
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
