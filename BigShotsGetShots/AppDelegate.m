@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "SVGDocumentView.h"
 #import "ViewController.h"
+#import "BWQuincyManager.h"
 
 @interface AppDelegate()
 
@@ -29,6 +30,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[BWQuincyManager sharedQuincyManager] setAutoSubmitCrashReport:YES];
+    [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://www.agileordering.com/quincy/crash_v200.php"];
+    
     self.viewController = [ViewController new];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

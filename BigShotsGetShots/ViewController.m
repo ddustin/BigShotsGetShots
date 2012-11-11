@@ -14,60 +14,87 @@
 
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
-@end
+@property (nonatomic, strong) SVGDocument *uiElements;
 
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
+@property (weak, nonatomic) IBOutlet UIButton *forwardBtn;
+
+@end
 
 @implementation ViewController
 @synthesize scrollView;
 @synthesize toolbar, contentView, detailItem;
-@synthesize audioPlayer;
+@synthesize audioPlayer, uiElements;
 
-- (void)viewDidLoad
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if(self) {
+        
+//        self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH"];
+//        
+//        SVGView *view = [[SVGView alloc] initWithDocument:self.uiElements];
+//        
+//        view.frame = self.backBtn.bounds;
+//        
+//        [self.view addSubview:view];
+    }
+    
+    return self;
+}
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
 }
 
-- (IBAction)goBack:(id)sender {
+- (void)move:(int)amount {
     
     NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
     
-    NSUInteger index = [ary indexOfObject:_name];
+    int index = [ary indexOfObject:_name];
     
-    if(index == 0)
-        return;
+    index += amount;
     
-    index--;
+    if(index >= (int)ary.count)
+        index = ary.count - 1;
+    
+    if(index < 0)
+        index = 0;
     
     [self loadResource:[ary objectAtIndex:index]];
 }
 
 - (IBAction)goForward:(id)sender {
     
-    NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
+    [self move:1];
+}
+
+- (IBAction)goBack:(id)sender {
     
-    NSUInteger index = [ary indexOfObject:_name];
-    
-    if(index == ary.count - 1)
-        return;
-    
-    index++;
-    
-    [self loadResource:[ary objectAtIndex:index]];
+    [self move:-1];
 }
 
 - (void)setDetailItem:(id)newDetailItem {
+    
 	if (detailItem != newDetailItem) {
         
 		[self loadResource:newDetailItem];
 	}
 }
 
-- (void)loadResource:(NSString *)name
-{
+- (void)pageOne {
+    
+    
+}
+
+- (void)loadResource:(NSString *)name {
+    
     [self.contentView removeFromSuperview];
     
 	SVGDocument *document = [SVGDocument documentNamed:[name stringByAppendingPathExtension:@"svg"]];
-	NSLog(@"[%@] Freshly loaded document (name = %@) has width,height = (%.2f, %.2f)", [self class], name, document.width, document.height );
+    
 	self.contentView = [[SVGView alloc] initWithDocument:document];
 	
 	_name = [name copy];
@@ -75,8 +102,8 @@
     [self.scrollView addSubview:self.contentView];
     
     [self.scrollView setContentSize:CGSizeMake(document.width, document.height)];
-    self.scrollView.minimumZoomScale = 0.33f;
-    self.scrollView.zoomScale = 0.33f;
+    self.scrollView.minimumZoomScale = 0.334f;
+    self.scrollView.zoomScale = 0.334f;
     
     NSMutableString *str = [name mutableCopy];
     
@@ -96,16 +123,21 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    
     return self.contentView;
 }
 
 - (void)viewDidUnload {
+    
     [self setScrollView:nil];
+    
+    [self setBackBtn:nil];
+    [self setForwardBtn:nil];
     [super viewDidUnload];
 }
 

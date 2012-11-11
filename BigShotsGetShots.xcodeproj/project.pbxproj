@@ -136,7 +136,9 @@
 		58F552AE164E013800C601AB /* The END!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55270164E013800C601AB /* The END!.aif */; };
 		58F552B3164F1D0700C601AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F552B2164F1D0700C601AB /* AVFoundation.framework */; };
 		58F552B4164F1D5E00C601AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E86164C40FC0000229A /* CoreGraphics.framework */; };
-		58F552B6164F213C00C601AB /* UI_pablo-NH.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58F552B5164F213C00C601AB /* UI_pablo-NH.svg */; };
+		58F552B8164F3E6C00C601AB /* UI_pablo-NH.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58F552B7164F3E6C00C601AB /* UI_pablo-NH.svg */; };
+		58F552BA165063C700C601AB /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F552B9165063C600C601AB /* CrashReporter.framework */; };
+		58F552BF1650646800C601AB /* BWQuincyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F552BC165063D600C601AB /* BWQuincyManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -314,7 +316,10 @@
 		58F5526F164E013800C601AB /* Page 9B.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9B.aif"; sourceTree = "<group>"; };
 		58F55270164E013800C601AB /* The END!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The END!.aif"; sourceTree = "<group>"; };
 		58F552B2164F1D0700C601AB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		58F552B5164F213C00C601AB /* UI_pablo-NH.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "UI_pablo-NH.svg"; sourceTree = "<group>"; };
+		58F552B7164F3E6C00C601AB /* UI_pablo-NH.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "UI_pablo-NH.svg"; sourceTree = "<group>"; };
+		58F552B9165063C600C601AB /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
+		58F552BB165063D600C601AB /* BWQuincyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BWQuincyManager.h; path = BigShotsGetShots/BWQuincyManager.h; sourceTree = "<group>"; };
+		58F552BC165063D600C601AB /* BWQuincyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BWQuincyManager.m; path = BigShotsGetShots/BWQuincyManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +333,7 @@
 				587E0F2B164C54250000229A /* QuartzCore.framework in Frameworks */,
 				587E0E83164C40FC0000229A /* UIKit.framework in Frameworks */,
 				587E0E85164C40FC0000229A /* Foundation.framework in Frameworks */,
+				58F552BA165063C700C601AB /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +343,8 @@
 		587E0E73164C40FB0000229A = {
 			isa = PBXGroup;
 			children = (
+				58F552B9165063C600C601AB /* CrashReporter.framework */,
+				58F552BE165063DB00C601AB /* BWQuincyManager */,
 				58AE6220164C85A0001CBB42 /* Resources */,
 				587E0E88164C40FC0000229A /* BigShotsGetShots */,
 				587E0E81164C40FC0000229A /* Frameworks */,
@@ -536,7 +544,7 @@
 		58AE6220164C85A0001CBB42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				58F552B5164F213C00C601AB /* UI_pablo-NH.svg */,
+				58F552B7164F3E6C00C601AB /* UI_pablo-NH.svg */,
 				58F5522B164E013800C601AB /* Music */,
 				58F5522E164E013800C601AB /* SFX */,
 				58F5523A164E013800C601AB /* VoiceEdits */,
@@ -699,6 +707,15 @@
 			path = "Pablo The Pufferfish Story";
 			sourceTree = "<group>";
 		};
+		58F552BE165063DB00C601AB /* BWQuincyManager */ = {
+			isa = PBXGroup;
+			children = (
+				58F552BB165063D600C601AB /* BWQuincyManager.h */,
+				58F552BC165063D600C601AB /* BWQuincyManager.m */,
+			);
+			name = BWQuincyManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -834,7 +851,7 @@
 				58F552AC164E013800C601AB /* Page 9A.aif in Resources */,
 				58F552AD164E013800C601AB /* Page 9B.aif in Resources */,
 				58F552AE164E013800C601AB /* The END!.aif in Resources */,
-				58F552B6164F213C00C601AB /* UI_pablo-NH.svg in Resources */,
+				58F552B8164F3E6C00C601AB /* UI_pablo-NH.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +901,7 @@
 				587E0F3E164C5AEF0000229A /* CALayerFilm.m in Sources */,
 				587E0F3F164C5AEF0000229A /* CALayerExporter.m in Sources */,
 				587E0F44164C5C8A0000229A /* ViewController.m in Sources */,
+				58F552BF1650646800C601AB /* BWQuincyManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,6 +977,10 @@
 		587E0E97164C40FC0000229A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BigShotsGetShots/BigShotsGetShots-Prefix.pch";
 				INFOPLIST_FILE = "BigShotsGetShots/BigShotsGetShots-Info.plist";
@@ -970,6 +992,10 @@
 		587E0E98164C40FC0000229A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BigShotsGetShots/BigShotsGetShots-Prefix.pch";
 				INFOPLIST_FILE = "BigShotsGetShots/BigShotsGetShots-Info.plist";

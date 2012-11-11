@@ -3,8 +3,6 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1440px"
 	 height="960px" viewBox="0 0 1440 960" enable-background="new 0 0 1440 960" xml:space="preserve">
-<g id="Layer_1">
-</g>
 <g id="toc-btn-tapped">
 	<g>
 		<defs>
@@ -15,7 +13,7 @@
 		</clipPath>
 		<g transform="matrix(1 0 0 1 6.103516e-05 1.525879e-05)" clip-path="url(#SVGID_2_)">
 			
-				<image overflow="visible" width="509" height="437" xlink:href="FAABA71BA8A213C3.png"  transform="matrix(0.24 0 0 0.24 581.4106 197.6724)">
+				<image overflow="visible" width="509" height="437" xlink:href="FAABA71BA8A213C6.png"  transform="matrix(0.24 0 0 0.24 581.4106 197.6724)">
 			</image>
 		</g>
 	</g>
@@ -34,7 +32,7 @@
 		</clipPath>
 		<g transform="matrix(1 0 0 1 3.051758e-05 1.525879e-05)" clip-path="url(#SVGID_4_)">
 			
-				<image overflow="visible" width="509" height="437" xlink:href="FAABA71BA8A213C1.png"  transform="matrix(0.24 0 0 0.24 484.8555 198.3394)">
+				<image overflow="visible" width="509" height="437" xlink:href="FAABA71BA8A213C5.png"  transform="matrix(0.24 0 0 0.24 484.8555 198.3394)">
 			</image>
 		</g>
 	</g>
@@ -60,7 +58,7 @@
 			</clipPath>
 			<g transform="matrix(1 0 0 1 6.103516e-05 -9.536743e-07)" clip-path="url(#SVGID_8_)">
 				
-					<image overflow="visible" width="1485" height="1089" xlink:href="FAABA71BA8A213C7.png"  transform="matrix(0.24 0 0 0.24 568.8555 -12.6602)">
+					<image overflow="visible" width="1485" height="1089" xlink:href="FAABA71BA8A213C2.png"  transform="matrix(0.24 0 0 0.24 568.8555 -12.6602)">
 				</image>
 			</g>
 		</g>
@@ -226,7 +224,7 @@
 		</clipPath>
 		<g transform="matrix(1 0 0 1 3.051758e-05 0)" clip-path="url(#SVGID_23_)">
 			
-				<image overflow="visible" width="878" height="628" xlink:href="FAABA71BA8A213C0.png"  transform="matrix(0.24 0 0 0.24 495.6729 713.9854)">
+				<image overflow="visible" width="878" height="628" xlink:href="FAABA71BA8A213CD.png"  transform="matrix(0.24 0 0 0.24 495.6729 713.9854)">
 			</image>
 		</g>
 	</g>
@@ -260,7 +258,7 @@
 		</clipPath>
 		<g transform="matrix(1 0 0 1 3.051758e-05 6.103516e-05)" clip-path="url(#SVGID_28_)">
 			
-				<image overflow="visible" width="769" height="665" xlink:href="FAABA71BA8A213CE.png"  transform="matrix(0.24 0 0 0.24 397.5493 511.5449)">
+				<image overflow="visible" width="769" height="665" xlink:href="FAABA71BA8A213CC.png"  transform="matrix(0.24 0 0 0.24 397.5493 511.5449)">
 			</image>
 		</g>
 	</g>
@@ -418,7 +416,7 @@
 		</clipPath>
 		<g transform="matrix(1 0 0 1 3.814697e-06 3.051758e-05)" clip-path="url(#SVGID_51_)">
 			
-				<image overflow="visible" width="1312" height="779" xlink:href="FAABA71BA8A213CF.png"  transform="matrix(0.24 0 0 0.24 53.646 510.377)">
+				<image overflow="visible" width="1312" height="779" xlink:href="FAABA71BA8A213CB.png"  transform="matrix(0.24 0 0 0.24 53.646 510.377)">
 			</image>
 		</g>
 	</g>
