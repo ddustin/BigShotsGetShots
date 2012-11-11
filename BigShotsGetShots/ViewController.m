@@ -6,10 +6,13 @@
 //
 
 #import "ViewController.h"
+#import <AVFoundation/AVAudioPlayer.h>
 
 @interface ViewController ()
 
 - (void)loadResource:(NSString *)name;
+
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
 @end
 
@@ -17,10 +20,39 @@
 @implementation ViewController
 @synthesize scrollView;
 @synthesize toolbar, contentView, detailItem;
+@synthesize audioPlayer;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (IBAction)goBack:(id)sender {
+    
+    NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
+    
+    NSUInteger index = [ary indexOfObject:_name];
+    
+    if(index == 0)
+        return;
+    
+    index--;
+    
+    [self loadResource:[ary objectAtIndex:index]];
+}
+
+- (IBAction)goForward:(id)sender {
+    
+    NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
+    
+    NSUInteger index = [ary indexOfObject:_name];
+    
+    if(index == ary.count - 1)
+        return;
+    
+    index++;
+    
+    [self loadResource:[ary objectAtIndex:index]];
 }
 
 - (void)setDetailItem:(id)newDetailItem {
@@ -45,20 +77,22 @@
     [self.scrollView setContentSize:CGSizeMake(document.width, document.height)];
     self.scrollView.minimumZoomScale = 0.33f;
     self.scrollView.zoomScale = 0.33f;
-}
-
-- (IBAction)tapEvent:(id)sender {
     
-    NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
+    NSMutableString *str = [name mutableCopy];
     
-    NSUInteger index = [ary indexOfObject:_name];
+    [str deleteCharactersInRange:(NSRange){0, 2}];
     
-    index++;
+    NSString *number = [[str componentsSeparatedByString:@"."] objectAtIndex:0];
     
-    if(index >= ary.count)
-        return;
+    NSString *resource = [NSString stringWithFormat:@"Page %@", number];
     
-    [self loadResource:[ary objectAtIndex:index]];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"aif"];
+    
+    [self.audioPlayer stop];
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    [self.audioPlayer play];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
