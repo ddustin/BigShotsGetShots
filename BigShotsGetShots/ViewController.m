@@ -13,17 +13,18 @@
 
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
-@property (nonatomic, strong) SVGDocument *uiElements;
-
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forwardBtn;
+
+// The number of the page (may contain a letter on the end ie. 5a).
+@property (nonatomic, readonly) NSString *pageNumber;
 
 @end
 
 @implementation ViewController
 @synthesize scrollView;
 @synthesize toolbar, contentView, detailItem;
-@synthesize audioPlayer, uiElements;
+@synthesize audioPlayer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
@@ -31,13 +32,6 @@
     
     if(self) {
         
-//        self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH"];
-//        
-//        SVGView *view = [[SVGView alloc] initWithDocument:self.uiElements];
-//        
-//        view.frame = self.backBtn.bounds;
-//        
-//        [self.view addSubview:view];
     }
     
     return self;
@@ -83,14 +77,9 @@
 	}
 }
 
-- (void)pageOne {
+- (void)animateSea {
     
-    SVGView *svgView = self.contentView;
-    CALayer *layer = svgView.layer;
-    
-    CABasicAnimation *animation = nil;
-    
-	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
     
 	animation.duration = 1.0f;
 	animation.autoreverses = YES;
@@ -100,7 +89,17 @@
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
-	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+	[[self.contentView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+}
+
+- (void)page1 {
+    
+    SVGView *svgView = self.contentView;
+    CALayer *layer = svgView.layer;
+    
+    CABasicAnimation *animation = nil;
+    
+    [self animateSea];
     
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
     
@@ -182,24 +181,13 @@
     });
 }
 
-- (void)pageThree {
+- (void)page3 {
     
     SVGView *svgView = self.contentView;
-//    CALayer *layer = svgView.layer;
     
     CABasicAnimation *animation = nil;
     
-	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
-    
-	animation.duration = 1.0f;
-	animation.autoreverses = YES;
-	animation.repeatCount = 100000;
-	animation.fromValue = @10.0f;
-	animation.toValue = @-10.0f;
-    
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	
-	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    [self animateSea];
     
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     
@@ -257,24 +245,13 @@
     });
 }
 
-- (void)pageFour {
+- (void)page4 {
     
     SVGView *svgView = self.contentView;
-    //    CALayer *layer = svgView.layer;
     
     CABasicAnimation *animation = nil;
     
-	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
-    
-	animation.duration = 1.0f;
-	animation.autoreverses = YES;
-	animation.repeatCount = 100000;
-	animation.fromValue = @10.0f;
-	animation.toValue = @-10.0f;
-    
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	
-	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    [self animateSea];
     
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
@@ -347,24 +324,13 @@
     });
 }
 
-- (void)pageFive {
+- (void)page5 {
     
     SVGView *svgView = self.contentView;
-    //    CALayer *layer = svgView.layer;
     
     CABasicAnimation *animation = nil;
     
-	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
-    
-	animation.duration = 1.0f;
-	animation.autoreverses = YES;
-	animation.repeatCount = 100000;
-	animation.fromValue = @10.0f;
-	animation.toValue = @-10.0f;
-    
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	
-	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    [self animateSea];
     
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
@@ -404,24 +370,30 @@
     }
 }
 
-- (void)pageSix {
+- (void)animateUma {
     
-    SVGView *svgView = self.contentView;
-    //    CALayer *layer = svgView.layer;
+    CALayer *uma = [self.contentView.document layerWithIdentifier:@"UMA"];
     
-    CABasicAnimation *animation = nil;
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     
-	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
-    
-	animation.duration = 1.0f;
+	animation.duration = 2.33f;
 	animation.autoreverses = YES;
 	animation.repeatCount = 100000;
-	animation.fromValue = @10.0f;
-	animation.toValue = @-10.0f;
+	animation.fromValue = @1.0f;
+	animation.toValue = @1.05f;
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
-	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+	[uma addAnimation:animation forKey:nil];
+}
+
+- (void)page6 {
+    
+    SVGView *svgView = self.contentView;
+    
+    CABasicAnimation *animation = nil;
+    
+    [self animateSea];
     
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
@@ -433,32 +405,253 @@
 	
 	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
     
-    NSArray *array = @[
-    @[ @5.75f, @"TUNA TRIPS"],
-    @[ @8.5f, @"CHRIS"],
-    @[ @9.75f, @"BO"],
-    @[ @11.0f, @"SAMMY"],
-    ];
+    CALayer *ground = [svgView.document layerWithIdentifier:@"GROUND"];
+    CALayer *uma = [svgView.document layerWithIdentifier:@"UMA"];
     
-    for(NSArray *items in array) {
+    [ground setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
+    [uma setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
+    
+    [self animateUma];
+    
+    double delayInSeconds = 11.0f;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
-        double delayInSeconds = [[items objectAtIndex:0] floatValue];
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            
-            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-            
-            animation.duration = 0.5f;
-            animation.fromValue = @1.15f;
-            animation.toValue = @1.0f;
-            
-            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-            
-            CALayer *tmp = [svgView.document layerWithIdentifier:[items objectAtIndex:1]];
-            
-            [tmp addAnimation:animation forKey:nil];
-        });
-    }
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        
+        animation.duration = 7.0f;
+        animation.fromValue = @500.0f;
+        animation.toValue = @0.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [ground addAnimation:animation forKey:nil];
+        [uma addAnimation:animation forKey:nil];
+    });
+}
+
+- (void)page7 {
+    
+    [self animateSea];
+}
+
+- (void)page8 {
+    
+    [self animateSea];
+}
+
+- (void)page9 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [self animateSea];
+    
+    CALayer *pablo = [svgView.document layerWithIdentifier:@"PABLO"];
+    
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(-600.0f, 0.0f);
+    
+    transform = CGAffineTransformScale(transform, 0.1f, 0.1f);
+    
+    [pablo setAffineTransform:transform];
+    
+    double delayInSeconds = 8.5f;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+        
+        animation.duration = 8.5f;
+        animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-600.0f, 0.0f)];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [pablo addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        
+        animation.duration = 8.5f;
+        animation.fromValue = @0.1f;
+        animation.toValue = @1.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [pablo addAnimation:animation forKey:nil];
+    });
+}
+
+- (void)page10 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [self animateSea];
+    
+    CABasicAnimation *animation = nil;
+    
+    animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+    
+    animation.duration = 2.0f;
+    animation.fromValue = @-440.0f;
+    animation.toValue = @0.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    [[svgView.document layerWithIdentifier:@"BASEBALL"] addAnimation:animation forKey:nil];
+}
+
+- (void)page11 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [self animateSea];
+    
+    CABasicAnimation *animation = nil;
+    
+    animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+    
+    animation.duration = 10.0f;
+    animation.fromValue = @100.0f;
+    animation.toValue = @0.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    [[svgView.document layerWithIdentifier:@"FRIENDS"] addAnimation:animation forKey:nil];
+    
+    animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+    
+    animation.duration = 10.0f;
+    animation.fromValue = @200.0f;
+    animation.toValue = @0.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    [[svgView.document layerWithIdentifier:@"FISH"] addAnimation:animation forKey:nil];
+    
+    CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
+    CALayer *pablo = [svgView.document layerWithIdentifier:@"PABLO"];
+    CALayer *pabloNeedles = [svgView.document layerWithIdentifier:@"PABLO NEEDLES"];
+    CALayer *germ =[svgView.document layerWithIdentifier:@"GERM"];
+    
+    bubbles.opacity = 0;
+    pabloNeedles.opacity = 0;
+    [germ setAffineTransform:CGAffineTransformMakeTranslation(600.0f, 0.0f)];
+    
+    double delayInSeconds = 10.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        
+        animation.duration = 0.25f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @1.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [bubbles addAnimation:animation forKey:nil];
+        [pabloNeedles addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        
+        animation.duration = 0.25f;
+        animation.fromValue = @1.0f;
+        animation.toValue = @0.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [pablo addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+        
+        animation.duration = 3.0f;
+        animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, -500.0f)];
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        
+        [bubbles addAnimation:animation forKey:nil];
+    });
+        
+    delayInSeconds = 7.0;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+        
+        animation.duration = 7.0f;
+        animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(600.0f, 0.0f)];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, -0.0f)];
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [germ addAnimation:animation forKey:nil];
+    });
+    
+    // PABLO
+    // PABLO_NEEDLES
+    // FRIENDS
+    // FISH
+    // GERM
+}
+
+- (void)page12 {
+    
+    [self animateSea];
+    
+    // PABLO
+    // FRIENDS
+    // GERM
+}
+
+- (void)page13 {
+    
+    [self animateSea];
+    
+    // RIBBONS
+    // PABLO
+    // HERO - his hero necklace
+    // KAT
+    // CHRIS
+    // TINA
+    // TOMMY
+    // TED
+    // SAMMY
+}
+
+- (void)page14 {
+    
+    [self animateSea];
+    
+    // Same as 13 plus
+    // UMA
+    // GROUND
+}
+
+- (void)page15 {
+    
+    [self animateSea];
+    
+    // PABLO
 }
 
 - (NSString*)pageNumber {
@@ -512,19 +705,46 @@
     [self.audioPlayer play];
     
     if([number isEqualToString:@"1"])
-        [self pageOne];
+        [self page1];
     
     if([number isEqualToString:@"3"])
-        [self pageThree];
+        [self page3];
     
     if([number isEqualToString:@"4"])
-        [self pageFour];
+        [self page4];
     
     if([number isEqualToString:@"5"])
-        [self pageFive];
+        [self page5];
     
     if([number isEqualToString:@"6"])
-        [self pageSix];
+        [self page6];
+    
+    if([number isEqualToString:@"7"])
+        [self page7];
+    
+    if([number isEqualToString:@"8"])
+        [self page8];
+    
+    if([number isEqualToString:@"9"])
+        [self page9];
+    
+    if([number isEqualToString:@"10"])
+        [self page10];
+    
+    if([number isEqualToString:@"11"])
+        [self page11];
+    
+    if([number isEqualToString:@"12"])
+        [self page12];
+    
+    if([number isEqualToString:@"13"])
+        [self page13];
+    
+    if([number isEqualToString:@"14"])
+        [self page14];
+    
+    if([number isEqualToString:@"15"])
+        [self page15];
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
