@@ -8,8 +8,9 @@
 #import "SVGKit.h"
 #import "CALayerExporter.h"
 #import "CALayerCamera.h"
+#import <AVFoundation/AVAudioPlayer.h>
 
-@interface ViewController : UIViewController < UIPopoverControllerDelegate, UISplitViewControllerDelegate, UIScrollViewDelegate> {
+@interface ViewController : UIViewController < UIPopoverControllerDelegate, UISplitViewControllerDelegate, UIScrollViewDelegate, AVAudioPlayerDelegate> {
   @private
 	NSString *_name;
 }

@@ -6,7 +6,6 @@
 //
 
 #import "ViewController.h"
-#import <AVFoundation/AVAudioPlayer.h>
 
 @interface ViewController ()
 
@@ -127,7 +126,7 @@
 	
 	[[svgView.document layerWithIdentifier:@"KAT"] addAnimation:animation forKey:nil];
     
-    int64_t delayInSeconds = 4.5f;
+    double delayInSeconds = 4.5f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
@@ -228,7 +227,7 @@
     
     bubbles.opacity = 0;
     
-    int64_t delayInSeconds = 7.0;
+    double delayInSeconds = 7.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
@@ -304,7 +303,7 @@
     bubbles.opacity = 0.0f;
     pabloReflection.opacity = 0.0f;
     
-    int64_t delayInSeconds = 7.0;
+    double delayInSeconds = 7.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
@@ -348,6 +347,132 @@
     });
 }
 
+- (void)pageFive {
+    
+    SVGView *svgView = self.contentView;
+    //    CALayer *layer = svgView.layer;
+    
+    CABasicAnimation *animation = nil;
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+	animation.duration = 1.0f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = @10.0f;
+	animation.toValue = @-10.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+    
+	animation.duration = 4.5f;
+	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-600.0f, 0.0f)];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    
+    NSArray *array = @[
+    @[ @5.75f, @"TUNA TRIPS"],
+    @[ @8.5f, @"CHRIS"],
+    @[ @9.75f, @"BO"],
+    @[ @11.0f, @"SAMMY"],
+    ];
+    
+    for(NSArray *items in array) {
+        
+        double delayInSeconds = [[items objectAtIndex:0] floatValue];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+            
+            animation.duration = 0.5f;
+            animation.fromValue = @1.15f;
+            animation.toValue = @1.0f;
+            
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+            
+            CALayer *tmp = [svgView.document layerWithIdentifier:[items objectAtIndex:1]];
+            
+            [tmp addAnimation:animation forKey:nil];
+        });
+    }
+}
+
+- (void)pageSix {
+    
+    SVGView *svgView = self.contentView;
+    //    CALayer *layer = svgView.layer;
+    
+    CABasicAnimation *animation = nil;
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+	animation.duration = 1.0f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = @10.0f;
+	animation.toValue = @-10.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+    
+	animation.duration = 4.5f;
+	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-600.0f, 0.0f)];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    
+    NSArray *array = @[
+    @[ @5.75f, @"TUNA TRIPS"],
+    @[ @8.5f, @"CHRIS"],
+    @[ @9.75f, @"BO"],
+    @[ @11.0f, @"SAMMY"],
+    ];
+    
+    for(NSArray *items in array) {
+        
+        double delayInSeconds = [[items objectAtIndex:0] floatValue];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+            
+            animation.duration = 0.5f;
+            animation.fromValue = @1.15f;
+            animation.toValue = @1.0f;
+            
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+            
+            CALayer *tmp = [svgView.document layerWithIdentifier:[items objectAtIndex:1]];
+            
+            [tmp addAnimation:animation forKey:nil];
+        });
+    }
+}
+
+- (NSString*)pageNumber {
+    
+    if(!_name.length)
+        return nil;
+    
+    NSMutableString *str = [_name mutableCopy];
+    
+    [str deleteCharactersInRange:(NSRange){0, 2}];
+    
+    return [[str componentsSeparatedByString:@"."] objectAtIndex:0];
+}
+
 - (void)loadResource:(NSString *)name {
     
     [self.contentView.layer removeAllAnimations];
@@ -370,13 +495,21 @@
     
     [str deleteCharactersInRange:(NSRange){0, 2}];
     
-    NSString *number = [[str componentsSeparatedByString:@"."] objectAtIndex:0];
+    NSString *number = [self pageNumber];
     
     NSString *resource = [NSString stringWithFormat:@"Page %@", number];
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"aif"];
     
+    self.audioPlayer.delegate = nil;
+    
     [self.audioPlayer stop];
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    self.audioPlayer.delegate = self;
+    
+    [self.audioPlayer play];
     
     if([number isEqualToString:@"1"])
         [self pageOne];
@@ -387,9 +520,27 @@
     if([number isEqualToString:@"4"])
         [self pageFour];
     
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    if([number isEqualToString:@"5"])
+        [self pageFive];
     
-    [self.audioPlayer play];
+    if([number isEqualToString:@"6"])
+        [self pageSix];
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    
+    NSString *resource = [NSString stringWithFormat:@"Page %@a", [self pageNumber]];
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"aif"];
+    
+    if(url) {
+        
+        self.audioPlayer.delegate = nil;
+        
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        
+        [self.audioPlayer play];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

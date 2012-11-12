@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58627F4C1650E58E000809A5 /* Pablo The Pufferfish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F391650E578000809A5 /* Pablo The Pufferfish.aif */; };
+		58627F4D1650E58E000809A5 /* Page 1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3A1650E578000809A5 /* Page 1.aif */; };
+		58627F4E1650E58E000809A5 /* Page 3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3B1650E578000809A5 /* Page 3.aif */; };
+		58627F4F1650E58E000809A5 /* Page 3a.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3C1650E578000809A5 /* Page 3a.aif */; };
+		58627F501650E58E000809A5 /* Page 4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3D1650E578000809A5 /* Page 4.aif */; };
+		58627F511650E58E000809A5 /* Page 5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3E1650E578000809A5 /* Page 5.aif */; };
+		58627F521650E58E000809A5 /* Page 6.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3F1650E578000809A5 /* Page 6.aif */; };
+		58627F531650E58E000809A5 /* Page 7.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F401650E578000809A5 /* Page 7.aif */; };
+		58627F541650E58E000809A5 /* Page 7a.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F411650E578000809A5 /* Page 7a.aif */; };
+		58627F551650E58E000809A5 /* Page 8.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F421650E578000809A5 /* Page 8.aif */; };
+		58627F561650E58E000809A5 /* Page 9.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F431650E578000809A5 /* Page 9.aif */; };
+		58627F571650E58E000809A5 /* Page 9a.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F441650E578000809A5 /* Page 9a.aif */; };
+		58627F581650E58E000809A5 /* Page 10.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F451650E578000809A5 /* Page 10.aif */; };
+		58627F591650E58E000809A5 /* Page 11.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F461650E578000809A5 /* Page 11.aif */; };
+		58627F5A1650E58E000809A5 /* Page 12.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F471650E578000809A5 /* Page 12.aif */; };
+		58627F5B1650E58E000809A5 /* Page 13.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F481650E578000809A5 /* Page 13.aif */; };
+		58627F5C1650E58E000809A5 /* Page 14.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F491650E578000809A5 /* Page 14.aif */; };
+		58627F5D1650E58E000809A5 /* Page 15.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F4A1650E578000809A5 /* Page 15.aif */; };
+		58627F5E1650E58E000809A5 /* The END!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F4B1650E578000809A5 /* The END!.aif */; };
 		587E0E83164C40FC0000229A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E82164C40FC0000229A /* UIKit.framework */; };
 		587E0E85164C40FC0000229A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E84164C40FC0000229A /* Foundation.framework */; };
 		587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 587E0E8B164C40FC0000229A /* InfoPlist.strings */; };
@@ -122,6 +141,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58627F391650E578000809A5 /* Pablo The Pufferfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pablo The Pufferfish.aif"; sourceTree = "<group>"; };
+		58627F3A1650E578000809A5 /* Page 1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 1.aif"; sourceTree = "<group>"; };
+		58627F3B1650E578000809A5 /* Page 3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3.aif"; sourceTree = "<group>"; };
+		58627F3C1650E578000809A5 /* Page 3a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3a.aif"; sourceTree = "<group>"; };
+		58627F3D1650E578000809A5 /* Page 4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 4.aif"; sourceTree = "<group>"; };
+		58627F3E1650E578000809A5 /* Page 5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 5.aif"; sourceTree = "<group>"; };
+		58627F3F1650E578000809A5 /* Page 6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 6.aif"; sourceTree = "<group>"; };
+		58627F401650E578000809A5 /* Page 7.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7.aif"; sourceTree = "<group>"; };
+		58627F411650E578000809A5 /* Page 7a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7a.aif"; sourceTree = "<group>"; };
+		58627F421650E578000809A5 /* Page 8.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 8.aif"; sourceTree = "<group>"; };
+		58627F431650E578000809A5 /* Page 9.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9.aif"; sourceTree = "<group>"; };
+		58627F441650E578000809A5 /* Page 9a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9a.aif"; sourceTree = "<group>"; };
+		58627F451650E578000809A5 /* Page 10.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 10.aif"; sourceTree = "<group>"; };
+		58627F461650E578000809A5 /* Page 11.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 11.aif"; sourceTree = "<group>"; };
+		58627F471650E578000809A5 /* Page 12.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 12.aif"; sourceTree = "<group>"; };
+		58627F481650E578000809A5 /* Page 13.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 13.aif"; sourceTree = "<group>"; };
+		58627F491650E578000809A5 /* Page 14.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 14.aif"; sourceTree = "<group>"; };
+		58627F4A1650E578000809A5 /* Page 15.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 15.aif"; sourceTree = "<group>"; };
+		58627F4B1650E578000809A5 /* The END!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The END!.aif"; sourceTree = "<group>"; };
 		587E0E7E164C40FC0000229A /* BigShotsGetShots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigShotsGetShots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587E0E82164C40FC0000229A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		587E0E84164C40FC0000229A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -280,25 +318,6 @@
 		58F552BB165063D600C601AB /* BWQuincyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BWQuincyManager.h; path = BigShotsGetShots/BWQuincyManager.h; sourceTree = "<group>"; };
 		58F552BC165063D600C601AB /* BWQuincyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BWQuincyManager.m; path = BigShotsGetShots/BWQuincyManager.m; sourceTree = "<group>"; };
 		58F552C4165083AE00C601AB /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
-		58F552C6165084D400C601AB /* Pablo The Pufferfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pablo The Pufferfish.aif"; sourceTree = "<group>"; };
-		58F552C7165084D400C601AB /* Page 1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 1.aif"; sourceTree = "<group>"; };
-		58F552C8165084D400C601AB /* Page 3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3.aif"; sourceTree = "<group>"; };
-		58F552C9165084D400C601AB /* Page 3a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3a.aif"; sourceTree = "<group>"; };
-		58F552CA165084D400C601AB /* Page 4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 4.aif"; sourceTree = "<group>"; };
-		58F552CB165084D400C601AB /* Page 5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 5.aif"; sourceTree = "<group>"; };
-		58F552CC165084D400C601AB /* Page 6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 6.aif"; sourceTree = "<group>"; };
-		58F552CD165084D400C601AB /* Page 7.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7.aif"; sourceTree = "<group>"; };
-		58F552CE165084D400C601AB /* Page 7b.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7b.aif"; sourceTree = "<group>"; };
-		58F552CF165084D400C601AB /* Page 8.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 8.aif"; sourceTree = "<group>"; };
-		58F552D0165084D400C601AB /* Page 9.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9.aif"; sourceTree = "<group>"; };
-		58F552D1165084D400C601AB /* Page 9a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9a.aif"; sourceTree = "<group>"; };
-		58F552D2165084D400C601AB /* Page 10.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 10.aif"; sourceTree = "<group>"; };
-		58F552D3165084D400C601AB /* Page 11.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 11.aif"; sourceTree = "<group>"; };
-		58F552D4165084D400C601AB /* Page 12.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 12.aif"; sourceTree = "<group>"; };
-		58F552D5165084D400C601AB /* Page 13.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 13.aif"; sourceTree = "<group>"; };
-		58F552D6165084D400C601AB /* Page 14.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 14.aif"; sourceTree = "<group>"; };
-		58F552D7165084D400C601AB /* Page 15.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 15.aif"; sourceTree = "<group>"; };
-		58F552D8165084D400C601AB /* The END!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The END!.aif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -662,25 +681,25 @@
 		58F5525D164E013800C601AB /* Pablo The Pufferfish Story */ = {
 			isa = PBXGroup;
 			children = (
-				58F552C6165084D400C601AB /* Pablo The Pufferfish.aif */,
-				58F552C7165084D400C601AB /* Page 1.aif */,
-				58F552C8165084D400C601AB /* Page 3.aif */,
-				58F552C9165084D400C601AB /* Page 3a.aif */,
-				58F552CA165084D400C601AB /* Page 4.aif */,
-				58F552CB165084D400C601AB /* Page 5.aif */,
-				58F552CC165084D400C601AB /* Page 6.aif */,
-				58F552CD165084D400C601AB /* Page 7.aif */,
-				58F552CE165084D400C601AB /* Page 7b.aif */,
-				58F552CF165084D400C601AB /* Page 8.aif */,
-				58F552D0165084D400C601AB /* Page 9.aif */,
-				58F552D1165084D400C601AB /* Page 9a.aif */,
-				58F552D2165084D400C601AB /* Page 10.aif */,
-				58F552D3165084D400C601AB /* Page 11.aif */,
-				58F552D4165084D400C601AB /* Page 12.aif */,
-				58F552D5165084D400C601AB /* Page 13.aif */,
-				58F552D6165084D400C601AB /* Page 14.aif */,
-				58F552D7165084D400C601AB /* Page 15.aif */,
-				58F552D8165084D400C601AB /* The END!.aif */,
+				58627F391650E578000809A5 /* Pablo The Pufferfish.aif */,
+				58627F3A1650E578000809A5 /* Page 1.aif */,
+				58627F3B1650E578000809A5 /* Page 3.aif */,
+				58627F3C1650E578000809A5 /* Page 3a.aif */,
+				58627F3D1650E578000809A5 /* Page 4.aif */,
+				58627F3E1650E578000809A5 /* Page 5.aif */,
+				58627F3F1650E578000809A5 /* Page 6.aif */,
+				58627F401650E578000809A5 /* Page 7.aif */,
+				58627F411650E578000809A5 /* Page 7a.aif */,
+				58627F421650E578000809A5 /* Page 8.aif */,
+				58627F431650E578000809A5 /* Page 9.aif */,
+				58627F441650E578000809A5 /* Page 9a.aif */,
+				58627F451650E578000809A5 /* Page 10.aif */,
+				58627F461650E578000809A5 /* Page 11.aif */,
+				58627F471650E578000809A5 /* Page 12.aif */,
+				58627F481650E578000809A5 /* Page 13.aif */,
+				58627F491650E578000809A5 /* Page 14.aif */,
+				58627F4A1650E578000809A5 /* Page 15.aif */,
+				58627F4B1650E578000809A5 /* The END!.aif */,
 			);
 			path = "Pablo The Pufferfish Story";
 			sourceTree = "<group>";
@@ -746,6 +765,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58627F4C1650E58E000809A5 /* Pablo The Pufferfish.aif in Resources */,
+				58627F4D1650E58E000809A5 /* Page 1.aif in Resources */,
+				58627F4E1650E58E000809A5 /* Page 3.aif in Resources */,
+				58627F4F1650E58E000809A5 /* Page 3a.aif in Resources */,
+				58627F501650E58E000809A5 /* Page 4.aif in Resources */,
+				58627F511650E58E000809A5 /* Page 5.aif in Resources */,
+				58627F521650E58E000809A5 /* Page 6.aif in Resources */,
+				58627F531650E58E000809A5 /* Page 7.aif in Resources */,
+				58627F541650E58E000809A5 /* Page 7a.aif in Resources */,
+				58627F551650E58E000809A5 /* Page 8.aif in Resources */,
+				58627F561650E58E000809A5 /* Page 9.aif in Resources */,
+				58627F571650E58E000809A5 /* Page 9a.aif in Resources */,
+				58627F581650E58E000809A5 /* Page 10.aif in Resources */,
+				58627F591650E58E000809A5 /* Page 11.aif in Resources */,
+				58627F5A1650E58E000809A5 /* Page 12.aif in Resources */,
+				58627F5B1650E58E000809A5 /* Page 13.aif in Resources */,
+				58627F5C1650E58E000809A5 /* Page 14.aif in Resources */,
+				58627F5D1650E58E000809A5 /* Page 15.aif in Resources */,
+				58627F5E1650E58E000809A5 /* The END!.aif in Resources */,
 				587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */,
 				587E0F43164C5C350000229A /* ViewController.xib in Resources */,
 				58AE6248164C85BD001CBB42 /* ResourceList.plist in Resources */,
