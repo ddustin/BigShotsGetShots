@@ -183,6 +183,132 @@
     });
 }
 
+- (void)pageThree {
+    
+    SVGView *svgView = self.contentView;
+//    CALayer *layer = svgView.layer;
+    
+    CABasicAnimation *animation = nil;
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+	animation.duration = 1.0f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = @10.0f;
+	animation.toValue = @-10.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    
+	animation.duration = 1.16666f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 3;
+	animation.fromValue = @0.0f;
+	animation.toValue = @(M_PI_4 / 4);
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+    
+	animation.duration = 7.0f;
+	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-1000.0f, -300.0f)];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    
+    CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
+    
+    bubbles.opacity = 0;
+    
+    int64_t delayInSeconds = 7.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        
+        animation.duration = 0.25f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @1.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [bubbles addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+        
+        animation.duration = 4.0f;
+        animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, -300.0f)];
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [bubbles addAnimation:animation forKey:nil];
+    });
+}
+
+- (void)pageFour {
+    
+    SVGView *svgView = self.contentView;
+    //    CALayer *layer = svgView.layer;
+    
+    CABasicAnimation *animation = nil;
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+	animation.duration = 1.0f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = @10.0f;
+	animation.toValue = @-10.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+    
+	animation.duration = 7.0f;
+	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-1000.0f, -300.0f)];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    
+    CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
+    
+    bubbles.opacity = 0;
+    
+    int64_t delayInSeconds = 7.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        
+        animation.duration = 0.25f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @1.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [bubbles addAnimation:animation forKey:nil];
+    });
+}
+
 - (void)loadResource:(NSString *)name {
     
     [self.contentView.layer removeAllAnimations];
@@ -215,6 +341,12 @@
     
     if([number isEqualToString:@"1"])
         [self pageOne];
+    
+    if([number isEqualToString:@"3"])
+        [self pageThree];
+    
+    if([number isEqualToString:@"4"])
+        [self pageFour];
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     
