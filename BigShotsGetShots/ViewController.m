@@ -110,7 +110,6 @@
 	animation.repeatCount = 100000;
 	animation.fromValue = @2.0f;
 	animation.toValue = @-2.0f;
-//    animation.timeOffset = CACurrentMediaTime() + 2 * (rand() % 300) / 300.0f;
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
