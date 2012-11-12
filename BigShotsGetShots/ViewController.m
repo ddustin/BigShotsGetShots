@@ -246,13 +246,13 @@
         
         animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
         
-        animation.duration = 4.0f;
+        animation.duration = 3.0f;
         animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
-        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, -300.0f)];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, -500.0f)];
         animation.removedOnCompletion = NO;
         animation.fillMode = kCAFillModeForwards;
         
-        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         
         [bubbles addAnimation:animation forKey:nil];
     });
