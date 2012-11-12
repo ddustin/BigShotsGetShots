@@ -280,24 +280,39 @@
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
 	animation.duration = 7.0f;
-	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-1000.0f, -300.0f)];
+	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-600.0f, 0.0f)];
 	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 	
 	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
     
-    CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
-    bubbles.opacity = 0;
+	animation.duration = 7.0f;
+	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 1000.0f)];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"CLAM"] addAnimation:animation forKey:nil];
+	[[svgView.document layerWithIdentifier:@"SAND"] addAnimation:animation forKey:nil];
+    
+    CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
+    CALayer *pabloReflection = [svgView.document layerWithIdentifier:@"PABLOMIRROR"];
+    
+    bubbles.opacity = 0.0f;
+    pabloReflection.opacity = 0.0f;
     
     int64_t delayInSeconds = 7.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        CABasicAnimation *animation = nil;
         
-        animation.duration = 0.25f;
+        animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        
+        animation.duration = 0.5f;
         animation.fromValue = @0.0f;
         animation.toValue = @1.0f;
         animation.removedOnCompletion = NO;
@@ -306,6 +321,30 @@
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         
         [bubbles addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+        
+        animation.duration = 3.0f;
+        animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, -500.0f)];
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        
+        [bubbles addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        
+        animation.duration = 0.5f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @1.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [pabloReflection addAnimation:animation forKey:nil];
     });
 }
 
