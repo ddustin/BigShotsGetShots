@@ -157,31 +157,29 @@
         
         [layer addAnimation:animation forKey:nil];
         
-        //CGAffineTransformMake(2, 2, 2, 2, 0, 0);
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
         
-//        animation = [CABasicAnimation animationWithKeyPath:@"anchorPoint.y"];
-//        
-//        animation.duration = 3.75f;
-//        animation.fromValue = @0.5f;
-//        animation.toValue = @0.17f;
-//        animation.removedOnCompletion = NO;
-//        animation.fillMode = kCAFillModeForwards;
-//        
-//        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//        
-//        [[svgView.document layerWithIdentifier:@"FRIENDS"] addAnimation:animation forKey:nil];
-//        
-//        animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//        
-//        animation.duration = 3.75f;
-//        animation.fromValue = @1.0f;
-//        animation.toValue = @2.5f;
-//        animation.removedOnCompletion = NO;
-//        animation.fillMode = kCAFillModeForwards;
-//        
-//        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//        
-//        [[svgView.document layerWithIdentifier:@"FRIENDS"] addAnimation:animation forKey:nil];
+        animation.duration = 3.75f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @-10.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"FRIENDS_LEFT"] addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+        
+        animation.duration = 3.75f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @10.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"FRIENDS_RIGHT"] addAnimation:animation forKey:nil];
     });
 }
 
@@ -215,7 +213,8 @@
     
     [self.audioPlayer stop];
     
-    [self pageOne];
+    if([number isEqualToString:@"1"])
+        [self pageOne];
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     
