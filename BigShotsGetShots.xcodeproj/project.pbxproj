@@ -53,7 +53,6 @@
 		587E0F43164C5C350000229A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 587E0F42164C5C350000229A /* ViewController.xib */; };
 		587E0F44164C5C8A0000229A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587E0F41164C5BFA0000229A /* ViewController.m */; };
 		588F6934164DC3BB001D6FEC /* pg1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 588F6921164DC3BB001D6FEC /* pg1.svg */; };
-		588F6935164DC3BB001D6FEC /* pg2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 588F6922164DC3BB001D6FEC /* pg2.svg */; };
 		588F6936164DC3BB001D6FEC /* pg3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 588F6923164DC3BB001D6FEC /* pg3.svg */; };
 		588F6937164DC3BB001D6FEC /* pg4.svg in Resources */ = {isa = PBXBuildFile; fileRef = 588F6924164DC3BB001D6FEC /* pg4.svg */; };
 		588F6938164DC3BB001D6FEC /* pg4a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 588F6925164DC3BB001D6FEC /* pg4a.svg */; };
@@ -234,7 +233,6 @@
 		587E0F41164C5BFA0000229A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = BigShotsGetShots/ViewController.m; sourceTree = "<group>"; };
 		587E0F42164C5C350000229A /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController.xib; path = BigShotsGetShots/ViewController.xib; sourceTree = "<group>"; };
 		588F6921164DC3BB001D6FEC /* pg1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg1.svg; sourceTree = "<group>"; };
-		588F6922164DC3BB001D6FEC /* pg2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg2.svg; sourceTree = "<group>"; };
 		588F6923164DC3BB001D6FEC /* pg3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg3.svg; sourceTree = "<group>"; };
 		588F6924164DC3BB001D6FEC /* pg4.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg4.svg; sourceTree = "<group>"; };
 		588F6925164DC3BB001D6FEC /* pg4a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg4a.svg; sourceTree = "<group>"; };
@@ -343,8 +341,6 @@
 		587E0E73164C40FB0000229A = {
 			isa = PBXGroup;
 			children = (
-				58F552B9165063C600C601AB /* CrashReporter.framework */,
-				58F552BE165063DB00C601AB /* BWQuincyManager */,
 				58AE6220164C85A0001CBB42 /* Resources */,
 				587E0E88164C40FC0000229A /* BigShotsGetShots */,
 				587E0E81164C40FC0000229A /* Frameworks */,
@@ -363,6 +359,7 @@
 		587E0E81164C40FC0000229A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58F552B9165063C600C601AB /* CrashReporter.framework */,
 				587E0F2E164C54810000229A /* SVGKit */,
 				587E0F2C164C54420000229A /* libxml2.dylib */,
 				587E0F2A164C54250000229A /* QuartzCore.framework */,
@@ -377,6 +374,7 @@
 		587E0E88164C40FC0000229A /* BigShotsGetShots */ = {
 			isa = PBXGroup;
 			children = (
+				58F552BE165063DB00C601AB /* BWQuincyManager */,
 				58AE621C164C853F001CBB42 /* ViewController */,
 				58AE6249164C86E4001CBB42 /* AppDelegate */,
 				587E0E89164C40FC0000229A /* Supporting Files */,
@@ -549,7 +547,6 @@
 				58F5522E164E013800C601AB /* SFX */,
 				58F5523A164E013800C601AB /* VoiceEdits */,
 				588F6921164DC3BB001D6FEC /* pg1.svg */,
-				588F6922164DC3BB001D6FEC /* pg2.svg */,
 				588F6923164DC3BB001D6FEC /* pg3.svg */,
 				588F6924164DC3BB001D6FEC /* pg4.svg */,
 				588F6925164DC3BB001D6FEC /* pg4a.svg */,
@@ -714,6 +711,7 @@
 				58F552BC165063D600C601AB /* BWQuincyManager.m */,
 			);
 			name = BWQuincyManager;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -771,7 +769,6 @@
 				587E0F43164C5C350000229A /* ViewController.xib in Resources */,
 				58AE6248164C85BD001CBB42 /* ResourceList.plist in Resources */,
 				588F6934164DC3BB001D6FEC /* pg1.svg in Resources */,
-				588F6935164DC3BB001D6FEC /* pg2.svg in Resources */,
 				588F6936164DC3BB001D6FEC /* pg3.svg in Resources */,
 				588F6937164DC3BB001D6FEC /* pg4.svg in Resources */,
 				588F6938164DC3BB001D6FEC /* pg4a.svg in Resources */,

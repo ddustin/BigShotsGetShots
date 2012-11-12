@@ -86,10 +86,109 @@
 
 - (void)pageOne {
     
+    SVGView *svgView = self.contentView;
+    CALayer *layer = svgView.layer;
     
+    CABasicAnimation *animation = nil;
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+	animation.duration = 1.0f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = @10.0f;
+	animation.toValue = @-10.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+	animation.duration = 1.5f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = @2.0f;
+	animation.toValue = @-2.0f;
+//    animation.timeOffset = CACurrentMediaTime() + 2 * (rand() % 300) / 300.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    
+	animation.duration = 1.5f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 100000;
+	animation.fromValue = @2.0f;
+	animation.toValue = @-2.0f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"KAT"] addAnimation:animation forKey:nil];
+    
+    int64_t delayInSeconds = 4.5f;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        
+        animation.duration = 3.75f;
+        animation.fromValue = @1.0f;
+        animation.toValue = @3.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [svgView.document.layerTree addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"anchorPoint.y"];
+        
+        animation.duration = 3.75f;
+        animation.fromValue = @0.5f;
+        animation.toValue = @0.17f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [layer addAnimation:animation forKey:nil];
+        
+        //CGAffineTransformMake(2, 2, 2, 2, 0, 0);
+        
+//        animation = [CABasicAnimation animationWithKeyPath:@"anchorPoint.y"];
+//        
+//        animation.duration = 3.75f;
+//        animation.fromValue = @0.5f;
+//        animation.toValue = @0.17f;
+//        animation.removedOnCompletion = NO;
+//        animation.fillMode = kCAFillModeForwards;
+//        
+//        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//        
+//        [[svgView.document layerWithIdentifier:@"FRIENDS"] addAnimation:animation forKey:nil];
+//        
+//        animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+//        
+//        animation.duration = 3.75f;
+//        animation.fromValue = @1.0f;
+//        animation.toValue = @2.5f;
+//        animation.removedOnCompletion = NO;
+//        animation.fillMode = kCAFillModeForwards;
+//        
+//        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//        
+//        [[svgView.document layerWithIdentifier:@"FRIENDS"] addAnimation:animation forKey:nil];
+    });
 }
 
 - (void)loadResource:(NSString *)name {
+    
+    [self.contentView.layer removeAllAnimations];
     
     [self.contentView removeFromSuperview];
     
@@ -116,6 +215,8 @@
     NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"aif"];
     
     [self.audioPlayer stop];
+    
+    [self pageOne];
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     
