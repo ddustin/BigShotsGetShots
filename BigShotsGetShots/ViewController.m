@@ -476,7 +476,7 @@
         
         NSString *track = [trackByIdentifier objectForKey:[keys objectAtIndex:rand() % keys.count]];
         
-        playTrack(track, @"aif");
+        playTrack(track, @"m4a");
     };
     
     __block BOOL placedAPiece = NO;
@@ -505,7 +505,7 @@
         
         if(!draggables.count) {
             
-            playTrack(@"You're a bigshot!", @"aif");
+            playTrack(@"You're a bigshot!", @"m4a");
         }
         else {
             
@@ -515,7 +515,7 @@
             @"You're a bigshot!"
             ];
             
-            playTrack([sounds objectAtIndex:rand() % sounds.count], @"aif");
+            playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
             
             self.onAudioComplete = ^(AVAudioPlayer *player) {
                 
@@ -528,10 +528,10 @@
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
         
-        playTrack(@"Try Again", @"aif");
+        playTrack(@"Try Again", @"m4a");
     };
     
-    playTrack(@"Can you find Pablos friends", @"aif");
+    playTrack(@"Can you find Pablos friends", @"m4a");
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -992,7 +992,7 @@
     
     NSString *resource = [NSString stringWithFormat:@"Page %@", self.pageNumber];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"aif"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"m4a"];
     
     self.audioPlayer.delegate = nil;
     
@@ -1076,7 +1076,7 @@
     
     NSString *resource = [NSString stringWithFormat:@"Page %@a", [self pageNumber]];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"aif"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"m4a"];
     
     if(url) {
         
