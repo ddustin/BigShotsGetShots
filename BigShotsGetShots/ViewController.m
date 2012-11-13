@@ -538,11 +538,11 @@
     
     UITouch *touch = [touches anyObject];
     
-    CGPoint point = [touch locationInView:touch.view];
+    CGPoint point = [touch locationInView:self.wrapperView];
     
     CALayer *layer = [self.contentView.layer hitTest:point];
     
-    point = [self.contentView.layer convertPoint:point fromLayer:touch.view.layer];
+    point = [self.contentView.layer convertPoint:point fromLayer:self.wrapperView.layer];
     
     NSArray *names = self.draggables.allKeys;
     
@@ -571,9 +571,9 @@
     
     UITouch *touch = [touches anyObject];
     
-    CGPoint point = [touch locationInView:touch.view];
+    CGPoint point = [touch locationInView:self.wrapperView];
     
-    point = [self.contentView.layer convertPoint:point fromLayer:touch.view.layer];
+    point = [self.contentView.layer convertPoint:point fromLayer:self.wrapperView.layer];
     
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
