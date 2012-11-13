@@ -503,27 +503,35 @@
         
         [trackByIdentifier removeObjectForKey:pieceName];
         
-        if(!draggables.count) {
+        playTrack(@"s_click_01", @"m4a");
+        
+        self.onAudioComplete = ^(AVAudioPlayer *player) {
             
-            playTrack(@"You're a bigshot!", @"m4a");
-        }
-        else {
+            self.onAudioComplete = nil;
             
-            NSArray *sounds =
-            @[@"Great Job",
-            @"Way to go!",
-            @"You're a bigshot!"
-            ];
-            
-            playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
-            
-            self.onAudioComplete = ^(AVAudioPlayer *player) {
+            if(!draggables.count) {
                 
-                self.onAudioComplete = nil;
+                playTrack(@"You're a bigshot!", @"m4a");
+            }
+            else {
                 
-                playNextTrack();
-            };
-        }
+                NSArray *sounds =
+                @[
+                @"Great Job",
+                @"Way to go!",
+                @"You're a bigshot!"
+                ];
+                
+                playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
+                
+                self.onAudioComplete = ^(AVAudioPlayer *player) {
+                    
+                    self.onAudioComplete = nil;
+                    
+                    playNextTrack();
+                };
+            }
+        };
     };
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
