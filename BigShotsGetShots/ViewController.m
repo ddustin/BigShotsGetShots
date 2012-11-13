@@ -378,6 +378,8 @@
         self.draggingLayer = layer;
         
         firstPoint = point;
+        
+        self.draggingLayer.affineTransform = CGAffineTransformMakeScale(2.0f, 2.0f);
     }
 }
 
@@ -395,7 +397,11 @@
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     
-    self.draggingLayer.affineTransform = CGAffineTransformMakeTranslation(point.x - firstPoint.x, point.y - firstPoint.y);
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(point.x - firstPoint.x, point.y - firstPoint.y);
+    
+    transform = CGAffineTransformScale(transform, 2.0f, 2.0f);
+    
+    self.draggingLayer.affineTransform = transform;
     
     [CATransaction commit];
 }
