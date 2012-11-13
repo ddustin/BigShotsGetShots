@@ -556,6 +556,11 @@
         firstPoint = point;
         
         self.draggingLayer.affineTransform = CGAffineTransformMakeScale(2.0f, 2.0f);
+        
+        CALayer *superLayer = self.draggingLayer.superlayer;
+        
+        [self.draggingLayer removeFromSuperlayer];
+        [superLayer addSublayer:self.draggingLayer];
     }
 }
 
@@ -578,11 +583,6 @@
     transform = CGAffineTransformScale(transform, 2.0f, 2.0f);
     
     self.draggingLayer.affineTransform = transform;
-    
-    CALayer *superLayer = self.draggingLayer.superlayer;
-    
-    [self.draggingLayer removeFromSuperlayer];
-    [superLayer addSublayer:self.draggingLayer];
     
     [CATransaction commit];
 }
