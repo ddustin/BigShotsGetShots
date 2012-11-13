@@ -383,16 +383,27 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    if(!self.draggingLayer)
+        return;
+    
     UITouch *touch = [touches anyObject];
     
     CGPoint point = [touch locationInView:touch.view];
     
     point = [self.contentView.layer convertPoint:point fromLayer:touch.view.layer];
     
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    
     self.draggingLayer.affineTransform = CGAffineTransformMakeTranslation(point.x - firstPoint.x, point.y - firstPoint.y);
+    
+    [CATransaction commit];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if(!self.draggingLayer)
+        return;
     
     self.draggingLayer.affineTransform = CGAffineTransformIdentity;
     
@@ -400,6 +411,9 @@
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if(!self.draggingLayer)
+        return;
     
     self.draggingLayer.affineTransform = CGAffineTransformIdentity;
     
