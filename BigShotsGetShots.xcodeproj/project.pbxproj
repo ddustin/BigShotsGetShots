@@ -7,25 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58627F4C1650E58E000809A5 /* Pablo The Pufferfish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F391650E578000809A5 /* Pablo The Pufferfish.aif */; };
-		58627F4D1650E58E000809A5 /* Page 1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3A1650E578000809A5 /* Page 1.aif */; };
-		58627F4E1650E58E000809A5 /* Page 3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3B1650E578000809A5 /* Page 3.aif */; };
-		58627F4F1650E58E000809A5 /* Page 3a.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3C1650E578000809A5 /* Page 3a.aif */; };
-		58627F501650E58E000809A5 /* Page 4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3D1650E578000809A5 /* Page 4.aif */; };
-		58627F511650E58E000809A5 /* Page 5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3E1650E578000809A5 /* Page 5.aif */; };
-		58627F521650E58E000809A5 /* Page 6.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F3F1650E578000809A5 /* Page 6.aif */; };
-		58627F531650E58E000809A5 /* Page 7.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F401650E578000809A5 /* Page 7.aif */; };
-		58627F541650E58E000809A5 /* Page 7a.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F411650E578000809A5 /* Page 7a.aif */; };
-		58627F551650E58E000809A5 /* Page 8.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F421650E578000809A5 /* Page 8.aif */; };
-		58627F561650E58E000809A5 /* Page 9.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F431650E578000809A5 /* Page 9.aif */; };
-		58627F571650E58E000809A5 /* Page 9a.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F441650E578000809A5 /* Page 9a.aif */; };
-		58627F581650E58E000809A5 /* Page 10.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F451650E578000809A5 /* Page 10.aif */; };
-		58627F591650E58E000809A5 /* Page 11.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F461650E578000809A5 /* Page 11.aif */; };
-		58627F5A1650E58E000809A5 /* Page 12.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F471650E578000809A5 /* Page 12.aif */; };
-		58627F5B1650E58E000809A5 /* Page 13.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F481650E578000809A5 /* Page 13.aif */; };
-		58627F5C1650E58E000809A5 /* Page 14.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F491650E578000809A5 /* Page 14.aif */; };
-		58627F5D1650E58E000809A5 /* Page 15.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F4A1650E578000809A5 /* Page 15.aif */; };
-		58627F5E1650E58E000809A5 /* The END!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58627F4B1650E578000809A5 /* The END!.aif */; };
 		58627FC316525A8D000809A5 /* 4a_piece1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6D16525A8C000809A5 /* 4a_piece1.png */; };
 		58627FC416525A8D000809A5 /* 4a_piece1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6E16525A8C000809A5 /* 4a_piece1@2x.png */; };
 		58627FC516525A8D000809A5 /* 4a_piece1a.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6F16525A8C000809A5 /* 4a_piece1a.png */; };
@@ -111,6 +92,68 @@
 		5862801516525A8D000809A5 /* 14a_puzzle_14a_cut.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627FC116525A8D000809A5 /* 14a_puzzle_14a_cut.png */; };
 		5862801616525A8D000809A5 /* 14a_puzzle_14a_cut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627FC216525A8D000809A5 /* 14a_puzzle_14a_cut@2x.png */; };
 		5862801D1652CD9B000809A5 /* UI_pablo-NH.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5862801C1652CD9B000809A5 /* UI_pablo-NH.svg */; };
+		5862805D1652EA64000809A5 /* Beardfish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862801F1652E9A2000809A5 /* Beardfish.m4a */; };
+		5862805E1652EA64000809A5 /* Can you find Pablos friends.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280201652E9A2000809A5 /* Can you find Pablos friends.m4a */; };
+		5862805F1652EA64000809A5 /* Can you find the Beardfish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280211652E9A2000809A5 /* Can you find the Beardfish.m4a */; };
+		586280601652EA64000809A5 /* Can you find the Catfish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280221652E9A2000809A5 /* Can you find the Catfish.m4a */; };
+		586280611652EA64000809A5 /* Can you find the Pufferfish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280231652E9A2000809A5 /* Can you find the Pufferfish.m4a */; };
+		586280621652EA64000809A5 /* Can you find the Seahorse.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280241652E9A2000809A5 /* Can you find the Seahorse.m4a */; };
+		586280631652EA64000809A5 /* Can you find the Tuna fish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280251652E9A2000809A5 /* Can you find the Tuna fish.m4a */; };
+		586280641652EA64000809A5 /* Crab.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280261652E9A2000809A5 /* Crab.m4a */; };
+		586280651652EA64000809A5 /* Drag and Drop Pablo's Friends.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280271652E9A2000809A5 /* Drag and Drop Pablo's Friends.m4a */; };
+		586280661652EA64000809A5 /* Good Job.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280281652E9A2000809A5 /* Good Job.m4a */; };
+		586280671652EA64000809A5 /* Great Job-1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280291652E9A2000809A5 /* Great Job-1.m4a */; };
+		586280681652EA64000809A5 /* Great Job!.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862802A1652E9A2000809A5 /* Great Job!.m4a */; };
+		586280691652EA64000809A5 /* Great Job.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862802B1652E9A2000809A5 /* Great Job.m4a */; };
+		5862806A1652EA64000809A5 /* Jigsaw _can you put this jigsaw puzzle together_.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862802C1652E9A2000809A5 /* Jigsaw _can you put this jigsaw puzzle together_.m4a */; };
+		5862806B1652EA64000809A5 /* Jigsaw _Great Job_.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862802D1652E9A2000809A5 /* Jigsaw _Great Job_.m4a */; };
+		5862806C1652EA64000809A5 /* Jigsaw _way to go bigshot_.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862802E1652E9A2000809A5 /* Jigsaw _way to go bigshot_.m4a */; };
+		5862806D1652EA64000809A5 /* Jigsaw _Way to go_.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862802F1652E9A2000809A5 /* Jigsaw _Way to go_.m4a */; };
+		5862806E1652EA64000809A5 /* Job well done you found all of Pablo's friends.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280301652E9A2000809A5 /* Job well done you found all of Pablo's friends.m4a */; };
+		5862806F1652EA64000809A5 /* m_intromusic_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280311652E9A2000809A5 /* m_intromusic_01.m4a */; };
+		586280701652EA64000809A5 /* m_musicLoop_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280321652E9A2000809A5 /* m_musicLoop_01.m4a */; };
+		586280711652EA64000809A5 /* Pablo The Pufferfish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280331652E9A2000809A5 /* Pablo The Pufferfish.m4a */; };
+		586280721652EA64000809A5 /* Page 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280341652E9A2000809A5 /* Page 1.m4a */; };
+		586280731652EA64000809A5 /* Page 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280351652E9A2000809A5 /* Page 3.m4a */; };
+		586280741652EA64000809A5 /* Page 3a.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280361652E9A2000809A5 /* Page 3a.m4a */; };
+		586280751652EA64000809A5 /* Page 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280371652E9A2000809A5 /* Page 4.m4a */; };
+		586280761652EA64000809A5 /* Page 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280381652E9A2000809A5 /* Page 5.m4a */; };
+		586280771652EA64000809A5 /* Page 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280391652E9A2000809A5 /* Page 6.m4a */; };
+		586280781652EA64000809A5 /* Page 7.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862803A1652E9A2000809A5 /* Page 7.m4a */; };
+		586280791652EA64000809A5 /* Page 7a.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862803B1652E9A2000809A5 /* Page 7a.m4a */; };
+		5862807A1652EA64000809A5 /* Page 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862803C1652E9A2000809A5 /* Page 8.m4a */; };
+		5862807B1652EA64000809A5 /* Page 9.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862803D1652E9A2000809A5 /* Page 9.m4a */; };
+		5862807C1652EA64000809A5 /* Page 9a.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862803E1652E9A2000809A5 /* Page 9a.m4a */; };
+		5862807D1652EA64000809A5 /* Page 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862803F1652E9A2000809A5 /* Page 10.m4a */; };
+		5862807E1652EA64000809A5 /* Page 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280401652E9A2000809A5 /* Page 11.m4a */; };
+		5862807F1652EA64000809A5 /* Page 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280411652E9A2000809A5 /* Page 12.m4a */; };
+		586280801652EA64000809A5 /* Page 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280421652E9A2000809A5 /* Page 13.m4a */; };
+		586280811652EA64000809A5 /* Page 14.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280431652E9A2000809A5 /* Page 14.m4a */; };
+		586280821652EA64000809A5 /* Page 15.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280441652E9A2000809A5 /* Page 15.m4a */; };
+		586280831652EA64000809A5 /* Pufferfish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280451652E9A2000809A5 /* Pufferfish.m4a */; };
+		586280841652EA64000809A5 /* s_click_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280461652E9A2000809A5 /* s_click_01.m4a */; };
+		586280851652EA64000809A5 /* s_herofanfare_01a.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280471652E9A2000809A5 /* s_herofanfare_01a.m4a */; };
+		586280861652EA64000809A5 /* s_introsfx_02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280481652E9A2000809A5 /* s_introsfx_02.m4a */; };
+		586280871652EA64000809A5 /* s_pageturn_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280491652E9A2000809A5 /* s_pageturn_01.m4a */; };
+		586280881652EA64000809A5 /* s_pageturn_02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862804A1652E9A2000809A5 /* s_pageturn_02.m4a */; };
+		586280891652EA64000809A5 /* s_pageturn_03.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862804B1652E9A2000809A5 /* s_pageturn_03.m4a */; };
+		5862808A1652EA64000809A5 /* s_pageturn_04.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862804C1652E9A2000809A5 /* s_pageturn_04.m4a */; };
+		5862808B1652EA64000809A5 /* s_pickuppuzzlepiece_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862804D1652E9A2000809A5 /* s_pickuppuzzlepiece_01.m4a */; };
+		5862808C1652EA64000809A5 /* s_pilacecorrectpuzzlepiece_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862804E1652E9A2000809A5 /* s_pilacecorrectpuzzlepiece_01.m4a */; };
+		5862808D1652EA64000809A5 /* s_puzzlecomplete_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862804F1652E9A2000809A5 /* s_puzzlecomplete_01.m4a */; };
+		5862808E1652EA64000809A5 /* s_wrongpuzzlepiece_01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280501652E9A2000809A5 /* s_wrongpuzzlepiece_01.m4a */; };
+		5862808F1652EA64000809A5 /* Seahorse.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280511652E9A2000809A5 /* Seahorse.m4a */; };
+		586280901652EA64000809A5 /* Seaurchin.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280521652E9A2000809A5 /* Seaurchin.m4a */; };
+		586280911652EA64000809A5 /* The END!.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280531652E9A2000809A5 /* The END!.m4a */; };
+		586280921652EA64000809A5 /* Try Again 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280541652E9A2000809A5 /* Try Again 3.m4a */; };
+		586280931652EA64000809A5 /* Try Again 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280551652E9A2000809A5 /* Try Again 4.m4a */; };
+		586280941652EA64000809A5 /* Try Again.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280561652E9A2000809A5 /* Try Again.m4a */; };
+		586280951652EA64000809A5 /* Tuna.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280571652E9A2000809A5 /* Tuna.m4a */; };
+		586280961652EA64000809A5 /* Way to go! 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280581652E9A2000809A5 /* Way to go! 2.m4a */; };
+		586280971652EA64000809A5 /* Way to go!.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280591652E9A2000809A5 /* Way to go!.m4a */; };
+		586280981652EA64000809A5 /* You're a bigshot! 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862805A1652E9A2000809A5 /* You're a bigshot! 3.m4a */; };
+		586280991652EA64000809A5 /* You're a bigshot! 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862805B1652E9A2000809A5 /* You're a bigshot! 4.m4a */; };
+		5862809A1652EA64000809A5 /* You're a bigshot!.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862805C1652E9A2000809A5 /* You're a bigshot!.m4a */; };
 		587E0E83164C40FC0000229A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E82164C40FC0000229A /* UIKit.framework */; };
 		587E0E85164C40FC0000229A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E84164C40FC0000229A /* Foundation.framework */; };
 		587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 587E0E8B164C40FC0000229A /* InfoPlist.strings */; };
@@ -175,49 +218,6 @@
 		588F6945164DC3BB001D6FEC /* pg14a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 588F6932164DC3BB001D6FEC /* pg14a.svg */; };
 		588F6946164DC3BB001D6FEC /* pg15.svg in Resources */ = {isa = PBXBuildFile; fileRef = 588F6933164DC3BB001D6FEC /* pg15.svg */; };
 		58AE6248164C85BD001CBB42 /* ResourceList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58AE6247164C85BD001CBB42 /* ResourceList.plist */; };
-		58F55271164E013800C601AB /* m_intromusic_01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58F5522C164E013800C601AB /* m_intromusic_01.wav */; };
-		58F55272164E013800C601AB /* m_musicLoop_01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58F5522D164E013800C601AB /* m_musicLoop_01.wav */; };
-		58F55273164E013800C601AB /* s_click_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F5522F164E013800C601AB /* s_click_01.mp3 */; };
-		58F55274164E013800C601AB /* s_herofanfare_01a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55230164E013800C601AB /* s_herofanfare_01a.mp3 */; };
-		58F55275164E013800C601AB /* s_introsfx_02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55231164E013800C601AB /* s_introsfx_02.mp3 */; };
-		58F55276164E013800C601AB /* s_pageturn_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55232164E013800C601AB /* s_pageturn_01.mp3 */; };
-		58F55277164E013800C601AB /* s_pageturn_02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55233164E013800C601AB /* s_pageturn_02.mp3 */; };
-		58F55278164E013800C601AB /* s_pageturn_03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55234164E013800C601AB /* s_pageturn_03.mp3 */; };
-		58F55279164E013800C601AB /* s_pageturn_04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55235164E013800C601AB /* s_pageturn_04.mp3 */; };
-		58F5527A164E013800C601AB /* s_pickuppuzzlepiece_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55236164E013800C601AB /* s_pickuppuzzlepiece_01.mp3 */; };
-		58F5527B164E013800C601AB /* s_pilacecorrectpuzzlepiece_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55237164E013800C601AB /* s_pilacecorrectpuzzlepiece_01.mp3 */; };
-		58F5527C164E013800C601AB /* s_puzzlecomplete_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55238164E013800C601AB /* s_puzzlecomplete_01.mp3 */; };
-		58F5527D164E013800C601AB /* s_wrongpuzzlepiece_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F55239164E013800C601AB /* s_wrongpuzzlepiece_01.mp3 */; };
-		58F5527E164E013800C601AB /* Can you find Pablos friends.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5523D164E013800C601AB /* Can you find Pablos friends.aif */; };
-		58F5527F164E013800C601AB /* Can you find the Beardfish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5523E164E013800C601AB /* Can you find the Beardfish.aif */; };
-		58F55280164E013800C601AB /* Can you find the Catfish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5523F164E013800C601AB /* Can you find the Catfish.aif */; };
-		58F55281164E013800C601AB /* Can you find the Pufferfish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55240164E013800C601AB /* Can you find the Pufferfish.aif */; };
-		58F55282164E013800C601AB /* Can you find the Seahorse.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55241164E013800C601AB /* Can you find the Seahorse.aif */; };
-		58F55283164E013800C601AB /* Can you find the Tuna fish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55242164E013800C601AB /* Can you find the Tuna fish.aif */; };
-		58F55284164E013800C601AB /* Great Job.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55243164E013800C601AB /* Great Job.aif */; };
-		58F55285164E013800C601AB /* Job well done you found all of Pablo's friends.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55244164E013800C601AB /* Job well done you found all of Pablo's friends.aif */; };
-		58F55286164E013800C601AB /* Try Again.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55245164E013800C601AB /* Try Again.aif */; };
-		58F55287164E013800C601AB /* Way to go!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55246164E013800C601AB /* Way to go!.aif */; };
-		58F55288164E013800C601AB /* You're a bigshot!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55247164E013800C601AB /* You're a bigshot!.aif */; };
-		58F55289164E013800C601AB /* Beardfish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55249164E013800C601AB /* Beardfish.aif */; };
-		58F5528A164E013800C601AB /* Crab.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5524A164E013800C601AB /* Crab.aif */; };
-		58F5528B164E013800C601AB /* Drag and Drop Pablo's Friends.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5524B164E013800C601AB /* Drag and Drop Pablo's Friends.aif */; };
-		58F5528C164E013800C601AB /* Good Job.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5524C164E013800C601AB /* Good Job.aif */; };
-		58F5528D164E013800C601AB /* Great Job!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5524D164E013800C601AB /* Great Job!.aif */; };
-		58F5528E164E013800C601AB /* Great Job-1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5524E164E013800C601AB /* Great Job-1.aif */; };
-		58F5528F164E013800C601AB /* Pufferfish.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5524F164E013800C601AB /* Pufferfish.aif */; };
-		58F55290164E013800C601AB /* Seahorse.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55250164E013800C601AB /* Seahorse.aif */; };
-		58F55291164E013800C601AB /* Seaurchin.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55251164E013800C601AB /* Seaurchin.aif */; };
-		58F55292164E013800C601AB /* Try Again.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55252164E013800C601AB /* Try Again.aif */; };
-		58F55293164E013800C601AB /* Tuna.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55253164E013800C601AB /* Tuna.aif */; };
-		58F55294164E013800C601AB /* Way to go!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55254164E013800C601AB /* Way to go!.aif */; };
-		58F55295164E013800C601AB /* You're a bigshot!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55255164E013800C601AB /* You're a bigshot!.aif */; };
-		58F55296164E013800C601AB /* Jigsaw _can you put this jigsaw puzzle together_.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55257164E013800C601AB /* Jigsaw _can you put this jigsaw puzzle together_.aif */; };
-		58F55297164E013800C601AB /* Jigsaw _Great Job_.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55258164E013800C601AB /* Jigsaw _Great Job_.aif */; };
-		58F55298164E013800C601AB /* Jigsaw _way to go bigshot_.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F55259164E013800C601AB /* Jigsaw _way to go bigshot_.aif */; };
-		58F55299164E013800C601AB /* Jigsaw _Way to go_.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5525A164E013800C601AB /* Jigsaw _Way to go_.aif */; };
-		58F5529A164E013800C601AB /* Try Again.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5525B164E013800C601AB /* Try Again.aif */; };
-		58F5529B164E013800C601AB /* You're a bigshot!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 58F5525C164E013800C601AB /* You're a bigshot!.aif */; };
 		58F552B3164F1D0700C601AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F552B2164F1D0700C601AB /* AVFoundation.framework */; };
 		58F552B4164F1D5E00C601AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E86164C40FC0000229A /* CoreGraphics.framework */; };
 		58F552BF1650646800C601AB /* BWQuincyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F552BC165063D600C601AB /* BWQuincyManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -225,25 +225,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		58627F391650E578000809A5 /* Pablo The Pufferfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pablo The Pufferfish.aif"; sourceTree = "<group>"; };
-		58627F3A1650E578000809A5 /* Page 1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 1.aif"; sourceTree = "<group>"; };
-		58627F3B1650E578000809A5 /* Page 3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3.aif"; sourceTree = "<group>"; };
-		58627F3C1650E578000809A5 /* Page 3a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3a.aif"; sourceTree = "<group>"; };
-		58627F3D1650E578000809A5 /* Page 4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 4.aif"; sourceTree = "<group>"; };
-		58627F3E1650E578000809A5 /* Page 5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 5.aif"; sourceTree = "<group>"; };
-		58627F3F1650E578000809A5 /* Page 6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 6.aif"; sourceTree = "<group>"; };
-		58627F401650E578000809A5 /* Page 7.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7.aif"; sourceTree = "<group>"; };
-		58627F411650E578000809A5 /* Page 7a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7a.aif"; sourceTree = "<group>"; };
-		58627F421650E578000809A5 /* Page 8.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 8.aif"; sourceTree = "<group>"; };
-		58627F431650E578000809A5 /* Page 9.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9.aif"; sourceTree = "<group>"; };
-		58627F441650E578000809A5 /* Page 9a.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9a.aif"; sourceTree = "<group>"; };
-		58627F451650E578000809A5 /* Page 10.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 10.aif"; sourceTree = "<group>"; };
-		58627F461650E578000809A5 /* Page 11.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 11.aif"; sourceTree = "<group>"; };
-		58627F471650E578000809A5 /* Page 12.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 12.aif"; sourceTree = "<group>"; };
-		58627F481650E578000809A5 /* Page 13.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 13.aif"; sourceTree = "<group>"; };
-		58627F491650E578000809A5 /* Page 14.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 14.aif"; sourceTree = "<group>"; };
-		58627F4A1650E578000809A5 /* Page 15.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 15.aif"; sourceTree = "<group>"; };
-		58627F4B1650E578000809A5 /* The END!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The END!.aif"; sourceTree = "<group>"; };
 		58627F6D16525A8C000809A5 /* 4a_piece1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4a_piece1.png; sourceTree = "<group>"; };
 		58627F6E16525A8C000809A5 /* 4a_piece1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4a_piece1@2x.png"; sourceTree = "<group>"; };
 		58627F6F16525A8C000809A5 /* 4a_piece1a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4a_piece1a.png; sourceTree = "<group>"; };
@@ -329,6 +310,68 @@
 		58627FC116525A8D000809A5 /* 14a_puzzle_14a_cut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14a_puzzle_14a_cut.png; sourceTree = "<group>"; };
 		58627FC216525A8D000809A5 /* 14a_puzzle_14a_cut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14a_puzzle_14a_cut@2x.png"; sourceTree = "<group>"; };
 		5862801C1652CD9B000809A5 /* UI_pablo-NH.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "UI_pablo-NH.svg"; sourceTree = "<group>"; };
+		5862801F1652E9A2000809A5 /* Beardfish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Beardfish.m4a; sourceTree = "<group>"; };
+		586280201652E9A2000809A5 /* Can you find Pablos friends.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find Pablos friends.m4a"; sourceTree = "<group>"; };
+		586280211652E9A2000809A5 /* Can you find the Beardfish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Beardfish.m4a"; sourceTree = "<group>"; };
+		586280221652E9A2000809A5 /* Can you find the Catfish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Catfish.m4a"; sourceTree = "<group>"; };
+		586280231652E9A2000809A5 /* Can you find the Pufferfish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Pufferfish.m4a"; sourceTree = "<group>"; };
+		586280241652E9A2000809A5 /* Can you find the Seahorse.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Seahorse.m4a"; sourceTree = "<group>"; };
+		586280251652E9A2000809A5 /* Can you find the Tuna fish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Tuna fish.m4a"; sourceTree = "<group>"; };
+		586280261652E9A2000809A5 /* Crab.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Crab.m4a; sourceTree = "<group>"; };
+		586280271652E9A2000809A5 /* Drag and Drop Pablo's Friends.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drag and Drop Pablo's Friends.m4a"; sourceTree = "<group>"; };
+		586280281652E9A2000809A5 /* Good Job.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good Job.m4a"; sourceTree = "<group>"; };
+		586280291652E9A2000809A5 /* Great Job-1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Great Job-1.m4a"; sourceTree = "<group>"; };
+		5862802A1652E9A2000809A5 /* Great Job!.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Great Job!.m4a"; sourceTree = "<group>"; };
+		5862802B1652E9A2000809A5 /* Great Job.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Great Job.m4a"; sourceTree = "<group>"; };
+		5862802C1652E9A2000809A5 /* Jigsaw _can you put this jigsaw puzzle together_.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _can you put this jigsaw puzzle together_.m4a"; sourceTree = "<group>"; };
+		5862802D1652E9A2000809A5 /* Jigsaw _Great Job_.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _Great Job_.m4a"; sourceTree = "<group>"; };
+		5862802E1652E9A2000809A5 /* Jigsaw _way to go bigshot_.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _way to go bigshot_.m4a"; sourceTree = "<group>"; };
+		5862802F1652E9A2000809A5 /* Jigsaw _Way to go_.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _Way to go_.m4a"; sourceTree = "<group>"; };
+		586280301652E9A2000809A5 /* Job well done you found all of Pablo's friends.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Job well done you found all of Pablo's friends.m4a"; sourceTree = "<group>"; };
+		586280311652E9A2000809A5 /* m_intromusic_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = m_intromusic_01.m4a; sourceTree = "<group>"; };
+		586280321652E9A2000809A5 /* m_musicLoop_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = m_musicLoop_01.m4a; sourceTree = "<group>"; };
+		586280331652E9A2000809A5 /* Pablo The Pufferfish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pablo The Pufferfish.m4a"; sourceTree = "<group>"; };
+		586280341652E9A2000809A5 /* Page 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 1.m4a"; sourceTree = "<group>"; };
+		586280351652E9A2000809A5 /* Page 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3.m4a"; sourceTree = "<group>"; };
+		586280361652E9A2000809A5 /* Page 3a.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 3a.m4a"; sourceTree = "<group>"; };
+		586280371652E9A2000809A5 /* Page 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 4.m4a"; sourceTree = "<group>"; };
+		586280381652E9A2000809A5 /* Page 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 5.m4a"; sourceTree = "<group>"; };
+		586280391652E9A2000809A5 /* Page 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 6.m4a"; sourceTree = "<group>"; };
+		5862803A1652E9A2000809A5 /* Page 7.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7.m4a"; sourceTree = "<group>"; };
+		5862803B1652E9A2000809A5 /* Page 7a.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 7a.m4a"; sourceTree = "<group>"; };
+		5862803C1652E9A2000809A5 /* Page 8.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 8.m4a"; sourceTree = "<group>"; };
+		5862803D1652E9A2000809A5 /* Page 9.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9.m4a"; sourceTree = "<group>"; };
+		5862803E1652E9A2000809A5 /* Page 9a.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 9a.m4a"; sourceTree = "<group>"; };
+		5862803F1652E9A2000809A5 /* Page 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 10.m4a"; sourceTree = "<group>"; };
+		586280401652E9A2000809A5 /* Page 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 11.m4a"; sourceTree = "<group>"; };
+		586280411652E9A2000809A5 /* Page 12.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 12.m4a"; sourceTree = "<group>"; };
+		586280421652E9A2000809A5 /* Page 13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 13.m4a"; sourceTree = "<group>"; };
+		586280431652E9A2000809A5 /* Page 14.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 14.m4a"; sourceTree = "<group>"; };
+		586280441652E9A2000809A5 /* Page 15.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Page 15.m4a"; sourceTree = "<group>"; };
+		586280451652E9A2000809A5 /* Pufferfish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pufferfish.m4a; sourceTree = "<group>"; };
+		586280461652E9A2000809A5 /* s_click_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_click_01.m4a; sourceTree = "<group>"; };
+		586280471652E9A2000809A5 /* s_herofanfare_01a.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_herofanfare_01a.m4a; sourceTree = "<group>"; };
+		586280481652E9A2000809A5 /* s_introsfx_02.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_introsfx_02.m4a; sourceTree = "<group>"; };
+		586280491652E9A2000809A5 /* s_pageturn_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_pageturn_01.m4a; sourceTree = "<group>"; };
+		5862804A1652E9A2000809A5 /* s_pageturn_02.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_pageturn_02.m4a; sourceTree = "<group>"; };
+		5862804B1652E9A2000809A5 /* s_pageturn_03.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_pageturn_03.m4a; sourceTree = "<group>"; };
+		5862804C1652E9A2000809A5 /* s_pageturn_04.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_pageturn_04.m4a; sourceTree = "<group>"; };
+		5862804D1652E9A2000809A5 /* s_pickuppuzzlepiece_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_pickuppuzzlepiece_01.m4a; sourceTree = "<group>"; };
+		5862804E1652E9A2000809A5 /* s_pilacecorrectpuzzlepiece_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_pilacecorrectpuzzlepiece_01.m4a; sourceTree = "<group>"; };
+		5862804F1652E9A2000809A5 /* s_puzzlecomplete_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_puzzlecomplete_01.m4a; sourceTree = "<group>"; };
+		586280501652E9A2000809A5 /* s_wrongpuzzlepiece_01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_wrongpuzzlepiece_01.m4a; sourceTree = "<group>"; };
+		586280511652E9A2000809A5 /* Seahorse.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seahorse.m4a; sourceTree = "<group>"; };
+		586280521652E9A2000809A5 /* Seaurchin.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seaurchin.m4a; sourceTree = "<group>"; };
+		586280531652E9A2000809A5 /* The END!.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The END!.m4a"; sourceTree = "<group>"; };
+		586280541652E9A2000809A5 /* Try Again 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Try Again 3.m4a"; sourceTree = "<group>"; };
+		586280551652E9A2000809A5 /* Try Again 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Try Again 4.m4a"; sourceTree = "<group>"; };
+		586280561652E9A2000809A5 /* Try Again.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Try Again.m4a"; sourceTree = "<group>"; };
+		586280571652E9A2000809A5 /* Tuna.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tuna.m4a; sourceTree = "<group>"; };
+		586280581652E9A2000809A5 /* Way to go! 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Way to go! 2.m4a"; sourceTree = "<group>"; };
+		586280591652E9A2000809A5 /* Way to go!.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Way to go!.m4a"; sourceTree = "<group>"; };
+		5862805A1652E9A2000809A5 /* You're a bigshot! 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot! 3.m4a"; sourceTree = "<group>"; };
+		5862805B1652E9A2000809A5 /* You're a bigshot! 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot! 4.m4a"; sourceTree = "<group>"; };
+		5862805C1652E9A2000809A5 /* You're a bigshot!.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot!.m4a"; sourceTree = "<group>"; };
 		587E0E7E164C40FC0000229A /* BigShotsGetShots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigShotsGetShots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587E0E82164C40FC0000229A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		587E0E84164C40FC0000229A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -439,49 +482,6 @@
 		588F6932164DC3BB001D6FEC /* pg14a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg14a.svg; sourceTree = "<group>"; };
 		588F6933164DC3BB001D6FEC /* pg15.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg15.svg; sourceTree = "<group>"; };
 		58AE6247164C85BD001CBB42 /* ResourceList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ResourceList.plist; sourceTree = "<group>"; };
-		58F5522C164E013800C601AB /* m_intromusic_01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = m_intromusic_01.wav; sourceTree = "<group>"; };
-		58F5522D164E013800C601AB /* m_musicLoop_01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = m_musicLoop_01.wav; sourceTree = "<group>"; };
-		58F5522F164E013800C601AB /* s_click_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_click_01.mp3; sourceTree = "<group>"; };
-		58F55230164E013800C601AB /* s_herofanfare_01a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_herofanfare_01a.mp3; sourceTree = "<group>"; };
-		58F55231164E013800C601AB /* s_introsfx_02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_introsfx_02.mp3; sourceTree = "<group>"; };
-		58F55232164E013800C601AB /* s_pageturn_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_pageturn_01.mp3; sourceTree = "<group>"; };
-		58F55233164E013800C601AB /* s_pageturn_02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_pageturn_02.mp3; sourceTree = "<group>"; };
-		58F55234164E013800C601AB /* s_pageturn_03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_pageturn_03.mp3; sourceTree = "<group>"; };
-		58F55235164E013800C601AB /* s_pageturn_04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_pageturn_04.mp3; sourceTree = "<group>"; };
-		58F55236164E013800C601AB /* s_pickuppuzzlepiece_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_pickuppuzzlepiece_01.mp3; sourceTree = "<group>"; };
-		58F55237164E013800C601AB /* s_pilacecorrectpuzzlepiece_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_pilacecorrectpuzzlepiece_01.mp3; sourceTree = "<group>"; };
-		58F55238164E013800C601AB /* s_puzzlecomplete_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_puzzlecomplete_01.mp3; sourceTree = "<group>"; };
-		58F55239164E013800C601AB /* s_wrongpuzzlepiece_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s_wrongpuzzlepiece_01.mp3; sourceTree = "<group>"; };
-		58F5523D164E013800C601AB /* Can you find Pablos friends.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find Pablos friends.aif"; sourceTree = "<group>"; };
-		58F5523E164E013800C601AB /* Can you find the Beardfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Beardfish.aif"; sourceTree = "<group>"; };
-		58F5523F164E013800C601AB /* Can you find the Catfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Catfish.aif"; sourceTree = "<group>"; };
-		58F55240164E013800C601AB /* Can you find the Pufferfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Pufferfish.aif"; sourceTree = "<group>"; };
-		58F55241164E013800C601AB /* Can you find the Seahorse.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Seahorse.aif"; sourceTree = "<group>"; };
-		58F55242164E013800C601AB /* Can you find the Tuna fish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can you find the Tuna fish.aif"; sourceTree = "<group>"; };
-		58F55243164E013800C601AB /* Great Job.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Great Job.aif"; sourceTree = "<group>"; };
-		58F55244164E013800C601AB /* Job well done you found all of Pablo's friends.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Job well done you found all of Pablo's friends.aif"; sourceTree = "<group>"; };
-		58F55245164E013800C601AB /* Try Again.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Try Again.aif"; sourceTree = "<group>"; };
-		58F55246164E013800C601AB /* Way to go!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Way to go!.aif"; sourceTree = "<group>"; };
-		58F55247164E013800C601AB /* You're a bigshot!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot!.aif"; sourceTree = "<group>"; };
-		58F55249164E013800C601AB /* Beardfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Beardfish.aif; sourceTree = "<group>"; };
-		58F5524A164E013800C601AB /* Crab.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Crab.aif; sourceTree = "<group>"; };
-		58F5524B164E013800C601AB /* Drag and Drop Pablo's Friends.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drag and Drop Pablo's Friends.aif"; sourceTree = "<group>"; };
-		58F5524C164E013800C601AB /* Good Job.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good Job.aif"; sourceTree = "<group>"; };
-		58F5524D164E013800C601AB /* Great Job!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Great Job!.aif"; sourceTree = "<group>"; };
-		58F5524E164E013800C601AB /* Great Job-1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Great Job-1.aif"; sourceTree = "<group>"; };
-		58F5524F164E013800C601AB /* Pufferfish.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pufferfish.aif; sourceTree = "<group>"; };
-		58F55250164E013800C601AB /* Seahorse.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seahorse.aif; sourceTree = "<group>"; };
-		58F55251164E013800C601AB /* Seaurchin.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Seaurchin.aif; sourceTree = "<group>"; };
-		58F55252164E013800C601AB /* Try Again.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Try Again.aif"; sourceTree = "<group>"; };
-		58F55253164E013800C601AB /* Tuna.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tuna.aif; sourceTree = "<group>"; };
-		58F55254164E013800C601AB /* Way to go!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Way to go!.aif"; sourceTree = "<group>"; };
-		58F55255164E013800C601AB /* You're a bigshot!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot!.aif"; sourceTree = "<group>"; };
-		58F55257164E013800C601AB /* Jigsaw _can you put this jigsaw puzzle together_.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _can you put this jigsaw puzzle together_.aif"; sourceTree = "<group>"; };
-		58F55258164E013800C601AB /* Jigsaw _Great Job_.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _Great Job_.aif"; sourceTree = "<group>"; };
-		58F55259164E013800C601AB /* Jigsaw _way to go bigshot_.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _way to go bigshot_.aif"; sourceTree = "<group>"; };
-		58F5525A164E013800C601AB /* Jigsaw _Way to go_.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jigsaw _Way to go_.aif"; sourceTree = "<group>"; };
-		58F5525B164E013800C601AB /* Try Again.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Try Again.aif"; sourceTree = "<group>"; };
-		58F5525C164E013800C601AB /* You're a bigshot!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot!.aif"; sourceTree = "<group>"; };
 		58F552B2164F1D0700C601AB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		58F552BB165063D600C601AB /* BWQuincyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BWQuincyManager.h; path = BigShotsGetShots/BWQuincyManager.h; sourceTree = "<group>"; };
 		58F552BC165063D600C601AB /* BWQuincyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BWQuincyManager.m; path = BigShotsGetShots/BWQuincyManager.m; sourceTree = "<group>"; };
@@ -653,6 +653,75 @@
 				5862801C1652CD9B000809A5 /* UI_pablo-NH.svg */,
 			);
 			name = UIElements;
+			sourceTree = "<group>";
+		};
+		5862801E1652E99B000809A5 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				5862801F1652E9A2000809A5 /* Beardfish.m4a */,
+				586280201652E9A2000809A5 /* Can you find Pablos friends.m4a */,
+				586280211652E9A2000809A5 /* Can you find the Beardfish.m4a */,
+				586280221652E9A2000809A5 /* Can you find the Catfish.m4a */,
+				586280231652E9A2000809A5 /* Can you find the Pufferfish.m4a */,
+				586280241652E9A2000809A5 /* Can you find the Seahorse.m4a */,
+				586280251652E9A2000809A5 /* Can you find the Tuna fish.m4a */,
+				586280261652E9A2000809A5 /* Crab.m4a */,
+				586280271652E9A2000809A5 /* Drag and Drop Pablo's Friends.m4a */,
+				586280281652E9A2000809A5 /* Good Job.m4a */,
+				586280291652E9A2000809A5 /* Great Job-1.m4a */,
+				5862802A1652E9A2000809A5 /* Great Job!.m4a */,
+				5862802B1652E9A2000809A5 /* Great Job.m4a */,
+				5862802C1652E9A2000809A5 /* Jigsaw _can you put this jigsaw puzzle together_.m4a */,
+				5862802D1652E9A2000809A5 /* Jigsaw _Great Job_.m4a */,
+				5862802E1652E9A2000809A5 /* Jigsaw _way to go bigshot_.m4a */,
+				5862802F1652E9A2000809A5 /* Jigsaw _Way to go_.m4a */,
+				586280301652E9A2000809A5 /* Job well done you found all of Pablo's friends.m4a */,
+				586280311652E9A2000809A5 /* m_intromusic_01.m4a */,
+				586280321652E9A2000809A5 /* m_musicLoop_01.m4a */,
+				586280331652E9A2000809A5 /* Pablo The Pufferfish.m4a */,
+				586280341652E9A2000809A5 /* Page 1.m4a */,
+				586280351652E9A2000809A5 /* Page 3.m4a */,
+				586280361652E9A2000809A5 /* Page 3a.m4a */,
+				586280371652E9A2000809A5 /* Page 4.m4a */,
+				586280381652E9A2000809A5 /* Page 5.m4a */,
+				586280391652E9A2000809A5 /* Page 6.m4a */,
+				5862803A1652E9A2000809A5 /* Page 7.m4a */,
+				5862803B1652E9A2000809A5 /* Page 7a.m4a */,
+				5862803C1652E9A2000809A5 /* Page 8.m4a */,
+				5862803D1652E9A2000809A5 /* Page 9.m4a */,
+				5862803E1652E9A2000809A5 /* Page 9a.m4a */,
+				5862803F1652E9A2000809A5 /* Page 10.m4a */,
+				586280401652E9A2000809A5 /* Page 11.m4a */,
+				586280411652E9A2000809A5 /* Page 12.m4a */,
+				586280421652E9A2000809A5 /* Page 13.m4a */,
+				586280431652E9A2000809A5 /* Page 14.m4a */,
+				586280441652E9A2000809A5 /* Page 15.m4a */,
+				586280451652E9A2000809A5 /* Pufferfish.m4a */,
+				586280461652E9A2000809A5 /* s_click_01.m4a */,
+				586280471652E9A2000809A5 /* s_herofanfare_01a.m4a */,
+				586280481652E9A2000809A5 /* s_introsfx_02.m4a */,
+				586280491652E9A2000809A5 /* s_pageturn_01.m4a */,
+				5862804A1652E9A2000809A5 /* s_pageturn_02.m4a */,
+				5862804B1652E9A2000809A5 /* s_pageturn_03.m4a */,
+				5862804C1652E9A2000809A5 /* s_pageturn_04.m4a */,
+				5862804D1652E9A2000809A5 /* s_pickuppuzzlepiece_01.m4a */,
+				5862804E1652E9A2000809A5 /* s_pilacecorrectpuzzlepiece_01.m4a */,
+				5862804F1652E9A2000809A5 /* s_puzzlecomplete_01.m4a */,
+				586280501652E9A2000809A5 /* s_wrongpuzzlepiece_01.m4a */,
+				586280511652E9A2000809A5 /* Seahorse.m4a */,
+				586280521652E9A2000809A5 /* Seaurchin.m4a */,
+				586280531652E9A2000809A5 /* The END!.m4a */,
+				586280541652E9A2000809A5 /* Try Again 3.m4a */,
+				586280551652E9A2000809A5 /* Try Again 4.m4a */,
+				586280561652E9A2000809A5 /* Try Again.m4a */,
+				586280571652E9A2000809A5 /* Tuna.m4a */,
+				586280581652E9A2000809A5 /* Way to go! 2.m4a */,
+				586280591652E9A2000809A5 /* Way to go!.m4a */,
+				5862805A1652E9A2000809A5 /* You're a bigshot! 3.m4a */,
+				5862805B1652E9A2000809A5 /* You're a bigshot! 4.m4a */,
+				5862805C1652E9A2000809A5 /* You're a bigshot!.m4a */,
+			);
+			name = SFX;
 			sourceTree = "<group>";
 		};
 		587E0E73164C40FB0000229A = {
@@ -859,11 +928,9 @@
 		58AE6220164C85A0001CBB42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5862801E1652E99B000809A5 /* SFX */,
 				5862801716525A91000809A5 /* PuzzlePieces */,
 				5862801916525AB8000809A5 /* UIElements */,
-				58F5522B164E013800C601AB /* Music */,
-				58F5522E164E013800C601AB /* SFX */,
-				58F5523A164E013800C601AB /* VoiceEdits */,
 				5862801816525AA2000809A5 /* Pages */,
 			);
 			path = Resources;
@@ -876,128 +943,6 @@
 				587E0E92164C40FC0000229A /* AppDelegate.m */,
 			);
 			name = AppDelegate;
-			sourceTree = "<group>";
-		};
-		58F5522B164E013800C601AB /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				58F5522C164E013800C601AB /* m_intromusic_01.wav */,
-				58F5522D164E013800C601AB /* m_musicLoop_01.wav */,
-			);
-			name = Music;
-			path = ../Music;
-			sourceTree = "<group>";
-		};
-		58F5522E164E013800C601AB /* SFX */ = {
-			isa = PBXGroup;
-			children = (
-				58F5522F164E013800C601AB /* s_click_01.mp3 */,
-				58F55230164E013800C601AB /* s_herofanfare_01a.mp3 */,
-				58F55231164E013800C601AB /* s_introsfx_02.mp3 */,
-				58F55232164E013800C601AB /* s_pageturn_01.mp3 */,
-				58F55233164E013800C601AB /* s_pageturn_02.mp3 */,
-				58F55234164E013800C601AB /* s_pageturn_03.mp3 */,
-				58F55235164E013800C601AB /* s_pageturn_04.mp3 */,
-				58F55236164E013800C601AB /* s_pickuppuzzlepiece_01.mp3 */,
-				58F55237164E013800C601AB /* s_pilacecorrectpuzzlepiece_01.mp3 */,
-				58F55238164E013800C601AB /* s_puzzlecomplete_01.mp3 */,
-				58F55239164E013800C601AB /* s_wrongpuzzlepiece_01.mp3 */,
-			);
-			name = SFX;
-			path = ../SFX;
-			sourceTree = "<group>";
-		};
-		58F5523A164E013800C601AB /* VoiceEdits */ = {
-			isa = PBXGroup;
-			children = (
-				58F5523C164E013800C601AB /* Can You Find_ */,
-				58F55248164E013800C601AB /* Empty Boxes */,
-				58F55256164E013800C601AB /* Jigsaw */,
-				58F5525D164E013800C601AB /* Pablo The Pufferfish Story */,
-			);
-			name = VoiceEdits;
-			path = ../VoiceEdits;
-			sourceTree = "<group>";
-		};
-		58F5523C164E013800C601AB /* Can You Find_ */ = {
-			isa = PBXGroup;
-			children = (
-				58F5523D164E013800C601AB /* Can you find Pablos friends.aif */,
-				58F5523E164E013800C601AB /* Can you find the Beardfish.aif */,
-				58F5523F164E013800C601AB /* Can you find the Catfish.aif */,
-				58F55240164E013800C601AB /* Can you find the Pufferfish.aif */,
-				58F55241164E013800C601AB /* Can you find the Seahorse.aif */,
-				58F55242164E013800C601AB /* Can you find the Tuna fish.aif */,
-				58F55243164E013800C601AB /* Great Job.aif */,
-				58F55244164E013800C601AB /* Job well done you found all of Pablo's friends.aif */,
-				58F55245164E013800C601AB /* Try Again.aif */,
-				58F55246164E013800C601AB /* Way to go!.aif */,
-				58F55247164E013800C601AB /* You're a bigshot!.aif */,
-			);
-			name = "Can You Find_";
-			path = "Pablo_VO/Can You Find_";
-			sourceTree = "<group>";
-		};
-		58F55248164E013800C601AB /* Empty Boxes */ = {
-			isa = PBXGroup;
-			children = (
-				58F55249164E013800C601AB /* Beardfish.aif */,
-				58F5524A164E013800C601AB /* Crab.aif */,
-				58F5524B164E013800C601AB /* Drag and Drop Pablo's Friends.aif */,
-				58F5524C164E013800C601AB /* Good Job.aif */,
-				58F5524D164E013800C601AB /* Great Job!.aif */,
-				58F5524E164E013800C601AB /* Great Job-1.aif */,
-				58F5524F164E013800C601AB /* Pufferfish.aif */,
-				58F55250164E013800C601AB /* Seahorse.aif */,
-				58F55251164E013800C601AB /* Seaurchin.aif */,
-				58F55252164E013800C601AB /* Try Again.aif */,
-				58F55253164E013800C601AB /* Tuna.aif */,
-				58F55254164E013800C601AB /* Way to go!.aif */,
-				58F55255164E013800C601AB /* You're a bigshot!.aif */,
-			);
-			name = "Empty Boxes";
-			path = "Pablo_VO/Empty Boxes";
-			sourceTree = "<group>";
-		};
-		58F55256164E013800C601AB /* Jigsaw */ = {
-			isa = PBXGroup;
-			children = (
-				58F55257164E013800C601AB /* Jigsaw _can you put this jigsaw puzzle together_.aif */,
-				58F55258164E013800C601AB /* Jigsaw _Great Job_.aif */,
-				58F55259164E013800C601AB /* Jigsaw _way to go bigshot_.aif */,
-				58F5525A164E013800C601AB /* Jigsaw _Way to go_.aif */,
-				58F5525B164E013800C601AB /* Try Again.aif */,
-				58F5525C164E013800C601AB /* You're a bigshot!.aif */,
-			);
-			name = Jigsaw;
-			path = Pablo_VO/Jigsaw;
-			sourceTree = "<group>";
-		};
-		58F5525D164E013800C601AB /* Pablo The Pufferfish Story */ = {
-			isa = PBXGroup;
-			children = (
-				58627F391650E578000809A5 /* Pablo The Pufferfish.aif */,
-				58627F3A1650E578000809A5 /* Page 1.aif */,
-				58627F3B1650E578000809A5 /* Page 3.aif */,
-				58627F3C1650E578000809A5 /* Page 3a.aif */,
-				58627F3D1650E578000809A5 /* Page 4.aif */,
-				58627F3E1650E578000809A5 /* Page 5.aif */,
-				58627F3F1650E578000809A5 /* Page 6.aif */,
-				58627F401650E578000809A5 /* Page 7.aif */,
-				58627F411650E578000809A5 /* Page 7a.aif */,
-				58627F421650E578000809A5 /* Page 8.aif */,
-				58627F431650E578000809A5 /* Page 9.aif */,
-				58627F441650E578000809A5 /* Page 9a.aif */,
-				58627F451650E578000809A5 /* Page 10.aif */,
-				58627F461650E578000809A5 /* Page 11.aif */,
-				58627F471650E578000809A5 /* Page 12.aif */,
-				58627F481650E578000809A5 /* Page 13.aif */,
-				58627F491650E578000809A5 /* Page 14.aif */,
-				58627F4A1650E578000809A5 /* Page 15.aif */,
-				58627F4B1650E578000809A5 /* The END!.aif */,
-			);
-			name = "Pablo The Pufferfish Story";
-			path = "Pablo_VO/Pablo The Pufferfish Story";
 			sourceTree = "<group>";
 		};
 		58F552BE165063DB00C601AB /* BWQuincyManager */ = {
@@ -1061,25 +1006,68 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58627F4C1650E58E000809A5 /* Pablo The Pufferfish.aif in Resources */,
-				58627F4D1650E58E000809A5 /* Page 1.aif in Resources */,
-				58627F4E1650E58E000809A5 /* Page 3.aif in Resources */,
-				58627F4F1650E58E000809A5 /* Page 3a.aif in Resources */,
-				58627F501650E58E000809A5 /* Page 4.aif in Resources */,
-				58627F511650E58E000809A5 /* Page 5.aif in Resources */,
-				58627F521650E58E000809A5 /* Page 6.aif in Resources */,
-				58627F531650E58E000809A5 /* Page 7.aif in Resources */,
-				58627F541650E58E000809A5 /* Page 7a.aif in Resources */,
-				58627F551650E58E000809A5 /* Page 8.aif in Resources */,
-				58627F561650E58E000809A5 /* Page 9.aif in Resources */,
-				58627F571650E58E000809A5 /* Page 9a.aif in Resources */,
-				58627F581650E58E000809A5 /* Page 10.aif in Resources */,
-				58627F591650E58E000809A5 /* Page 11.aif in Resources */,
-				58627F5A1650E58E000809A5 /* Page 12.aif in Resources */,
-				58627F5B1650E58E000809A5 /* Page 13.aif in Resources */,
-				58627F5C1650E58E000809A5 /* Page 14.aif in Resources */,
-				58627F5D1650E58E000809A5 /* Page 15.aif in Resources */,
-				58627F5E1650E58E000809A5 /* The END!.aif in Resources */,
+				5862805D1652EA64000809A5 /* Beardfish.m4a in Resources */,
+				5862805E1652EA64000809A5 /* Can you find Pablos friends.m4a in Resources */,
+				5862805F1652EA64000809A5 /* Can you find the Beardfish.m4a in Resources */,
+				586280601652EA64000809A5 /* Can you find the Catfish.m4a in Resources */,
+				586280611652EA64000809A5 /* Can you find the Pufferfish.m4a in Resources */,
+				586280621652EA64000809A5 /* Can you find the Seahorse.m4a in Resources */,
+				586280631652EA64000809A5 /* Can you find the Tuna fish.m4a in Resources */,
+				586280641652EA64000809A5 /* Crab.m4a in Resources */,
+				586280651652EA64000809A5 /* Drag and Drop Pablo's Friends.m4a in Resources */,
+				586280661652EA64000809A5 /* Good Job.m4a in Resources */,
+				586280671652EA64000809A5 /* Great Job-1.m4a in Resources */,
+				586280681652EA64000809A5 /* Great Job!.m4a in Resources */,
+				586280691652EA64000809A5 /* Great Job.m4a in Resources */,
+				5862806A1652EA64000809A5 /* Jigsaw _can you put this jigsaw puzzle together_.m4a in Resources */,
+				5862806B1652EA64000809A5 /* Jigsaw _Great Job_.m4a in Resources */,
+				5862806C1652EA64000809A5 /* Jigsaw _way to go bigshot_.m4a in Resources */,
+				5862806D1652EA64000809A5 /* Jigsaw _Way to go_.m4a in Resources */,
+				5862806E1652EA64000809A5 /* Job well done you found all of Pablo's friends.m4a in Resources */,
+				5862806F1652EA64000809A5 /* m_intromusic_01.m4a in Resources */,
+				586280701652EA64000809A5 /* m_musicLoop_01.m4a in Resources */,
+				586280711652EA64000809A5 /* Pablo The Pufferfish.m4a in Resources */,
+				586280721652EA64000809A5 /* Page 1.m4a in Resources */,
+				586280731652EA64000809A5 /* Page 3.m4a in Resources */,
+				586280741652EA64000809A5 /* Page 3a.m4a in Resources */,
+				586280751652EA64000809A5 /* Page 4.m4a in Resources */,
+				586280761652EA64000809A5 /* Page 5.m4a in Resources */,
+				586280771652EA64000809A5 /* Page 6.m4a in Resources */,
+				586280781652EA64000809A5 /* Page 7.m4a in Resources */,
+				586280791652EA64000809A5 /* Page 7a.m4a in Resources */,
+				5862807A1652EA64000809A5 /* Page 8.m4a in Resources */,
+				5862807B1652EA64000809A5 /* Page 9.m4a in Resources */,
+				5862807C1652EA64000809A5 /* Page 9a.m4a in Resources */,
+				5862807D1652EA64000809A5 /* Page 10.m4a in Resources */,
+				5862807E1652EA64000809A5 /* Page 11.m4a in Resources */,
+				5862807F1652EA64000809A5 /* Page 12.m4a in Resources */,
+				586280801652EA64000809A5 /* Page 13.m4a in Resources */,
+				586280811652EA64000809A5 /* Page 14.m4a in Resources */,
+				586280821652EA64000809A5 /* Page 15.m4a in Resources */,
+				586280831652EA64000809A5 /* Pufferfish.m4a in Resources */,
+				586280841652EA64000809A5 /* s_click_01.m4a in Resources */,
+				586280851652EA64000809A5 /* s_herofanfare_01a.m4a in Resources */,
+				586280861652EA64000809A5 /* s_introsfx_02.m4a in Resources */,
+				586280871652EA64000809A5 /* s_pageturn_01.m4a in Resources */,
+				586280881652EA64000809A5 /* s_pageturn_02.m4a in Resources */,
+				586280891652EA64000809A5 /* s_pageturn_03.m4a in Resources */,
+				5862808A1652EA64000809A5 /* s_pageturn_04.m4a in Resources */,
+				5862808B1652EA64000809A5 /* s_pickuppuzzlepiece_01.m4a in Resources */,
+				5862808C1652EA64000809A5 /* s_pilacecorrectpuzzlepiece_01.m4a in Resources */,
+				5862808D1652EA64000809A5 /* s_puzzlecomplete_01.m4a in Resources */,
+				5862808E1652EA64000809A5 /* s_wrongpuzzlepiece_01.m4a in Resources */,
+				5862808F1652EA64000809A5 /* Seahorse.m4a in Resources */,
+				586280901652EA64000809A5 /* Seaurchin.m4a in Resources */,
+				586280911652EA64000809A5 /* The END!.m4a in Resources */,
+				586280921652EA64000809A5 /* Try Again 3.m4a in Resources */,
+				586280931652EA64000809A5 /* Try Again 4.m4a in Resources */,
+				586280941652EA64000809A5 /* Try Again.m4a in Resources */,
+				586280951652EA64000809A5 /* Tuna.m4a in Resources */,
+				586280961652EA64000809A5 /* Way to go! 2.m4a in Resources */,
+				586280971652EA64000809A5 /* Way to go!.m4a in Resources */,
+				586280981652EA64000809A5 /* You're a bigshot! 3.m4a in Resources */,
+				586280991652EA64000809A5 /* You're a bigshot! 4.m4a in Resources */,
+				5862809A1652EA64000809A5 /* You're a bigshot!.m4a in Resources */,
 				587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */,
 				587E0F43164C5C350000229A /* ViewController.xib in Resources */,
 				58AE6248164C85BD001CBB42 /* ResourceList.plist in Resources */,
@@ -1101,49 +1089,6 @@
 				588F6944164DC3BB001D6FEC /* pg14.svg in Resources */,
 				588F6945164DC3BB001D6FEC /* pg14a.svg in Resources */,
 				588F6946164DC3BB001D6FEC /* pg15.svg in Resources */,
-				58F55271164E013800C601AB /* m_intromusic_01.wav in Resources */,
-				58F55272164E013800C601AB /* m_musicLoop_01.wav in Resources */,
-				58F55273164E013800C601AB /* s_click_01.mp3 in Resources */,
-				58F55274164E013800C601AB /* s_herofanfare_01a.mp3 in Resources */,
-				58F55275164E013800C601AB /* s_introsfx_02.mp3 in Resources */,
-				58F55276164E013800C601AB /* s_pageturn_01.mp3 in Resources */,
-				58F55277164E013800C601AB /* s_pageturn_02.mp3 in Resources */,
-				58F55278164E013800C601AB /* s_pageturn_03.mp3 in Resources */,
-				58F55279164E013800C601AB /* s_pageturn_04.mp3 in Resources */,
-				58F5527A164E013800C601AB /* s_pickuppuzzlepiece_01.mp3 in Resources */,
-				58F5527B164E013800C601AB /* s_pilacecorrectpuzzlepiece_01.mp3 in Resources */,
-				58F5527C164E013800C601AB /* s_puzzlecomplete_01.mp3 in Resources */,
-				58F5527D164E013800C601AB /* s_wrongpuzzlepiece_01.mp3 in Resources */,
-				58F5527E164E013800C601AB /* Can you find Pablos friends.aif in Resources */,
-				58F5527F164E013800C601AB /* Can you find the Beardfish.aif in Resources */,
-				58F55280164E013800C601AB /* Can you find the Catfish.aif in Resources */,
-				58F55281164E013800C601AB /* Can you find the Pufferfish.aif in Resources */,
-				58F55282164E013800C601AB /* Can you find the Seahorse.aif in Resources */,
-				58F55283164E013800C601AB /* Can you find the Tuna fish.aif in Resources */,
-				58F55284164E013800C601AB /* Great Job.aif in Resources */,
-				58F55285164E013800C601AB /* Job well done you found all of Pablo's friends.aif in Resources */,
-				58F55286164E013800C601AB /* Try Again.aif in Resources */,
-				58F55287164E013800C601AB /* Way to go!.aif in Resources */,
-				58F55288164E013800C601AB /* You're a bigshot!.aif in Resources */,
-				58F55289164E013800C601AB /* Beardfish.aif in Resources */,
-				58F5528A164E013800C601AB /* Crab.aif in Resources */,
-				58F5528B164E013800C601AB /* Drag and Drop Pablo's Friends.aif in Resources */,
-				58F5528C164E013800C601AB /* Good Job.aif in Resources */,
-				58F5528D164E013800C601AB /* Great Job!.aif in Resources */,
-				58F5528E164E013800C601AB /* Great Job-1.aif in Resources */,
-				58F5528F164E013800C601AB /* Pufferfish.aif in Resources */,
-				58F55290164E013800C601AB /* Seahorse.aif in Resources */,
-				58F55291164E013800C601AB /* Seaurchin.aif in Resources */,
-				58F55292164E013800C601AB /* Try Again.aif in Resources */,
-				58F55293164E013800C601AB /* Tuna.aif in Resources */,
-				58F55294164E013800C601AB /* Way to go!.aif in Resources */,
-				58F55295164E013800C601AB /* You're a bigshot!.aif in Resources */,
-				58F55296164E013800C601AB /* Jigsaw _can you put this jigsaw puzzle together_.aif in Resources */,
-				58F55297164E013800C601AB /* Jigsaw _Great Job_.aif in Resources */,
-				58F55298164E013800C601AB /* Jigsaw _way to go bigshot_.aif in Resources */,
-				58F55299164E013800C601AB /* Jigsaw _Way to go_.aif in Resources */,
-				58F5529A164E013800C601AB /* Try Again.aif in Resources */,
-				58F5529B164E013800C601AB /* You're a bigshot!.aif in Resources */,
 				58627FC316525A8D000809A5 /* 4a_piece1.png in Resources */,
 				58627FC416525A8D000809A5 /* 4a_piece1@2x.png in Resources */,
 				58627FC516525A8D000809A5 /* 4a_piece1a.png in Resources */,
