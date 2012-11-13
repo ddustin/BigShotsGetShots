@@ -6,12 +6,17 @@
 //
 
 #import "ViewController.h"
+#import <objc/message.h>
 
 @interface ViewController ()
 
 - (void)loadResource:(NSString *)name;
 
+@property (weak, nonatomic) IBOutlet UIView *wrapperView;
+
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+
+@property (nonatomic, strong) SVGDocument *uiElements;
 
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forwardBtn;
@@ -48,6 +53,12 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH"];
+    
+    CALayer *arrow_left = [self.uiElements layerWithIdentifier:@"arrow-left-normal"];
+    
+//    [self.view.layer addSublayer:arrow_left];
 }
 
 - (void)move:(int)amount {
@@ -65,6 +76,13 @@
         index = 0;
     
     [self loadResource:[ary objectAtIndex:index]];
+}
+
+- (BOOL)isPage:(NSString*)pageName beforePage:(NSString*)otherPageName {
+    
+    NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
+    
+    return [ary indexOfObject:pageName] < [ary indexOfObject:otherPageName];
 }
 
 - (IBAction)goForward:(id)sender {
@@ -92,15 +110,15 @@
 	animation.duration = 1.0f;
 	animation.autoreverses = YES;
 	animation.repeatCount = 100000;
-	animation.fromValue = @10.0f;
-	animation.toValue = @-10.0f;
+	animation.fromValue = @0.0f;
+	animation.toValue = @-20.0f;
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
 	[[self.contentView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
 }
 
-- (void)page1 {
+- (void)beginPage1 {
     
     SVGView *svgView = self.contentView;
     CALayer *layer = svgView.layer;
@@ -177,9 +195,19 @@
     });
 }
 
-- (void)page3 {
+- (void)preloadPage3 {
     
     SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = YES;
+    [svgView.document layerWithIdentifier:@"BUBBLES"].opacity = 0;
+}
+
+- (void)beginPage3 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
     
     CABasicAnimation *animation = nil;
     
@@ -208,8 +236,6 @@
 	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
     
     CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
-    
-    bubbles.opacity = 0;
     
     double delayInSeconds = 7.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -241,9 +267,25 @@
     });
 }
 
-- (void)page4 {
+- (void)preloadPage4 {
     
     SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = YES;
+    [svgView.document layerWithIdentifier:@"CLAM"].hidden = YES;
+    [svgView.document layerWithIdentifier:@"SAND"].hidden = YES;
+    
+    [svgView.document layerWithIdentifier:@"PABLOMIRROR"].opacity = 0;
+    [svgView.document layerWithIdentifier:@"BUBBLES"].opacity = 0;
+}
+
+- (void)beginPage4 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
+    [svgView.document layerWithIdentifier:@"CLAM"].hidden = NO;
+    [svgView.document layerWithIdentifier:@"SAND"].hidden = NO;
     
     CABasicAnimation *animation = nil;
     
@@ -272,9 +314,6 @@
     
     CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
     CALayer *pabloReflection = [svgView.document layerWithIdentifier:@"PABLOMIRROR"];
-    
-    bubbles.opacity = 0.0f;
-    pabloReflection.opacity = 0.0f;
     
     double delayInSeconds = 7.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -320,9 +359,18 @@
     });
 }
 
-- (void)page5 {
+- (void)preloadPage5 {
     
     SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = YES;
+}
+
+- (void)beginPage5 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
     
     CABasicAnimation *animation = nil;
     
@@ -380,7 +428,7 @@
     self.draggables = dictionary;
 }
 
-- (void)page5a {
+- (void)beginPage5a {
     
     [self animateSea];
     
@@ -440,6 +488,9 @@
         double delayInSeconds = 4.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            if(![self.pageNumber isEqualToString:@"5a"])
+                return;
             
             if(!placedAPiece)
                 playNextTrack();
@@ -600,9 +651,24 @@
 	[uma addAnimation:animation forKey:nil];
 }
 
-- (void)page6 {
+- (void)preloadPage6 {
     
     SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = YES;
+    
+    CALayer *ground = [svgView.document layerWithIdentifier:@"GROUND"];
+    CALayer *uma = [svgView.document layerWithIdentifier:@"UMA"];
+    
+    [ground setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
+    [uma setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
+}
+
+- (void)beginPage6 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
     
     CABasicAnimation *animation = nil;
     
@@ -620,9 +686,6 @@
     
     CALayer *ground = [svgView.document layerWithIdentifier:@"GROUND"];
     CALayer *uma = [svgView.document layerWithIdentifier:@"UMA"];
-    
-    [ground setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
-    [uma setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
     
     [self animateUma];
     
@@ -645,29 +708,34 @@
     });
 }
 
-- (void)page7 {
+- (void)beginPage7 {
     
     [self animateSea];
 }
 
-- (void)page8 {
+- (void)beginPage8 {
     
     [self animateSea];
 }
 
-- (void)page9 {
+- (void)preloadPage9 {
+    
+    SVGView *svgView = self.contentView;
+    
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(-600.0f, 0.0f);
+    
+    transform = CGAffineTransformScale(transform, 0.1f, 0.1f);
+    
+    [[svgView.document layerWithIdentifier:@"PABLO"] setAffineTransform:transform];
+}
+
+- (void)beginPage9 {
     
     SVGView *svgView = self.contentView;
     
     [self animateSea];
     
     CALayer *pablo = [svgView.document layerWithIdentifier:@"PABLO"];
-    
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(-600.0f, 0.0f);
-    
-    transform = CGAffineTransformScale(transform, 0.1f, 0.1f);
-    
-    [pablo setAffineTransform:transform];
     
     double delayInSeconds = 8.5f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -701,9 +769,18 @@
     });
 }
 
-- (void)page10 {
+- (void)preloadPage10 {
     
     SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"BASEBALL"].hidden = YES;
+}
+
+- (void)beginPage10 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [svgView.document layerWithIdentifier:@"BASEBALL"].hidden = NO;
     
     [self animateSea];
     
@@ -720,9 +797,28 @@
     [[svgView.document layerWithIdentifier:@"BASEBALL"] addAnimation:animation forKey:nil];
 }
 
-- (void)page11 {
+- (void)preloadPage11 {
     
     SVGView *svgView = self.contentView;
+    
+    CALayer *bubbles = [svgView.document layerWithIdentifier:@"BUBBLES"];
+    CALayer *pabloNeedles = [svgView.document layerWithIdentifier:@"PABLO NEEDLES"];
+    CALayer *germ =[svgView.document layerWithIdentifier:@"GERM"];
+    
+    bubbles.opacity = 0;
+    pabloNeedles.opacity = 0;
+    [germ setAffineTransform:CGAffineTransformMakeTranslation(600.0f, 0.0f)];
+    
+    [[svgView.document layerWithIdentifier:@"FRIENDS"] setAffineTransform:CGAffineTransformMakeTranslation(100.0f, 0.0f)];
+    [[svgView.document layerWithIdentifier:@"FISH"] setAffineTransform:CGAffineTransformMakeTranslation(200.0f, 0.0f)];
+}
+
+- (void)beginPage11 {
+    
+    SVGView *svgView = self.contentView;
+    
+    [[svgView.document layerWithIdentifier:@"FRIENDS"] setAffineTransform:CGAffineTransformIdentity];
+    [[svgView.document layerWithIdentifier:@"FISH"] setAffineTransform:CGAffineTransformIdentity];
     
     [self animateSea];
     
@@ -752,10 +848,6 @@
     CALayer *pablo = [svgView.document layerWithIdentifier:@"PABLO"];
     CALayer *pabloNeedles = [svgView.document layerWithIdentifier:@"PABLO NEEDLES"];
     CALayer *germ =[svgView.document layerWithIdentifier:@"GERM"];
-    
-    bubbles.opacity = 0;
-    pabloNeedles.opacity = 0;
-    [germ setAffineTransform:CGAffineTransformMakeTranslation(600.0f, 0.0f)];
     
     double delayInSeconds = 10.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -827,7 +919,7 @@
     // GERM
 }
 
-- (void)page12 {
+- (void)beginPage12 {
     
     [self animateSea];
     
@@ -836,7 +928,7 @@
     // GERM
 }
 
-- (void)page13 {
+- (void)beginPage13 {
     
     [self animateSea];
     
@@ -851,7 +943,7 @@
     // SAMMY
 }
 
-- (void)page14 {
+- (void)beginPage14 {
     
     [self animateSea];
     
@@ -860,55 +952,45 @@
     // GROUND
 }
 
-- (void)page15 {
+- (void)beginPage15 {
     
     [self animateSea];
     
     // PABLO
 }
 
-- (NSString*)pageNumber {
+- (NSString*)pageNumberFromName:(NSString*)pageName {
     
-    if(!_name.length)
+    if(!pageName.length)
         return nil;
     
-    NSMutableString *str = [_name mutableCopy];
+    NSMutableString *str = [pageName mutableCopy];
     
     [str deleteCharactersInRange:(NSRange){0, 2}];
     
     return [[str componentsSeparatedByString:@"."] objectAtIndex:0];
 }
 
-- (void)loadResource:(NSString *)name {
+- (NSString*)pageNumber {
     
-    [self.contentView.layer removeAllAnimations];
+    return [self pageNumberFromName:_name];
+}
+
+- (void)preloadScene {
     
-    [self.contentView removeFromSuperview];
+    SEL selector = NSSelectorFromString([@"preloadPage" stringByAppendingString:self.pageNumber]);
     
-    self.draggables = nil;
-    self.onAudioComplete = nil;
-    self.onPlacedPiece = nil;
-    self.onFailedPiecePlacement = nil;
+    if([self respondsToSelector:selector])
+        objc_msgSend(self, selector);
+}
+
+- (void)beginScene {
     
-	SVGDocument *document = [SVGDocument documentNamed:[name stringByAppendingPathExtension:@"svg"]];
-    
-	self.contentView = [[SVGView alloc] initWithDocument:document];
-	
-	_name = [name copy];
-    
-    [self.scrollView addSubview:self.contentView];
-    
-    [self.scrollView setContentSize:CGSizeMake(document.width, document.height)];
-    self.scrollView.minimumZoomScale = 0.334f;
-    self.scrollView.zoomScale = 0.334f;
-    
-    NSMutableString *str = [name mutableCopy];
+    NSMutableString *str = [_name mutableCopy];
     
     [str deleteCharactersInRange:(NSRange){0, 2}];
     
-    NSString *number = [self pageNumber];
-    
-    NSString *resource = [NSString stringWithFormat:@"Page %@", number];
+    NSString *resource = [NSString stringWithFormat:@"Page %@", self.pageNumber];
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"aif"];
     
@@ -922,50 +1004,72 @@
     
     [self.audioPlayer play];
     
-    if([number isEqualToString:@"1"])
-        [self page1];
+    objc_msgSend(self, NSSelectorFromString([@"beginPage" stringByAppendingString:self.pageNumber]));
+}
+
+- (void)loadResource:(NSString *)name {
     
-    if([number isEqualToString:@"3"])
-        [self page3];
+    [self.contentView.layer removeAllAnimations];
     
-    if([number isEqualToString:@"4"])
-        [self page4];
+    self.draggables = nil;
+    self.onAudioComplete = nil;
+    self.onPlacedPiece = nil;
+    self.onFailedPiecePlacement = nil;
     
-    if([number isEqualToString:@"5"])
-        [self page5];
+	SVGDocument *document = [SVGDocument documentNamed:[name stringByAppendingPathExtension:@"svg"]];
     
-    if([number isEqualToString:@"5a"])
-        [self page5a];
+    SVGView *lastContentView = self.contentView;
+    SVGView *newContentView = [[SVGView alloc] initWithDocument:document];
     
-    if([number isEqualToString:@"6"])
-        [self page6];
+    NSString *oldName = _name;
+	
+	_name = [name copy];
     
-    if([number isEqualToString:@"7"])
-        [self page7];
+	self.contentView = newContentView;
     
-    if([number isEqualToString:@"8"])
-        [self page8];
+    [self.scrollView setContentSize:CGSizeMake(document.width, document.height)];
+    self.scrollView.minimumZoomScale = 0.334f;
+    self.scrollView.zoomScale = 0.334f;
     
-    if([number isEqualToString:@"9"])
-        [self page9];
+    [self preloadScene];
     
-    if([number isEqualToString:@"10"])
-        [self page10];
-    
-    if([number isEqualToString:@"11"])
-        [self page11];
-    
-    if([number isEqualToString:@"12"])
-        [self page12];
-    
-    if([number isEqualToString:@"13"])
-        [self page13];
-    
-    if([number isEqualToString:@"14"])
-        [self page14];
-    
-    if([number isEqualToString:@"15"])
-        [self page15];
+    if(lastContentView) {
+        
+        UIView *containerView = self.wrapperView;
+        
+        UIViewAnimationOptions transition = 0;
+        
+        if([self isPage:oldName beforePage:name])
+            transition = UIViewAnimationOptionTransitionCurlUp;
+        else
+            transition = UIViewAnimationOptionTransitionCurlDown;
+        
+        NSString *newPageNum = [self pageNumberFromName:name];
+        NSString *oldPageNum = [self pageNumberFromName:oldName];
+        
+        if([newPageNum hasSuffix:@"a"] && newPageNum.integerValue == oldPageNum.integerValue)
+            transition = UIViewAnimationOptionTransitionCrossDissolve;
+        
+        if([oldPageNum hasSuffix:@"a"] && newPageNum.integerValue == oldPageNum.integerValue)
+            transition = UIViewAnimationOptionTransitionCrossDissolve;
+        
+        [UIView transitionWithView:containerView
+                          duration:0.75f
+                           options:transition
+                        animations:^{
+                            [lastContentView removeFromSuperview];
+                            [containerView insertSubview:newContentView atIndex:0];
+                        }
+                        completion:^(BOOL finished) {
+                            [self beginScene];
+                        }];
+    }
+    else {
+        
+        [self.wrapperView insertSubview:newContentView atIndex:0];
+        
+        [self beginScene];
+    }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
@@ -1005,6 +1109,7 @@
     
     [self setBackBtn:nil];
     [self setForwardBtn:nil];
+    [self setWrapperView:nil];
     [super viewDidUnload];
 }
 
