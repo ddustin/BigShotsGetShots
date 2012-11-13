@@ -154,6 +154,7 @@
 		586280981652EA64000809A5 /* You're a bigshot! 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862805A1652E9A2000809A5 /* You're a bigshot! 3.m4a */; };
 		586280991652EA64000809A5 /* You're a bigshot! 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862805B1652E9A2000809A5 /* You're a bigshot! 4.m4a */; };
 		5862809A1652EA64000809A5 /* You're a bigshot!.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862805C1652E9A2000809A5 /* You're a bigshot!.m4a */; };
+		5862809C16530CDC000809A5 /* bubbles.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5862809B16530CDC000809A5 /* bubbles.svg */; };
 		587E0E83164C40FC0000229A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E82164C40FC0000229A /* UIKit.framework */; };
 		587E0E85164C40FC0000229A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E84164C40FC0000229A /* Foundation.framework */; };
 		587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 587E0E8B164C40FC0000229A /* InfoPlist.strings */; };
@@ -372,6 +373,7 @@
 		5862805A1652E9A2000809A5 /* You're a bigshot! 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot! 3.m4a"; sourceTree = "<group>"; };
 		5862805B1652E9A2000809A5 /* You're a bigshot! 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot! 4.m4a"; sourceTree = "<group>"; };
 		5862805C1652E9A2000809A5 /* You're a bigshot!.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot!.m4a"; sourceTree = "<group>"; };
+		5862809B16530CDC000809A5 /* bubbles.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bubbles.svg; sourceTree = "<group>"; };
 		587E0E7E164C40FC0000229A /* BigShotsGetShots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigShotsGetShots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587E0E82164C40FC0000229A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		587E0E84164C40FC0000229A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -624,6 +626,7 @@
 		5862801816525AA2000809A5 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				5862809B16530CDC000809A5 /* bubbles.svg */,
 				58AE6247164C85BD001CBB42 /* ResourceList.plist */,
 				588F6921164DC3BB001D6FEC /* pg1.svg */,
 				588F6923164DC3BB001D6FEC /* pg3.svg */,
@@ -1174,6 +1177,7 @@
 				5862801516525A8D000809A5 /* 14a_puzzle_14a_cut.png in Resources */,
 				5862801616525A8D000809A5 /* 14a_puzzle_14a_cut@2x.png in Resources */,
 				5862801D1652CD9B000809A5 /* UI_pablo-NH.svg in Resources */,
+				5862809C16530CDC000809A5 /* bubbles.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
