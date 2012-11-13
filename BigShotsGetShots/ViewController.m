@@ -26,7 +26,7 @@
 // Keys are the layer names of the items that can be dragged.
 // Values are NSValue's holding CGRect's. Once dragged by the user, the named layer's
 // frame will be set to to this value.
-@property (nonatomic, strong) NSDictionary *draggables;
+@property (nonatomic, strong) NSMutableDictionary *draggables;
 
 @end
 
@@ -364,14 +364,14 @@
     [self animateSea];
     
     self.draggables =
-    @{
-    @"BO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"BO_DEST"].frame],
-    @"TUNA_TRIPS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"TUNA_TRIPS_DEST"].frame],
-    @"KAT" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"KAT_DEST"].frame],
-    @"SAMMY" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"SAMMY_DEST"].frame],
-    @"CHRIS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"CHRIS_DEST"].frame],
-    @"PABLO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"PABLO_DEST"].frame],
-    };
+    [@{
+     @"BO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"BO_DEST"].frame],
+     @"TUNA_TRIPS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"TUNA_TRIPS_DEST"].frame],
+     @"KAT" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"KAT_DEST"].frame],
+     @"SAMMY" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"SAMMY_DEST"].frame],
+     @"CHRIS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"CHRIS_DEST"].frame],
+     @"PABLO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"PABLO_DEST"].frame],
+     } mutableCopy];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -427,6 +427,8 @@
     if(!self.draggingLayer)
         return;
     
+    CGRect dragRect = self.draggingLayer.frame;
+    
     self.draggingLayer.affineTransform = CGAffineTransformIdentity;
     
     NSValue *dest = [self.draggables objectForKey:self.draggingLayer.name];
@@ -435,9 +437,14 @@
     
     CGRect rect = [dest CGRectValue];
     
+    if(!CGRectIntersectsRect(rect, dragRect))
+        return;
+    
     self.draggingLayer.affineTransform = CGAffineTransformMakeScale(rect.size.width / self.draggingLayer.frame.size.width, rect.size.height / self.draggingLayer.frame.size.height);
     
     self.draggingLayer.frame = rect;
+    
+    [self.draggables removeObjectForKey:self.draggingLayer.name];
     
     self.draggingLayer = nil;
 }
