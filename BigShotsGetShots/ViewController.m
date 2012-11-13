@@ -363,11 +363,14 @@
     
     [self animateSea];
     
-    CALayer *bo_dest = [self.contentView.document layerWithIdentifier:@"BO_DEST"];
-    
     self.draggables =
     @{
-    @"BO" : [NSValue valueWithCGRect:bo_dest.frame]
+    @"BO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"BO_DEST"].frame],
+    @"TUNA_TRIPS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"TUNA_TRIPS_DEST"].frame],
+    @"KAT" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"KAT_DEST"].frame],
+    @"SAMMY" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"SAMMY_DEST"].frame],
+    @"CHRIS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"CHRIS_DEST"].frame],
+    @"PABLO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"PABLO_DEST"].frame],
     };
 }
 
@@ -430,7 +433,11 @@
     
     NSParameterAssert(dest);
     
-    self.draggingLayer.frame = [dest CGRectValue];
+    CGRect rect = [dest CGRectValue];
+    
+    self.draggingLayer.affineTransform = CGAffineTransformMakeScale(rect.size.width / self.draggingLayer.frame.size.width, rect.size.height / self.draggingLayer.frame.size.height);
+    
+    self.draggingLayer.frame = rect;
     
     self.draggingLayer = nil;
 }
