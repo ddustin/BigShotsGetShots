@@ -23,6 +23,11 @@
 
 @property (nonatomic, assign) CGPoint firstPoint;
 
+// Keys are the layer names of the items that can be dragged.
+// Values are NSValue's holding CGRect's. Once dragged by the user, the named layer's
+// frame will be set to to this value.
+@property (nonatomic, strong) NSDictionary *draggables;
+
 @end
 
 @implementation ViewController
@@ -31,6 +36,7 @@
 @synthesize audioPlayer;
 @synthesize draggingLayer;
 @synthesize firstPoint;
+@synthesize draggables;
 
 - (void)viewDidLoad {
     
@@ -356,6 +362,13 @@
 - (void)page5a {
     
     [self animateSea];
+    
+    CALayer *bo_dest = [self.contentView.document layerWithIdentifier:@"BO_DEST"];
+    
+    self.draggables =
+    @{
+    @"BO" : [NSValue valueWithCGRect:bo_dest.frame]
+    };
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -368,7 +381,7 @@
     
     point = [self.contentView.layer convertPoint:point fromLayer:touch.view.layer];
     
-    NSArray *names = @[ @"BO", @"TUNA_TRIPS", @"KAT", @"SAMMY", @"CHRIS", @"PABLO" ];
+    NSArray *names = self.draggables.allKeys;
     
     while(layer && ![names containsObject:layer.name])
         layer = layer.superlayer;
@@ -412,6 +425,12 @@
         return;
     
     self.draggingLayer.affineTransform = CGAffineTransformIdentity;
+    
+    NSValue *dest = [self.draggables objectForKey:self.draggingLayer.name];
+    
+    NSParameterAssert(dest);
+    
+    self.draggingLayer.frame = [dest CGRectValue];
     
     self.draggingLayer = nil;
 }
@@ -727,6 +746,8 @@
     [self.contentView.layer removeAllAnimations];
     
     [self.contentView removeFromSuperview];
+    
+    self.draggables = nil;
     
 	SVGDocument *document = [SVGDocument documentNamed:[name stringByAppendingPathExtension:@"svg"]];
     
