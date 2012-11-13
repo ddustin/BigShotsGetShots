@@ -19,23 +19,18 @@
 // The number of the page (may contain a letter on the end ie. 5a).
 @property (nonatomic, readonly) NSString *pageNumber;
 
+@property (nonatomic, strong) CALayer *draggingLayer;
+
+@property (nonatomic, assign) CGPoint firstPoint;
+
 @end
 
 @implementation ViewController
 @synthesize scrollView;
 @synthesize toolbar, contentView, detailItem;
 @synthesize audioPlayer;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if(self) {
-        
-    }
-    
-    return self;
-}
+@synthesize draggingLayer;
+@synthesize firstPoint;
 
 - (void)viewDidLoad {
     
@@ -106,24 +101,12 @@
 	animation.duration = 1.5f;
 	animation.autoreverses = YES;
 	animation.repeatCount = 100000;
-	animation.fromValue = @2.0f;
-	animation.toValue = @-2.0f;
+	animation.fromValue = @3.0f;
+	animation.toValue = @-3.0f;
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
 	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
-    
-	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
-    
-	animation.duration = 1.5f;
-	animation.autoreverses = YES;
-	animation.repeatCount = 100000;
-	animation.fromValue = @2.0f;
-	animation.toValue = @-2.0f;
-    
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	
-	[[svgView.document layerWithIdentifier:@"KAT"] addAnimation:animation forKey:nil];
     
     double delayInSeconds = 4.5f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -368,6 +351,59 @@
             [tmp addAnimation:animation forKey:nil];
         });
     }
+}
+
+- (void)page5a {
+    
+    [self animateSea];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    
+    CGPoint point = [touch locationInView:touch.view];
+    
+    CALayer *layer = [self.contentView.layer hitTest:point];
+    
+    point = [self.contentView.layer convertPoint:point fromLayer:touch.view.layer];
+    
+    NSArray *names = @[ @"BO", @"TUNA_TRIPS", @"KAT", @"SAMMY", @"CHRIS", @"PABLO" ];
+    
+    while(layer && ![names containsObject:layer.name])
+        layer = layer.superlayer;
+    
+    if(layer) {
+        
+        self.draggingLayer = layer;
+        
+        firstPoint = point;
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    
+    CGPoint point = [touch locationInView:touch.view];
+    
+    point = [self.contentView.layer convertPoint:point fromLayer:touch.view.layer];
+    
+    self.draggingLayer.affineTransform = CGAffineTransformMakeTranslation(point.x - firstPoint.x, point.y - firstPoint.y);
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    self.draggingLayer.affineTransform = CGAffineTransformIdentity;
+    
+    self.draggingLayer = nil;
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    self.draggingLayer.affineTransform = CGAffineTransformIdentity;
+    
+    self.draggingLayer = nil;
 }
 
 - (void)animateUma {
@@ -715,6 +751,9 @@
     
     if([number isEqualToString:@"5"])
         [self page5];
+    
+    if([number isEqualToString:@"5a"])
+        [self page5a];
     
     if([number isEqualToString:@"6"])
         [self page6];
