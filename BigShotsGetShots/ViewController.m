@@ -28,6 +28,11 @@
 // frame will be set to to this value.
 @property (nonatomic, strong) NSMutableDictionary *draggables;
 
+@property (nonatomic, copy) void (^onAudioComplete)(AVAudioPlayer *player);
+
+@property (nonatomic, copy) void (^onPlacedPiece)(NSString *pieceName);
+@property (nonatomic, copy) void (^onFailedPiecePlacement)(NSString *pieceName);
+
 @end
 
 @implementation ViewController
@@ -37,6 +42,8 @@
 @synthesize draggingLayer;
 @synthesize firstPoint;
 @synthesize draggables;
+@synthesize onAudioComplete;
+@synthesize onPlacedPiece, onFailedPiecePlacement;
 
 - (void)viewDidLoad {
     
@@ -359,19 +366,121 @@
     }
 }
 
+- (void)setDraggablesUsingIdentifiers:(NSDictionary*)identifiers {
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    for(id key in identifiers) {
+        
+        CALayer *layer = [self.contentView.document layerWithIdentifier:[identifiers objectForKey:key]];
+        
+        [dictionary setObject:[NSValue valueWithCGRect:layer.frame] forKey:key];
+    }
+    
+    self.draggables = dictionary;
+}
+
 - (void)page5a {
     
     [self animateSea];
     
-    self.draggables =
+    [self setDraggablesUsingIdentifiers:
+     @{
+     @"BO": @"BO_DEST",
+     @"TUNA_TRIPS": @"TUNA_TRIPS_DEST",
+     @"KAT": @"KAT_DEST",
+     @"SAMMY": @"SAMMY_DEST",
+     @"CHRIS": @"CHRIS_DEST",
+     @"PABLO": @"PABLO_DEST",
+     }];
+    
+    __block NSMutableDictionary *trackByIdentifier =
     [@{
-     @"BO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"BO_DEST"].frame],
-     @"TUNA_TRIPS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"TUNA_TRIPS_DEST"].frame],
-     @"KAT" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"KAT_DEST"].frame],
-     @"SAMMY" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"SAMMY_DEST"].frame],
-     @"CHRIS" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"CHRIS_DEST"].frame],
-     @"PABLO" : [NSValue valueWithCGRect:[self.contentView.document layerWithIdentifier:@"PABLO_DEST"].frame],
-     } mutableCopy];
+    @"BO": @"Can you find the Beardfish",
+    @"TUNA_TRIPS": @"Can you find the Tuna fish",
+    @"SAMMY": @"Can you find the Seahorse",
+    @"KAT": @"Can you find the Catfish",
+    @"PABLO": @"Can you find the Pufferfish",
+    } mutableCopy];
+    
+    void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+        
+        NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
+        
+        [self.audioPlayer stop];
+        self.audioPlayer.delegate = nil;
+        
+        NSError *error = nil;
+        
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        
+        self.audioPlayer.delegate = self;
+        
+        [self.audioPlayer play];
+    };
+    
+    void (^playNextTrack)() = ^{
+        
+        if(![trackByIdentifier count])
+            return;
+        
+        NSArray *keys = trackByIdentifier.allKeys;
+        
+        NSString *track = [trackByIdentifier objectForKey:[keys objectAtIndex:rand() % keys.count]];
+        
+        playTrack(track, @"aif");
+    };
+    
+    __block BOOL placedAPiece = NO;
+    
+    self.onAudioComplete = ^(AVAudioPlayer *player) {
+        
+        self.onAudioComplete = nil;
+        
+        double delayInSeconds = 4.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            if(!placedAPiece)
+                playNextTrack();
+        });
+    };
+    
+    self.onPlacedPiece = ^(NSString *pieceName) {
+        
+        placedAPiece = YES;
+        
+        [trackByIdentifier removeObjectForKey:pieceName];
+        
+        if(!draggables.count) {
+            
+            playTrack(@"You're a bigshot!", @"aif");
+        }
+        else {
+            
+            NSArray *sounds =
+            @[@"Great Job",
+            @"Way to go!",
+            @"You're a bigshot!"
+            ];
+            
+            playTrack([sounds objectAtIndex:rand() % sounds.count], @"aif");
+            
+            self.onAudioComplete = ^(AVAudioPlayer *player) {
+                
+                self.onAudioComplete = nil;
+                
+                playNextTrack();
+            };
+        }
+    };
+    
+    self.onFailedPiecePlacement = ^(NSString *pieceName) {
+        
+        playTrack(@"Try Again", @"aif");
+    };
+    
+    playTrack(@"Can you find Pablos friends", @"aif");
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -442,16 +551,26 @@
     
     CGRect rect = [dest CGRectValue];
     
-    if(!CGRectIntersectsRect(rect, dragRect))
+    NSString *pieceName = self.draggingLayer.name;
+    
+    if(!CGRectIntersectsRect(rect, dragRect)) {
+        
+        if(self.onFailedPiecePlacement)
+            self.onFailedPiecePlacement(pieceName);
+        
         return;
+    }
     
     self.draggingLayer.affineTransform = CGAffineTransformMakeScale(rect.size.width / self.draggingLayer.frame.size.width, rect.size.height / self.draggingLayer.frame.size.height);
     
     self.draggingLayer.frame = rect;
     
-    [self.draggables removeObjectForKey:self.draggingLayer.name];
+    [self.draggables removeObjectForKey:pieceName];
     
     self.draggingLayer = nil;
+    
+    if(self.onPlacedPiece)
+        self.onPlacedPiece(pieceName);
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -767,6 +886,9 @@
     [self.contentView removeFromSuperview];
     
     self.draggables = nil;
+    self.onAudioComplete = nil;
+    self.onPlacedPiece = nil;
+    self.onFailedPiecePlacement = nil;
     
 	SVGDocument *document = [SVGDocument documentNamed:[name stringByAppendingPathExtension:@"svg"]];
     
@@ -859,6 +981,11 @@
         self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         
         [self.audioPlayer play];
+    }
+    else {
+        
+        if(self.onAudioComplete)
+            self.onAudioComplete(player);
     }
 }
 

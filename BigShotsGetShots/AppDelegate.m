@@ -11,6 +11,7 @@
 #import "SVGDocumentView.h"
 #import "ViewController.h"
 #import "BWQuincyManager.h"
+#import <AVFoundation/AVAudioSession.h>
 
 @interface AppDelegate()
 
@@ -32,6 +33,10 @@
 {
     [[BWQuincyManager sharedQuincyManager] setAutoSubmitCrashReport:YES];
     [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://www.agileordering.com/quincy/crash_v200.php"];
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    srand(time(0));
     
     self.viewController = [ViewController new];
     
