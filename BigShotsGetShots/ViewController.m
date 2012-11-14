@@ -671,7 +671,7 @@
 
 - (void)beginPage5a {
     
-    self.dragMultiplier = 2;
+    self.dragMultiplier = 1.3;
     
     [self animateSea];
     
