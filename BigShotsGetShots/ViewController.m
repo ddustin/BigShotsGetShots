@@ -782,6 +782,22 @@
         playTrack(@"Try Again", @"m4a");
     };
     
+    NSDictionary *audioForPiece =
+    @{
+    @"BO": @"Beardfish",
+    @"CHRIS": @"Crab",
+    @"PABLO": @"Pufferfish",
+    @"SAMMY": @"Seahorse",
+    @"TUNA_TRIPS": @"Tuna",
+    };
+    
+    __block id bself = self;
+    
+    self.onPieceTapped = ^(NSString *pieceName) {
+        
+        [bself playTrack:[audioForPiece objectForKey:pieceName] extension:@"m4a"];
+    };
+    
     playTrack(@"Drag and Drop Pablo's Friends", @"m4a");
 }
 
