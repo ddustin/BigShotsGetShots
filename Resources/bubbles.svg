@@ -4,18 +4,17 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="612px" height="792px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
 <g id="BUBBLES" opacity="0.5">
-	<circle id="BUBBLE11" fill="#FFFFFF" cx="367.14" cy="653.881" r="45.596"/>
-	<path id="BUBBLE10" fill="#FFFFFF" d="M366.244,506.364c13.825,0,25.033,11.207,25.033,25.032
-		c0,13.823-11.208,25.032-25.033,25.032c-13.822,0-25.031-11.209-25.031-25.032C341.213,517.571,352.422,506.364,366.244,506.364z"
-		/>
-	<circle id="BUBBLE9" fill="#FFFFFF" cx="429.721" cy="457.19" r="9.835"/>
-	<circle id="BUBBLE8" fill="#FFFFFF" cx="223.823" cy="213.391" r="20.564"/>
-	<circle id="BUBBLE7" fill="#FFFFFF" cx="284.886" cy="401.762" r="9.835"/>
-	<circle id="BUBBLE6" fill="#FFFFFF" cx="219.623" cy="320.402" r="30.396"/>
-	<circle id="BUBBLE5" fill="#FFFFFF" cx="347.47" cy="328.448" r="24.139"/>
-	<circle id="BUBBLE4" fill="#FFFFFF" cx="302.767" cy="256.927" r="13.41"/>
-	<circle id="BUBBLE3" fill="#FFFFFF" cx="293.828" cy="183.615" r="8.047"/>
-	<circle id="BUBBLE2" fill="#FFFFFF" cx="351.046" cy="119.243" r="4.471"/>
-	<circle id="BUBBLE1" fill="#FFFFFF" cx="384.125" cy="59.344" r="7.153"/>
+	<circle id="BUBBLE11" fill="#FFFFFF" cx="380.57" cy="542.286" r="37.139"/>
+	<path id="BUBBLE10" fill="#FFFFFF" d="M379.841,422.129c11.262,0,20.391,9.128,20.391,20.39c0,11.259-9.129,20.39-20.391,20.39
+		c-11.258,0-20.389-9.131-20.389-20.39C359.452,431.257,368.583,422.129,379.841,422.129z"/>
+	<circle id="BUBBLE9" fill="#FFFFFF" cx="431.545" cy="382.075" r="8.011"/>
+	<circle id="BUBBLE8" fill="#FFFFFF" cx="263.835" cy="183.493" r="16.75"/>
+	<circle id="BUBBLE7" fill="#FFFFFF" cx="313.572" cy="336.927" r="8.011"/>
+	<circle id="BUBBLE6" fill="#FFFFFF" cx="260.414" cy="270.657" r="24.759"/>
+	<circle id="BUBBLE5" fill="#FFFFFF" cx="364.549" cy="277.211" r="19.662"/>
+	<circle id="BUBBLE4" fill="#FFFFFF" cx="328.137" cy="218.955" r="10.923"/>
+	<circle id="BUBBLE3" fill="#FFFFFF" cx="320.856" cy="159.239" r="6.554"/>
+	<circle id="BUBBLE2" fill="#FFFFFF" cx="367.462" cy="106.807" r="3.642"/>
+	<circle id="BUBBLE1" fill="#FFFFFF" cx="394.405" cy="58.017" r="5.827"/>
 </g>
 </svg>
