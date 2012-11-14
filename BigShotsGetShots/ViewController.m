@@ -28,6 +28,8 @@
 
 @property (nonatomic, assign) CGPoint firstPoint;
 
+@property (nonatomic, assign) CGFloat totalDragMovement;
+
 // Keys are the layer names of the items that can be dragged.
 // Values are NSValue's holding CGRect's. Once dragged by the user, the named layer's
 // frame will be set to to this value.
@@ -52,6 +54,7 @@
 @synthesize audioPlayer;
 @synthesize draggingLayer;
 @synthesize firstPoint;
+@synthesize totalDragMovement;
 @synthesize draggables;
 @synthesize onAudioComplete;
 @synthesize onPieceTapped;
@@ -584,7 +587,9 @@
     }
     
     NSArray *array = @[
-    @[ @5.75f, @"TUNA TRIPS"],
+    @[ @5.75f, @"TOMMY"],
+    @[ @6.55f, @"TINA"],
+    @[ @7.25f, @"TED"],
     @[ @8.5f, @"CHRIS"],
     @[ @9.75f, @"BO"],
     @[ @11.0f, @"SAMMY"],
@@ -712,6 +717,9 @@
     
     void (^playNextTrack)() = ^{
         
+        // Disabling can you find for now.
+        return;
+        
         if(![trackByIdentifier count])
             return;
         
@@ -777,9 +785,12 @@
         };
     };
     
+    __block ViewController *bself = self;
+    
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
         
-        playTrack(@"Try Again", @"m4a");
+        if(bself.totalDragMovement > 20000)
+            playTrack(@"Try Again", @"m4a");
     };
     
     NSDictionary *audioForPiece =
@@ -789,9 +800,8 @@
     @"PABLO": @"Pufferfish",
     @"SAMMY": @"Seahorse",
     @"TUNA_TRIPS": @"Tuna",
+    @"KAT": @"Catfish"
     };
-    
-    __block id bself = self;
     
     self.onPieceTapped = ^(NSString *pieceName) {
         
@@ -1301,6 +1311,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     self.draggingLayer = nil;
+    totalDragMovement = 0;
     
     UITouch *touch = [touches anyObject];
     
@@ -1348,6 +1359,8 @@
     CGPoint point = [touch locationInView:self.wrapperView];
     
     point = [self.contentView.layer convertPoint:point fromLayer:self.wrapperView.layer];
+    
+    totalDragMovement += fabsf(point.x - firstPoint.x) + fabsf(point.y - firstPoint.y);
     
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
