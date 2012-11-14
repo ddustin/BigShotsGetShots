@@ -68,7 +68,11 @@
     
     CALayer *arrow_left = [self.uiElements layerWithIdentifier:@"arrow-left-normal"];
     
-//    [self.view.layer addSublayer:arrow_left];
+    [self.view.layer addSublayer:arrow_left];
+    
+    CALayer *arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
+    
+    [self.view.layer addSublayer:arrow_right];
 }
 
 - (void)move:(int)amount {
@@ -588,8 +592,8 @@
     
     NSArray *array = @[
     @[ @5.75f, @"TOMMY"],
-    @[ @6.55f, @"TINA"],
-    @[ @7.25f, @"TED"],
+    @[ @6.45f, @"TINA"],
+    @[ @6.9f, @"TED"],
     @[ @8.5f, @"CHRIS"],
     @[ @9.75f, @"BO"],
     @[ @11.0f, @"SAMMY"],
