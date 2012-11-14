@@ -35,6 +35,8 @@
 
 @property (nonatomic, copy) void (^onAudioComplete)(AVAudioPlayer *player);
 
+@property (nonatomic, copy) void (^onPieceTapped)(NSString *pieceName);
+
 @property (nonatomic, copy) void (^onPiecePickedUp)(NSString *pieceName);
 @property (nonatomic, copy) void (^onPlacedPiece)(NSString *pieceName);
 @property (nonatomic, copy) void (^onFailedPiecePlacement)(NSString *pieceName);
@@ -52,6 +54,7 @@
 @synthesize firstPoint;
 @synthesize draggables;
 @synthesize onAudioComplete;
+@synthesize onPieceTapped;
 @synthesize onPiecePickedUp, onPlacedPiece, onFailedPiecePlacement;
 
 - (void)viewDidLoad {
@@ -481,20 +484,11 @@
         [self.draggables setObject:[puzzleEnumerator nextObject] forKey:name];
     }
     
+    __block id bself = self;
+    
     void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
-        NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
-        
-        [self.audioPlayer stop];
-        self.audioPlayer.delegate = nil;
-        
-        NSError *error = nil;
-        
-        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        
-        self.audioPlayer.delegate = self;
-        
-        [self.audioPlayer play];
+        [bself playTrack:track extension:extension];
     };
     
     self.onPiecePickedUp = ^(NSString *pieceName) {
@@ -552,28 +546,42 @@
     
     SVGView *svgView = self.contentView;
     
-    [svgView.document layerWithIdentifier:@"PABLO"].hidden = YES;
+    float multiplier = 1.5f;
+    
+    [svgView.document layerWithIdentifier:@"TUNA TRIPS"].affineTransform = CGAffineTransformMakeTranslation(60.0f * multiplier, -20.0f * multiplier);
+    
+    [svgView.document layerWithIdentifier:@"KAY"].affineTransform = CGAffineTransformMakeTranslation(0.0f * multiplier, 20.0f * multiplier);
+    
+	[svgView.document layerWithIdentifier:@"SAMMY"].affineTransform = CGAffineTransformMakeTranslation(-20.0f * multiplier, -10.0f * multiplier);
+    
+	[svgView.document layerWithIdentifier:@"BO"].affineTransform = CGAffineTransformMakeTranslation(-60.0f * multiplier, -20.0f * multiplier);
+    
+	[svgView.document layerWithIdentifier:@"PABLO"].affineTransform = CGAffineTransformMakeTranslation(-55.0f * multiplier, 0.0f * multiplier);
 }
 
 - (void)beginPage5 {
     
     SVGView *svgView = self.contentView;
     
-    [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
-    
     CABasicAnimation *animation = nil;
     
     [self animateSea];
     
-	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
-    
-	animation.duration = 4.5f;
-	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-600.0f, 0.0f)];
-	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
-    
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-	
-	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    for(NSString *name in @[ @"TUNA TRIPS", @"KAY", @"SAMMY", @"BO", @"PABLO" ]) {
+        
+        CALayer *layer = [svgView.document layerWithIdentifier:name];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        
+        animation.duration = 3.0f;
+        animation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [layer addAnimation:animation forKey:nil];
+    }
     
     NSArray *array = @[
     @[ @5.75f, @"TUNA TRIPS"],
@@ -581,6 +589,15 @@
     @[ @9.75f, @"BO"],
     @[ @11.0f, @"SAMMY"],
     ];
+    
+    __block BOOL doneTalking = NO;
+    
+    double delayInSeconds = 12.0f;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        doneTalking = YES;
+    });
     
     for(NSArray *items in array) {
         
@@ -591,7 +608,7 @@
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
             
             animation.duration = 0.5f;
-            animation.fromValue = @1.15f;
+            animation.fromValue = @1.3f;
             animation.toValue = @1.0f;
             
             animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
@@ -601,6 +618,55 @@
             [tmp addAnimation:animation forKey:nil];
         });
     }
+    
+    NSDictionary *audioForPiece =
+    @{
+    @"BO": @"Beardfish",
+    @"CHRIS": @"Crab",
+    @"PABLO": @"Pufferfish",
+    @"SAMMY": @"Seahorse",
+    @"TUNA_TRIPS": @"Tuna",
+    };
+    
+    __block NSMutableArray *friends = [audioForPiece.allKeys mutableCopy];
+    
+    [friends removeObject:@"PABLO"];
+    
+    __block id bself = self;
+    
+    self.onPieceTapped = ^(NSString *pieceName) {
+        
+        NSString *track = [audioForPiece objectForKey:pieceName];
+        
+        if(doneTalking && track) {
+            
+            [bself playTrack:track extension:@"m4a"];
+            
+            [friends removeObject:pieceName];
+            
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+            
+            animation.duration = 0.5f;
+            animation.fromValue = @1.3f;
+            animation.toValue = @1.0f;
+            
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+            
+            [[svgView.document layerWithIdentifier:pieceName] addAnimation:animation forKey:nil];
+            
+            if(friends && !friends.count) {
+                
+                friends = nil;
+                
+                self.onAudioComplete = ^(AVAudioPlayer *player) {
+                    
+                    self.onAudioComplete = nil;
+                    
+                    [bself playTrack:@"Job well done you found all of Pablo's friends" extension:@"m4a"];
+                };
+            }
+        }
+    };
 }
 
 - (void)beginPage5a {
@@ -716,7 +782,7 @@
         playTrack(@"Try Again", @"m4a");
     };
     
-    playTrack(@"Can you find Pablos friends", @"m4a");
+    playTrack(@"Drag and Drop Pablo's Friends", @"m4a");
 }
 
 - (void)preloadPage6 {
@@ -1136,6 +1202,7 @@
     self.onAudioComplete = nil;
     self.onPlacedPiece = nil;
     self.onPiecePickedUp = nil;
+    self.onPieceTapped = nil;
     self.onFailedPiecePlacement = nil;
     
 	SVGDocument *document = [SVGDocument documentNamed:[name stringByAppendingPathExtension:@"svg"]];
@@ -1228,6 +1295,11 @@
     point = [self.contentView.layer convertPoint:point fromLayer:self.wrapperView.layer];
     
     NSArray *names = self.draggables.allKeys;
+    
+    if(self.onPieceTapped)
+        for(CALayer *tmp = layer; tmp; tmp = tmp.superlayer)
+            if(tmp.name)
+                self.onPieceTapped(tmp.name);
     
     while(layer && ![names containsObject:layer.name])
         layer = layer.superlayer;
@@ -1370,6 +1442,22 @@
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
 	[[self.contentView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+}
+
+- (void)playTrack:(NSString*)track extension:(NSString*)extension {
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
+    
+    [self.audioPlayer stop];
+    self.audioPlayer.delegate = nil;
+    
+    NSError *error = nil;
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    
+    self.audioPlayer.delegate = self;
+    
+    [self.audioPlayer play];
 }
 
 - (void)animateUma {
