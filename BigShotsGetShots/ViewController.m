@@ -1446,7 +1446,13 @@
 
 - (void)playTrack:(NSString*)track extension:(NSString*)extension {
     
+    if(!track)
+        return;
+    
     NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
+    
+    if(!url)
+        return;
     
     [self.audioPlayer stop];
     self.audioPlayer.delegate = nil;
