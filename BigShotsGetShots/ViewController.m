@@ -341,6 +341,101 @@
         
         [pabloReflection addAnimation:animation forKey:nil];
     });
+    
+    delayInSeconds = 10.0;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+        
+        animation.duration = 0.25f;
+        animation.autoreverses = YES;
+        animation.fromValue = @0.0f;
+        animation.toValue = @-25.0f;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        
+        [[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        
+        animation.duration = 0.25f;
+        animation.autoreverses = YES;
+        animation.fromValue = @1.0f;
+        animation.toValue = @0.9f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        
+        [[svgView.document layerWithIdentifier:@"PABLOMIRROR"] addAnimation:animation forKey:nil];
+    });
+    
+    float fallTime = 0.5f;
+    
+    delayInSeconds = 13.5;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        
+        animation.duration = fallTime;
+        animation.fromValue = @0.0f;
+        animation.toValue = @190.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        
+        animation.duration = fallTime;
+        animation.fromValue = @0.0f;
+        animation.toValue = @50.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"PABLOMIRROR"] addAnimation:animation forKey:nil];
+    });
+    
+    delayInSeconds += fallTime + 2.5f;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+        
+        animation.duration = 6.0f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @-190.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        
+        animation.duration = 6.0f;
+        animation.fromValue = @1.0f;
+        animation.toValue = @0.75f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"PABLOMIRROR"] addAnimation:animation forKey:nil];
+    });
 }
 
 - (void)preloadPage4a {
