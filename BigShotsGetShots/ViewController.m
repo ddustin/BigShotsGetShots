@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
+@property (nonatomic, strong) AVAudioPlayer *musicPlayer;
+
 @property (nonatomic, strong) SVGDocument *uiElements;
 
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
@@ -51,7 +53,7 @@
 @implementation ViewController
 @synthesize scrollView;
 @synthesize toolbar, contentView, detailItem;
-@synthesize audioPlayer;
+@synthesize audioPlayer, musicPlayer;
 @synthesize draggingLayer;
 @synthesize firstPoint;
 @synthesize totalDragMovement;
@@ -76,6 +78,8 @@
     
     CGPoint position = self.backBtn.layer.position;
     
+    position.y += 10.0f;
+    
     arrow_left.position = position;
     
     [self.backBtn.layer.superlayer insertSublayer:arrow_left atIndex:0];
@@ -93,6 +97,10 @@
     arrow_right.position = position;
     
     [self.backBtn.layer.superlayer insertSublayer:arrow_right atIndex:0];
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"m_musicLoop_01" withExtension:@"m4a"];
+    
+    self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
 }
 
 - (void)move:(int)amount {
