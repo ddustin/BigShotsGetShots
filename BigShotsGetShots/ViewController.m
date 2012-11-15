@@ -68,11 +68,31 @@
     
     CALayer *arrow_left = [self.uiElements layerWithIdentifier:@"arrow-left-normal"];
     
-    [self.view.layer addSublayer:arrow_left];
+    arrow_left.position = CGPointMake(arrow_left.frame.size.width / 2, arrow_left.frame.size.height / 2);
+    
+    arrow_left.affineTransform = CGAffineTransformMakeScale(0.5f, 0.5f);
+    
+    arrow_left.name = @"LEFT";
+    
+    CGPoint position = self.backBtn.layer.position;
+    
+    arrow_left.position = position;
+    
+    [self.backBtn.layer.superlayer insertSublayer:arrow_left atIndex:0];
     
     CALayer *arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
     
-    [self.view.layer addSublayer:arrow_right];
+    arrow_right.position = CGPointMake(arrow_right.frame.size.width / 2, arrow_right.frame.size.height / 2);
+    
+    arrow_right.affineTransform = CGAffineTransformMakeScale(0.5f, 0.5f);
+    
+    arrow_right.name = @"RIGHT";
+    
+    position.x += 400.0f;
+    
+    arrow_right.position = position;
+    
+    [self.backBtn.layer.superlayer insertSublayer:arrow_right atIndex:0];
 }
 
 - (void)move:(int)amount {
@@ -1212,7 +1232,7 @@
     
     self.audioPlayer.delegate = self;
     
-    [self.audioPlayer play];
+//    [self.audioPlayer play];
     
     objc_msgSend(self, NSSelectorFromString([@"beginPage" stringByAppendingString:self.pageNumber]));
 }
@@ -1310,6 +1330,20 @@
         if(self.onAudioComplete)
             self.onAudioComplete(player);
     }
+}
+
+- (CALayer *)layerForTouch:(UITouch *)touch {
+    UIView *view = self.view;
+    
+    CGPoint location = [touch locationInView:view];
+    location = [view convertPoint:location toView:nil];
+    
+    CALayer *hitPresentationLayer = [view.layer.presentationLayer hitTest:location];
+    if (hitPresentationLayer) {
+        return hitPresentationLayer.modelLayer;
+    }
+    
+    return nil;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -1496,7 +1530,7 @@
     
     self.audioPlayer.delegate = self;
     
-    [self.audioPlayer play];
+//    [self.audioPlayer play];
 }
 
 - (void)animateUma {
@@ -1577,7 +1611,7 @@
     
     NSMutableArray *ret = [NSMutableArray array];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, -100, 312, 226)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(260, 260, 312, 226)]];
     [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 232, 335)]];
     
     [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];
