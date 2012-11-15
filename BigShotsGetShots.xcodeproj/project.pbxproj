@@ -156,6 +156,10 @@
 		5862809A1652EA64000809A5 /* You're a bigshot!.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5862805C1652E9A2000809A5 /* You're a bigshot!.m4a */; };
 		5862809C16530CDC000809A5 /* bubbles.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5862809B16530CDC000809A5 /* bubbles.svg */; };
 		586280A416532C59000809A5 /* Catfish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280A316532C59000809A5 /* Catfish.m4a */; };
+		586280AB16558E73000809A5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 586280A916558E73000809A5 /* Default.png */; };
+		586280AC16558E73000809A5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 586280AA16558E73000809A5 /* Default@2x.png */; };
+		586280B1165593CE000809A5 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 586280AF165593CE000809A5 /* MenuController.m */; };
+		586280B2165593CE000809A5 /* MenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586280B0165593CE000809A5 /* MenuController.xib */; };
 		587E0E83164C40FC0000229A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E82164C40FC0000229A /* UIKit.framework */; };
 		587E0E85164C40FC0000229A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E84164C40FC0000229A /* Foundation.framework */; };
 		587E0E8D164C40FC0000229A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 587E0E8B164C40FC0000229A /* InfoPlist.strings */; };
@@ -376,6 +380,11 @@
 		5862805C1652E9A2000809A5 /* You're a bigshot!.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "You're a bigshot!.m4a"; sourceTree = "<group>"; };
 		5862809B16530CDC000809A5 /* bubbles.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bubbles.svg; sourceTree = "<group>"; };
 		586280A316532C59000809A5 /* Catfish.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Catfish.m4a; sourceTree = "<group>"; };
+		586280A916558E73000809A5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		586280AA16558E73000809A5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		586280AE165593CE000809A5 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
+		586280AF165593CE000809A5 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		586280B0165593CE000809A5 /* MenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuController.xib; sourceTree = "<group>"; };
 		587E0E7E164C40FC0000229A /* BigShotsGetShots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigShotsGetShots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587E0E82164C40FC0000229A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		587E0E84164C40FC0000229A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -770,6 +779,9 @@
 				58AE621C164C853F001CBB42 /* ViewController */,
 				58AE6249164C86E4001CBB42 /* AppDelegate */,
 				587E0E89164C40FC0000229A /* Supporting Files */,
+				586280AE165593CE000809A5 /* MenuController.h */,
+				586280AF165593CE000809A5 /* MenuController.m */,
+				586280B0165593CE000809A5 /* MenuController.xib */,
 			);
 			path = BigShotsGetShots;
 			sourceTree = "<group>";
@@ -934,6 +946,8 @@
 		58AE6220164C85A0001CBB42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				586280A916558E73000809A5 /* Default.png */,
+				586280AA16558E73000809A5 /* Default@2x.png */,
 				5862801E1652E99B000809A5 /* SFX */,
 				5862801716525A91000809A5 /* PuzzlePieces */,
 				5862801916525AB8000809A5 /* UIElements */,
@@ -1182,6 +1196,9 @@
 				5862801D1652CD9B000809A5 /* UI_pablo-NH.svg in Resources */,
 				5862809C16530CDC000809A5 /* bubbles.svg in Resources */,
 				586280A416532C59000809A5 /* Catfish.m4a in Resources */,
+				586280AB16558E73000809A5 /* Default.png in Resources */,
+				586280AC16558E73000809A5 /* Default@2x.png in Resources */,
+				586280B2165593CE000809A5 /* MenuController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1232,6 +1249,7 @@
 				587E0F3F164C5AEF0000229A /* CALayerExporter.m in Sources */,
 				587E0F44164C5C8A0000229A /* ViewController.m in Sources */,
 				58F552BF1650646800C601AB /* BWQuincyManager.m in Sources */,
+				586280B1165593CE000809A5 /* MenuController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "MenuController.h"
 #import <objc/message.h>
 
 @interface ViewController ()
@@ -98,9 +99,24 @@
     
     [self.backBtn.layer.superlayer insertSublayer:arrow_right atIndex:0];
     
+    CALayer *shell = [self.uiElements layerWithIdentifier:@"Shell-btn-normal"];
+    
+    shell.affineTransform = CGAffineTransformMakeScale(0.5f, 0.5f);
+    
+    position.x = shell.frame.size.width / 2;
+    position.y = 320 - shell.frame.size.height / 2;
+    
+    shell.position = position;
+    
+    [self.wrapperView.layer addSublayer:shell];
+    
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"m_musicLoop_01" withExtension:@"m4a"];
     
     self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    self.musicPlayer.numberOfLoops = -1;
+    
+    [self.musicPlayer play];
 }
 
 - (void)move:(int)amount {
@@ -120,12 +136,23 @@
     [self loadResource:[ary objectAtIndex:index]];
 }
 
+- (IBAction)menu:(id)sender {
+    
+    UIViewController *controller = [MenuController new];
+    
+    [self presentModalViewController:controller animated:YES];
+}
+
 - (IBAction)goForward:(id)sender {
+    
+    [self playTrack:@"s_click_01" extension:@"m4a"];
     
     [self move:1];
 }
 
 - (IBAction)goBack:(id)sender {
+    
+    [self playTrack:@"s_click_01" extension:@"m4a"];
     
     [self move:-1];
 }
@@ -1240,7 +1267,7 @@
     
     self.audioPlayer.delegate = self;
     
-//    [self.audioPlayer play];
+    [self.audioPlayer play];
     
     objc_msgSend(self, NSSelectorFromString([@"beginPage" stringByAppendingString:self.pageNumber]));
 }
@@ -1538,7 +1565,7 @@
     
     self.audioPlayer.delegate = self;
     
-//    [self.audioPlayer play];
+    [self.audioPlayer play];
 }
 
 - (void)animateUma {
