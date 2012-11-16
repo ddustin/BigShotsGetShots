@@ -110,9 +110,11 @@
     
     [self.wrapperView.layer addSublayer:shell];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"m_musicLoop_01" withExtension:@"m4a"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"m_musicLoop_02" withExtension:@"m4a"];
     
     self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    self.musicPlayer.volume = 0.5f;
     
     self.musicPlayer.numberOfLoops = -1;
     
