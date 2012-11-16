@@ -1288,6 +1288,149 @@
     // GERM
 }
 
+- (void)beginPage11a {
+    
+    self.dragMultiplier = 1.3;
+    
+    [self animateSea];
+    
+    [self setDraggablesUsingIdentifiers:
+     @{
+     @"BO": @"BO_DEST",
+     @"SAMMY": @"SAMMY_DEST",
+     @"PABLO": @"PABLO_DEST",
+     }];
+    
+    __block NSMutableDictionary *trackByIdentifier =
+    [@{
+     @"BO": @"Can you find the Beardfish",
+     @"SAMMY": @"Can you find the Seahorse",
+     @"PABLO": @"Can you find the Pufferfish",
+     } mutableCopy];
+    
+    __block ViewController *bself = self;
+    
+    void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+        
+        [bself playTrack:track extension:extension];
+    };
+    
+    void (^playNextTrack)() = ^{
+        
+        // Disabling can you find for now.
+        return;
+        
+        if(![trackByIdentifier count])
+            return;
+        
+        NSArray *keys = trackByIdentifier.allKeys;
+        
+        NSString *track = [trackByIdentifier objectForKey:[keys objectAtIndex:rand() % keys.count]];
+        
+        playTrack(track, @"m4a");
+    };
+    
+    __block BOOL placedAPiece = NO;
+    
+    self.onAudioComplete = ^(AVAudioPlayer *player) {
+        
+        self.onAudioComplete = nil;
+        
+        double delayInSeconds = 4.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            if(![self.pageNumber isEqualToString:@"5a"])
+                return;
+            
+            if(!placedAPiece)
+                playNextTrack();
+        });
+    };
+    
+    self.onPlacedPiece = ^(NSString *pieceName) {
+        
+        placedAPiece = YES;
+        
+        [trackByIdentifier removeObjectForKey:pieceName];
+        
+        playTrack(@"s_click_01", @"m4a");
+        
+        __block ViewController *cself = bself;
+        
+        bself.onAudioComplete = ^(AVAudioPlayer *player) {
+            
+            bself.onAudioComplete = nil;
+            
+            if(!draggables.count) {
+                
+                playTrack(@"You're a bigshot!", @"m4a");
+                
+                bself.centerBtn.hidden = NO;
+                
+                [bself.contentView.document layerWithIdentifier:@"PUZZLE_AREA"].opacity = 0.0f;
+                
+                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
+                
+                btnLayer.opacity = 0.0f;
+                btnLayer.opacity = 1.0f;
+                
+                btnLayer.position = CGPointMake(cself.contentView.document.width / 2, cself.contentView.document.height / 2);
+                
+                [self.contentView.layer addSublayer:btnLayer];
+                
+                __block ViewController *dself = cself;
+                
+                cself.onCenterBtnTap = ^{
+                    
+                    [dself loadResource:_name];
+                };
+            }
+            else {
+                
+                NSArray *sounds =
+                @[
+                @"Great Job",
+                @"Way to go!",
+                @"You're a bigshot!"
+                ];
+                
+                playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
+                
+                self.onAudioComplete = ^(AVAudioPlayer *player) {
+                    
+                    self.onAudioComplete = nil;
+                    
+                    playNextTrack();
+                };
+            }
+        };
+    };
+    
+    self.onFailedPiecePlacement = ^(NSString *pieceName) {
+        
+        if(bself.totalDragMovement > 15000)
+            playTrack(@"Try Again", @"m4a");
+    };
+    
+    NSDictionary *audioForPiece =
+    @{
+    @"BO": @"Beardfish",
+    @"CHRIS": @"Crab",
+    @"PABLO": @"Pufferfish",
+    @"SAMMY": @"Seahorse",
+    @"TUNA_TRIPS": @"Tuna",
+    @"KAT": @"Catfish"
+    };
+    
+    self.onPieceTapped = ^(NSString *pieceName) {
+        
+        [bself playTrack:[audioForPiece objectForKey:pieceName] extension:@"m4a"];
+    };
+    
+    playTrack(@"Drag and Drop Pablo's Friends", @"m4a");
+}
+
 - (void)beginPage12 {
     
     self.label.text = @"Pablo Saves the Day";
@@ -1323,6 +1466,141 @@
     // Same as 13 plus
     // UMA
     // GROUND
+}
+
+- (void)preloadPage14a {
+    
+    SVGView *svgView = self.contentView;
+    
+    UIImage *puzzleImage = [UIImage imageNamed:@"14a_puzzle_14a_cut.png"];
+    
+    UIImageView *puzzle = [[UIImageView alloc] initWithImage:puzzleImage];
+    
+    puzzle.frame = CGRectMake(0.0f, 0.0f, 896.0f, 597.0f);
+    
+    puzzle.center = CGPointMake(svgView.document.width / 2, svgView.document.height / 2);
+    
+    [svgView addSubview:puzzle];
+}
+
+- (void)beginPage14a {
+    
+    self.dragMultiplier = 1;
+    
+    SVGView *svgView = self.contentView;
+    
+    [self animateSea];
+    
+    self.draggables = [NSMutableDictionary dictionary];
+    
+    NSEnumerator *floatingEnumerator = [[self floatPuzzlePositions] objectEnumerator];
+    NSEnumerator *puzzleEnumerator = [[self puzzlePositions] objectEnumerator];
+    
+    for(NSString *name in [self floatingPieceNames]) {
+        
+        UIImage *image = [UIImage imageNamed:name];
+        
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
+        
+        imgView.frame = [[floatingEnumerator nextObject] CGRectValue];
+        
+        [svgView addSubview:imgView];
+        
+        imgView.layer.name = name;
+        
+        [self.draggables setObject:[puzzleEnumerator nextObject] forKey:name];
+    }
+    
+    __block ViewController *bself = self;
+    
+    void (^playSfx)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+        
+        [bself playSfx:track extension:extension];
+    };
+    
+    self.onPiecePickedUp = ^(NSString *pieceName) {
+        
+        playSfx(@"s_click_01", @"m4a");
+    };
+    
+    self.onAudioComplete = ^(AVAudioPlayer *player) {
+        
+        self.onAudioComplete = nil;
+    };
+    
+    self.onPlacedPiece = ^(NSString *pieceName) {
+        
+        UIImageView *imgView = (id)[bself viewWithLayer:pieceName startingWith:bself.contentView];
+        
+        NSString *name = [pieceName stringByDeletingPathExtension];
+        
+        name = [name stringByAppendingFormat:@"a.%@", [pieceName pathExtension]];
+        
+        imgView.image = [UIImage imageNamed:name];
+        
+        playSfx(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
+        
+        self.onAudioComplete = ^(AVAudioPlayer *player) {
+            
+            self.onAudioComplete = nil;
+            
+            if(!draggables.count) {
+                
+                bself.centerBtn.hidden = NO;
+                
+                [UIView beginAnimations:nil context:nil];
+                
+                for(UIView *subview in svgView.subviews)
+                    if(subview)
+                        subview.alpha = 0.0f;
+                
+                [UIView commitAnimations];
+                
+                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
+                
+                btnLayer.opacity = 0.0f;
+                btnLayer.opacity = 1.0f;
+                
+                btnLayer.position = CGPointMake(bself.contentView.document.width / 2, bself.contentView.document.height / 2);
+                
+                [self.contentView.layer addSublayer:btnLayer];
+                
+                __block ViewController *cself = bself;
+                
+                bself.onCenterBtnTap = ^{
+                    
+                    [cself loadResource:_name];
+                };
+                
+                playSfx(@"s_puzzlecomplete_01", @"m4a");
+                
+                self.onAudioComplete = ^(AVAudioPlayer *player) {
+                    
+                    self.onAudioComplete = nil;
+                    
+                    playSfx(@"You're a bigshot!", @"m4a");
+                };
+            }
+            else {
+                
+                NSArray *sounds =
+                @[@"Jigsaw _Great Job_",
+                @"Jigsaw _way to go bigshot_",
+                @"Jigsaw _Way to go_",
+                @"You're a bigshot!"
+                ];
+                
+                playSfx([sounds objectAtIndex:rand() % sounds.count], @"m4a");
+            }
+        };
+    };
+    
+    self.onFailedPiecePlacement = ^(NSString *pieceName) {
+        
+        playSfx(@"Try Again", @"m4a");
+    };
+    
+    [self playTrack:@"Jigsaw _can you put this jigsaw puzzle together_" extension:@"m4a"];
 }
 
 - (void)beginPage15 {
