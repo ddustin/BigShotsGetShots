@@ -579,6 +579,8 @@
     
     UIImageView *puzzle = [[UIImageView alloc] initWithImage:puzzleImage];
     
+    puzzle.layer.name = @"PUZZLE_BACKGROUND";
+    
     puzzle.frame = CGRectMake(0.0f, 0.0f, 896.0f, 597.0f);
     
     puzzle.center = CGPointMake(svgView.document.width / 2, svgView.document.height / 2);
@@ -631,7 +633,6 @@
         self.onAudioComplete = nil;
     };
     
-    
     self.onPlacedPiece = ^(NSString *pieceName) {
         
         UIImageView *imgView = (id)[bself viewWithLayer:pieceName startingWith:bself.contentView];
@@ -649,6 +650,32 @@
             self.onAudioComplete = nil;
             
             if(!draggables.count) {
+                
+                bself.centerBtn.hidden = NO;
+                
+                [UIView beginAnimations:nil context:nil];
+                
+                for(UIView *subview in svgView.subviews)
+                    if(subview)
+                        subview.alpha = 0.0f;
+                
+                [UIView commitAnimations];
+                
+                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
+                
+                btnLayer.opacity = 0.0f;
+                btnLayer.opacity = 1.0f;
+                
+                btnLayer.position = CGPointMake(bself.contentView.document.width / 2, bself.contentView.document.height / 2);
+                
+                [self.contentView.layer addSublayer:btnLayer];
+                
+                __block ViewController *cself = bself;
+                
+                bself.onCenterBtnTap = ^{
+                    
+                    [cself loadResource:_name];
+                };
                 
                 playSfx(@"s_puzzlecomplete_01", @"m4a");
                 
@@ -916,9 +943,14 @@
                 
                 playTrack(@"You're a bigshot!", @"m4a");
                 
-                cself.centerBtn.hidden = NO;
+                bself.centerBtn.hidden = NO;
+                
+                [bself.contentView.document layerWithIdentifier:@"PUZZLE_AREA"].opacity = 0.0f;
                 
                 CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
+                
+                btnLayer.opacity = 0.0f;
+                btnLayer.opacity = 1.0f;
                 
                 btnLayer.position = CGPointMake(cself.contentView.document.width / 2, cself.contentView.document.height / 2);
                 
