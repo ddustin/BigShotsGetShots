@@ -108,7 +108,8 @@
         
         self.onAudioComplete = ^(AVAudioPlayer *player) {
             
-            [bself startTheGame];
+            if(bself->_name)
+                [bself startTheGame];
         };
         
 #if (TARGET_IPHONE_SIMULATOR)
