@@ -25,7 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH"];
+        self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH-v3"];
         
         CALayer *layer = [self.uiElements layerWithIdentifier:@"menu bar"];
         

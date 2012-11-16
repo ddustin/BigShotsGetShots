@@ -137,7 +137,7 @@
     
     [super viewDidLoad];
     
-    self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH"];
+    self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH-v3"];
     
     float arrowFactor = 1.5f;
     
@@ -891,10 +891,9 @@
                 
                 bself.centerBtn.hidden = NO;
                 
-                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH"] layerWithIdentifier:@"replay-btn-big-normal"];
-                CGSize size = bself.contentView.layer.frame.size;
+                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
                 
-                btnLayer.position = CGPointMake(size.width / 2, size.height / 2);
+                btnLayer.position = CGPointMake(bself.contentView.document.width / 2, bself.contentView.document.height / 2);
                 
                 [self.contentView.layer addSublayer:btnLayer];
                 
