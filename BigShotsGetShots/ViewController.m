@@ -614,16 +614,16 @@
         [self.draggables setObject:[puzzleEnumerator nextObject] forKey:name];
     }
     
-    __block id bself = self;
+    __block ViewController *bself = self;
     
-    void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+    void (^playSfx)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
-        [bself playTrack:track extension:extension];
+        [bself playSfx:track extension:extension];
     };
     
     self.onPiecePickedUp = ^(NSString *pieceName) {
         
-        playTrack(@"s_click_01", @"m4a");
+        playSfx(@"s_click_01", @"m4a");
     };
     
     self.onAudioComplete = ^(AVAudioPlayer *player) {
@@ -631,9 +631,18 @@
         self.onAudioComplete = nil;
     };
     
+    
     self.onPlacedPiece = ^(NSString *pieceName) {
         
-        playTrack(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
+        UIImageView *imgView = (id)[bself viewWithLayer:pieceName startingWith:bself.contentView];
+        
+        NSString *name = [pieceName stringByDeletingPathExtension];
+        
+        name = [name stringByAppendingFormat:@"a.%@", [pieceName pathExtension]];
+        
+        imgView.image = [UIImage imageNamed:name];
+        
+        playSfx(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
         
         self.onAudioComplete = ^(AVAudioPlayer *player) {
             
@@ -641,35 +650,35 @@
             
             if(!draggables.count) {
                 
-                playTrack(@"s_puzzlecomplete_01", @"m4a");
+                playSfx(@"s_puzzlecomplete_01", @"m4a");
                 
                 self.onAudioComplete = ^(AVAudioPlayer *player) {
                     
                     self.onAudioComplete = nil;
                     
-                    playTrack(@"You're a bigshot!", @"m4a");
+                    playSfx(@"You're a bigshot!", @"m4a");
                 };
             }
             else {
                 
                 NSArray *sounds =
-                @[@"Jigsaw _Great Job_.aif",
-                @"Jigsaw _way to go bigshot_.aif",
+                @[@"Jigsaw _Great Job_",
+                @"Jigsaw _way to go bigshot_",
                 @"Jigsaw _Way to go_",
                 @"You're a bigshot!"
                 ];
                 
-                playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
+                playSfx([sounds objectAtIndex:rand() % sounds.count], @"m4a");
             }
         };
     };
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
         
-        playTrack(@"Try Again", @"m4a");
+        playSfx(@"Try Again", @"m4a");
     };
     
-    playTrack(@"Jigsaw _can you put this jigsaw puzzle together_", @"m4a");
+    [self playTrack:@"Jigsaw _can you put this jigsaw puzzle together_" extension:@"m4a"];
 }
 
 - (void)preloadPage5 {
@@ -809,6 +818,22 @@
         self.onCenterBtnTap();
 }
 
+- (UIView*)viewWithLayer:(NSString*)name startingWith:(UIView*)firstView {
+    
+    if([firstView.layer.name isEqualToString:name])
+        return firstView;
+    
+    for(UIView *view in firstView.subviews) {
+        
+        UIView *result = [self viewWithLayer:name startingWith:view];
+        
+        if(result)
+            return result;
+    }
+    
+    return nil;
+}
+
 - (void)beginPage5a {
     
     self.dragMultiplier = 1.3;
@@ -881,7 +906,9 @@
         
         playTrack(@"s_click_01", @"m4a");
         
-        self.onAudioComplete = ^(AVAudioPlayer *player) {
+        __block ViewController *cself = bself;
+        
+        bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
             bself.onAudioComplete = nil;
             
@@ -889,19 +916,19 @@
                 
                 playTrack(@"You're a bigshot!", @"m4a");
                 
-                bself.centerBtn.hidden = NO;
+                cself.centerBtn.hidden = NO;
                 
                 CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
                 
-                btnLayer.position = CGPointMake(bself.contentView.document.width / 2, bself.contentView.document.height / 2);
+                btnLayer.position = CGPointMake(cself.contentView.document.width / 2, cself.contentView.document.height / 2);
                 
                 [self.contentView.layer addSublayer:btnLayer];
                 
-                __block ViewController *cself = bself;
+                __block ViewController *dself = cself;
                 
-                bself.onCenterBtnTap = ^{
+                cself.onCenterBtnTap = ^{
                     
-                    [cself loadResource:_name];
+                    [dself loadResource:_name];
                 };
             }
             else {
@@ -1653,6 +1680,8 @@
     
     transform = CGAffineTransformScale(transform, self.dragMultiplier, self.dragMultiplier);
     
+    NSLog(@"%@", NSStringFromCGRect(self.draggingLayer.frame));
+    
     self.draggingLayer.affineTransform = transform;
     
     [CATransaction commit];
@@ -1914,14 +1943,14 @@
     
     NSMutableArray *ret = [NSMutableArray array];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(260, 360, 312, 226)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 232, 335)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 487, 400, 280)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(270, 178, 280, 400)]];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 540, 319, 237)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(471, 181, 400, 280)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(736, 207, 400, 280)]];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 200, 232, 319)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 316, 226)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(852, 340, 280, 400)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(580, 489, 400, 280)]];
     
     return ret;
 }
