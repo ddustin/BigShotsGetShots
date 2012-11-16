@@ -891,7 +891,7 @@
                 
                 bself.centerBtn.hidden = NO;
                 
-                CALayer *btnLayer = [bself.uiElements layerWithIdentifier:@"replay-btn-big-normal"];
+                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH"] layerWithIdentifier:@"replay-btn-big-normal"];
                 CGSize size = bself.contentView.layer.frame.size;
                 
                 btnLayer.position = CGPointMake(size.width / 2, size.height / 2);
