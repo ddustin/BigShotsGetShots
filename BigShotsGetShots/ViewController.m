@@ -65,6 +65,34 @@
 @synthesize onPieceTapped;
 @synthesize onPiecePickedUp, onPlacedPiece, onFailedPiecePlacement;
 
+- (void)startTheGame {
+    
+    [self playTrack:@"s_pageturn_04" extension:@"m4a"];
+    [self playBackground:@"m_musicLoop_02" extension:@"m4a"];
+    
+    [self bubbleTransitionOn:self.splashImage.layer];
+    
+    self.detailItem = @"pg1";
+    
+    __block ViewController *bself = self;
+    
+    [UIView animateWithDuration:1.25f
+                          delay:0.5f
+                        options:0
+                     animations:^{
+                         
+                         CGRect frame = bself.splashImage.frame;
+                         
+                         frame.origin.y -= frame.size.height;
+                         
+                         bself.splashImage.frame = frame;
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         [bself.splashImage removeFromSuperview];
+                     }];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -78,32 +106,11 @@
         
         self.onAudioComplete = ^(AVAudioPlayer *player) {
             
-            [bself playTrack:@"s_pageturn_04" extension:@"m4a"];
-            [bself playBackground:@"m_musicLoop_02" extension:@"m4a"];
-            
-            [bself bubbleTransitionOn:bself.splashImage.layer];
-            
-            bself.detailItem = @"pg1";
-            
-            [UIView animateWithDuration:1.25f
-                                  delay:0.5f
-                                options:0
-                             animations:^{
-                                 
-                                 CGRect frame = bself.splashImage.frame;
-                                 
-                                 frame.origin.y -= frame.size.height;
-                                 
-                                 bself.splashImage.frame = frame;
-                                 
-                             } completion:^(BOOL finished) {
-                                 
-                                 [bself.splashImage removeFromSuperview];
-                             }];
+            [bself startTheGame];
         };
         
 #if (TARGET_IPHONE_SIMULATOR)
-        self.onAudioComplete(nil);
+        [self startTheGame];
 #endif
     }
     
@@ -1287,9 +1294,9 @@
         
         animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
         
-        animation.duration = 2.0f;
+        animation.duration = 2.5f;
         animation.fromValue = @0.0f;
-        animation.toValue = @(3 * -dheight);
+        animation.toValue = @(2 * -dheight);
         
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         
@@ -1506,6 +1513,12 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if(!_name) {
+        
+        [self startTheGame];
+        return;
+    }
     
     self.draggingLayer = nil;
     totalDragMovement = 0;
