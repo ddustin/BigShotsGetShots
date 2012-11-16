@@ -81,16 +81,20 @@
             [bself playTrack:@"s_pageturn_04" extension:@"m4a"];
             [bself playBackground:@"m_musicLoop_02" extension:@"m4a"];
             
-            [bself beginBubblesOnto:bself.splashImage.layer];
+            [bself bubbleTransitionOn:bself.splashImage.layer];
             
             bself.detailItem = @"pg1";
             
-            [UIView animateWithDuration:0.5f
-                                  delay:1.25f
+            [UIView animateWithDuration:1.25f
+                                  delay:0.5f
                                 options:0
                              animations:^{
                                  
-                                 bself.splashImage.alpha = 0.0f;
+                                 CGRect frame = bself.splashImage.frame;
+                                 
+                                 frame.origin.y -= frame.size.height;
+                                 
+                                 bself.splashImage.frame = frame;
                                  
                              } completion:^(BOOL finished) {
                                  
@@ -1223,6 +1227,74 @@
     
     if([self respondsToSelector:selector])
         objc_msgSend(self, selector);
+}
+
+- (void)bubbleTransitionOn:(CALayer*)layer {
+    
+    SVGDocument *bubbles = [SVGDocument documentNamed:@"bubbles"];
+    
+    NSArray *origBubbles =
+    @[
+    @"BUBBLE1",
+    @"BUBBLE2",
+    @"BUBBLE3",
+    @"BUBBLE4",
+    @"BUBBLE5",
+    @"BUBBLE6",
+    @"BUBBLE7",
+    @"BUBBLE8",
+    @"BUBBLE9",
+    @"BUBBLE10",
+    @"BUBBLE11"
+    ];
+    
+    NSMutableArray *bubbleIds = [origBubbles mutableCopy];
+    
+    int number = 70;
+    
+    for(int i = 0; i < number; i++) {
+        
+        if(!bubbleIds.count) {
+            
+            bubbles = [SVGDocument documentNamed:@"bubbles"];
+            bubbleIds = [origBubbles mutableCopy];
+        }
+        
+        NSString *identifier = [bubbleIds objectAtIndex:rand() % bubbleIds.count];
+        
+        [bubbleIds removeObject:identifier];
+        
+        CALayer *bubble = [bubbles layerWithIdentifier:identifier];
+        
+        bubble.opacity = 0.25f;
+        
+        int dwidth = (int)layer.frame.size.width;
+        int dheight = (int)layer.frame.size.height;
+        
+        if(!dwidth || !dheight)
+            break;
+        
+        bubble.frame = (CGRect)
+        {
+            rand() % dwidth,
+            dheight + (rand() % dheight),
+            bubble.frame.size
+        };
+        
+        [layer addSublayer:bubble];
+        
+        CABasicAnimation *animation = nil;
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        
+        animation.duration = 2.0f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @(3 * -dheight);
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        
+        [bubble addAnimation:animation forKey:nil];
+    }
 }
 
 - (void)beginBubblesOnto:(CALayer*)layer {
