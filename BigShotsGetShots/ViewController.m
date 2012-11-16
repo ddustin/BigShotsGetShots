@@ -1034,8 +1034,6 @@
     
     CABasicAnimation *animation = nil;
     
-    [self animateSea];
-    
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
 	animation.duration = 4.5f;
@@ -1049,9 +1047,7 @@
     CALayer *ground = [svgView.document layerWithIdentifier:@"GROUND"];
     CALayer *uma = [svgView.document layerWithIdentifier:@"UMA"];
     
-    [self animateUma];
-    
-    double delayInSeconds = 11.0f;
+    double delayInSeconds = 13.0f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
@@ -1067,6 +1063,30 @@
         
         [ground addAnimation:animation forKey:nil];
         [uma addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        
+        animation.duration = 7.0f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @70.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+        
+        animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        
+        animation.duration = 7.0f;
+        animation.fromValue = @0.0f;
+        animation.toValue = @-80.0f;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        
+        [[self.contentView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
     });
 }
 
@@ -1075,6 +1095,19 @@
     self.label.text = @"Pablo Couldn’t Look";
     
     [self animateSea];
+    
+    SVGView *svgView = self.contentView;
+    
+//    svgView.layer.affineTransform = CGAffineTransformMakeTranslation(600.0f, 0.0f);
+//    
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+//    
+//    animation.duration = 7.0f;
+//    animation.toValue = @0.0f;
+//    
+//    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+//    
+//    [svgView.layer addAnimation:animation forKey:nil];
 }
 
 - (void)beginPage8 {
@@ -1082,6 +1115,20 @@
     self.label.text = @"Uma Says Hello";
     
     [self animateSea];
+    
+    CALayer *uma = [self.contentView.document layerWithIdentifier:@"UMA"];
+    
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+//    
+//	animation.duration = 1.0f;
+//	animation.autoreverses = YES;
+//	animation.repeatCount = 100000;
+//	animation.fromValue = @1.0f;
+//	animation.toValue = @1.3f;
+//    
+//    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//	
+//	[uma addAnimation:animation forKey:nil];
 }
 
 - (void)preloadPage9 {
@@ -1855,7 +1902,7 @@
             transition = UIViewAnimationOptionTransitionCrossDissolve;
         
         [UIView transitionWithView:containerView
-                          duration:0.75f
+                          duration:1.5f
                            options:transition
                         animations:^{
                             [lastContentView removeFromSuperview];
