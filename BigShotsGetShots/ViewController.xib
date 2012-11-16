@@ -53,7 +53,7 @@
 								<string key="NSFrame">{{20, 20}, {964, 728}}</string>
 								<reference key="NSSuperview" ref="992758291"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="262105865"/>
+								<reference key="NSNextKeyView" ref="93843858"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
 								<object class="NSArray" key="IBUIGestureRecognizers" id="0">
@@ -104,7 +104,7 @@
 								<string key="NSFrame">{{931, 0}, {73, 60}}</string>
 								<reference key="NSSuperview" ref="992758291"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="537423102"/>
+								<reference key="NSNextKeyView" ref="1003981298"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -147,7 +147,7 @@
 								<reference key="IBUIFontDescription" ref="566736586"/>
 								<reference key="IBUIFont" ref="90326867"/>
 							</object>
-							<object class="IBUIButton" id="537423102">
+							<object class="IBUIButton" id="1003981298">
 								<reference key="NSNextResponder" ref="992758291"/>
 								<int key="NSvFlags">301</int>
 								<string key="NSFrame">{{382, 282}, {200, 150}}</string>
@@ -168,7 +168,7 @@
 								<reference key="IBUIFontDescription" ref="566736586"/>
 								<reference key="IBUIFont" ref="90326867"/>
 							</object>
-							<object class="IBUILabel" id="262105865">
+							<object class="IBUILabel" id="93843858">
 								<reference key="NSNextResponder" ref="992758291"/>
 								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{60, 3}, {884, 100}}</string>
@@ -307,7 +307,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">label</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="262105865"/>
+						<reference key="destination" ref="93843858"/>
 					</object>
 					<int key="connectionID">123</int>
 				</object>
@@ -315,7 +315,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">centerBtn</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="537423102"/>
+						<reference key="destination" ref="1003981298"/>
 					</object>
 					<int key="connectionID">127</int>
 				</object>
@@ -357,7 +357,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">centerTap:</string>
-						<reference key="source" ref="537423102"/>
+						<reference key="source" ref="1003981298"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -403,8 +403,8 @@
 							<reference ref="142823235"/>
 							<reference ref="122220300"/>
 							<reference ref="980358158"/>
-							<reference ref="262105865"/>
-							<reference ref="537423102"/>
+							<reference ref="93843858"/>
+							<reference ref="1003981298"/>
 						</object>
 						<reference key="parent" ref="647120888"/>
 					</object>
@@ -438,12 +438,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">122</int>
-						<reference key="object" ref="262105865"/>
+						<reference key="object" ref="93843858"/>
 						<reference key="parent" ref="992758291"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">124</int>
-						<reference key="object" ref="537423102"/>
+						<reference key="object" ref="1003981298"/>
 						<reference key="parent" ref="992758291"/>
 					</object>
 				</object>
@@ -647,10 +647,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1536" key="NS.object.0"/>
-		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>

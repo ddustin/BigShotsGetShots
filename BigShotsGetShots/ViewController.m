@@ -198,9 +198,18 @@
 
 - (IBAction)menu:(id)sender {
     
-    UIViewController *controller = [MenuController new];
+    MenuController *controller = [MenuController new];
     
-    [self presentModalViewController:controller animated:YES];
+    @try {
+        
+        [self presentModalViewController:controller animated:YES];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Menu failed: %@", exception);
+    }
+    @finally {
+        
+    }
 }
 
 - (IBAction)goForward:(id)sender {
