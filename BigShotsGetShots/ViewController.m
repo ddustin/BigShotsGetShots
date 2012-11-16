@@ -123,17 +123,19 @@
     
     self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH"];
     
+    float arrowFactor = 1.5f;
+    
     CALayer *arrow_left = [self.uiElements layerWithIdentifier:@"arrow-left-normal"];
     
-    arrow_left.position = CGPointMake(arrow_left.frame.size.width / 2, arrow_left.frame.size.height / 2);
+    arrow_left.position = CGPointMake(arrow_left.frame.size.width / arrowFactor, arrow_left.frame.size.height / arrowFactor);
     
-    arrow_left.affineTransform = CGAffineTransformMakeScale(0.5f, 0.5f);
+    arrow_left.affineTransform = CGAffineTransformMakeScale(1.0f / arrowFactor, 1.0f / arrowFactor);
     
     arrow_left.name = @"LEFT";
     
     CGPoint position = self.backBtn.layer.position;
     
-    position.y += 10.0f;
+    position.y += 15.0f;
     
     arrow_left.position = position;
     
@@ -141,9 +143,9 @@
     
     CALayer *arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
     
-    arrow_right.position = CGPointMake(arrow_right.frame.size.width / 2, arrow_right.frame.size.height / 2);
+    arrow_right.position = CGPointMake(arrow_right.frame.size.width / arrowFactor, arrow_right.frame.size.height / arrowFactor);
     
-    arrow_right.affineTransform = CGAffineTransformMakeScale(0.5f, 0.5f);
+    arrow_right.affineTransform = CGAffineTransformMakeScale(1.0f / arrowFactor, 1.0f / arrowFactor);
     
     arrow_right.name = @"RIGHT";
     
