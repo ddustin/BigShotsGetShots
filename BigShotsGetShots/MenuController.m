@@ -60,21 +60,6 @@
     return self;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    
-    NSLog(@"Started loading");
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-    NSLog(@"Finished loading");
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
-    NSLog(@"Failed with error: %@", error);
-}
-
 - (IBAction)pages:(id)sender {
     
 }
