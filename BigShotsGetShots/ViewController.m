@@ -1978,8 +1978,11 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    if(!self.draggingLayer)
+    if(!self.draggingLayer) {
+        
+        [self touchesBegan:touches withEvent:event];
         return;
+    }
     
     UITouch *touch = [touches anyObject];
     
