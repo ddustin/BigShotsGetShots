@@ -49,6 +49,8 @@
 // When dragging pieces, how much should they be scaled up?
 @property (nonatomic, assign) CGFloat dragMultiplier;
 
+@property (weak, nonatomic) IBOutlet UIImageView *splashImage;
+
 @end
 
 @implementation ViewController
@@ -62,6 +64,47 @@
 @synthesize onAudioComplete;
 @synthesize onPieceTapped;
 @synthesize onPiecePickedUp, onPlacedPiece, onFailedPiecePlacement;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if(self) {
+        
+        [self playBackground:@"Pablo The Pufferfish" extension:@"m4a"];
+        [self playTrack:@"m_intromusic_01" extension:@"m4a"];
+        
+        __block ViewController *bself = self;
+        
+        self.onAudioComplete = ^(AVAudioPlayer *player) {
+            
+            [bself playTrack:@"s_pageturn_04" extension:@"m4a"];
+            [bself playBackground:@"m_musicLoop_02" extension:@"m4a"];
+            
+            [bself beginBubblesOnto:bself.splashImage.layer];
+            
+            bself.detailItem = @"pg1";
+            
+            [UIView animateWithDuration:0.5f
+                                  delay:1.25f
+                                options:0
+                             animations:^{
+                                 
+                                 bself.splashImage.alpha = 0.0f;
+                                 
+                             } completion:^(BOOL finished) {
+                                 
+                                 [bself.splashImage removeFromSuperview];
+                             }];
+        };
+        
+#if (TARGET_IPHONE_SIMULATOR)
+        self.onAudioComplete(nil);
+#endif
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     
@@ -110,15 +153,7 @@
     
     [self.wrapperView.layer addSublayer:shell];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"m_musicLoop_02" withExtension:@"m4a"];
-    
-    self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    
-    self.musicPlayer.volume = 0.5f;
-    
-    self.musicPlayer.numberOfLoops = -1;
-    
-    [self.musicPlayer play];
+    [self playBackground:@"m_musicLoop_02" extension:@"m4a"];
 }
 
 - (void)move:(int)amount {
@@ -773,7 +808,9 @@
         
         self.audioPlayer.delegate = self;
         
+#if !(TARGET_IPHONE_SIMULATOR)
         [self.audioPlayer play];
+#endif
     };
     
     void (^playNextTrack)() = ^{
@@ -1188,7 +1225,7 @@
         objc_msgSend(self, selector);
 }
 
-- (void)beginBubbles {
+- (void)beginBubblesOnto:(CALayer*)layer {
     
     SVGDocument *bubbles = [SVGDocument documentNamed:@"bubbles"];
     
@@ -1227,16 +1264,20 @@
         
         bubble.opacity = 0.25f;
         
+        int dwidth = (int)layer.frame.size.width;
+        int dheight = (int)layer.frame.size.height;
+        
+        if(!dwidth || !dheight)
+            break;
+        
         bubble.frame = (CGRect)
         {
-            rand() % (int)self.contentView.document.width,
-            self.contentView.document.height + (rand() % (int)self.contentView.document.height),
+            rand() % dwidth,
+            self.contentView.document.height + (rand() % dheight),
             bubble.frame.size
         };
         
-        CALayer *sea = [self.contentView.document layerWithIdentifier:@"SEA"];
-        
-        [sea addSublayer:bubble];
+        [layer addSublayer:bubble];
         
         CABasicAnimation *animation = nil;
         
@@ -1251,6 +1292,11 @@
         
         [bubble addAnimation:animation forKey:nil];
     }
+}
+
+- (void)beginBubbles {
+    
+    [self beginBubblesOnto:[self.contentView.document layerWithIdentifier:@"SEA"]];
 }
 
 - (void)beginScene {
@@ -1269,7 +1315,9 @@
     
     self.audioPlayer.delegate = self;
     
+#if !(TARGET_IPHONE_SIMULATOR)
     [self.audioPlayer play];
+#endif
     
     objc_msgSend(self, NSSelectorFromString([@"beginPage" stringByAppendingString:self.pageNumber]));
 }
@@ -1360,7 +1408,9 @@
         
         self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         
+#if !(TARGET_IPHONE_SIMULATOR)
         [self.audioPlayer play];
+#endif
     }
     else {
         
@@ -1513,6 +1563,7 @@
     [self setBackBtn:nil];
     [self setForwardBtn:nil];
     [self setWrapperView:nil];
+    [self setSplashImage:nil];
     [super viewDidUnload];
 }
 
@@ -1567,7 +1618,31 @@
     
     self.audioPlayer.delegate = self;
     
+#if !(TARGET_IPHONE_SIMULATOR)
     [self.audioPlayer play];
+#endif
+}
+
+- (void)playBackground:(NSString*)track extension:(NSString*)extension {
+    
+    if(!track)
+        return;
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
+    
+    if(!url)
+        return;
+    
+    [self.musicPlayer stop];
+    self.musicPlayer.delegate = nil;
+    
+    NSError *error = nil;
+    
+    self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    
+#if !(TARGET_IPHONE_SIMULATOR)
+    [self.musicPlayer play];
+#endif
 }
 
 - (void)animateUma {
@@ -1648,7 +1723,7 @@
     
     NSMutableArray *ret = [NSMutableArray array];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(260, 260, 312, 226)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(260, 360, 312, 226)]];
     [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 232, 335)]];
     
     [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];

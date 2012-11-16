@@ -45,8 +45,6 @@
     self.window.rootViewController = self.viewController;
     [self.window addSubview:self.viewController.view];
     
-    self.viewController.detailItem = @"pg1";
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
