@@ -53,7 +53,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
-@property (nonatomic, assign) didStart;
+@property (nonatomic, assign) BOOL didStart;
 
 @end
 
@@ -71,19 +71,19 @@
 
 - (void)startTheGame {
     
-    self.didStart = YES;
-    
-    if(!self.didStart)
+    if(self.didStart)
         return;
+    
+    self.didStart = YES;
     
     [self playTrack:@"s_pageturn_04" extension:@"m4a"];
     [self playBackground:@"m_musicLoop_02" extension:@"m4a"];
     
     [self bubbleTransitionOn:self.splashImage.layer];
     
-    self.detailItem = @"pg1";
-    
     __block ViewController *bself = self;
+    
+    bself.detailItem = @"pg1";
     
     [UIView animateWithDuration:1.25f
                           delay:0.5f
@@ -108,15 +108,17 @@
     
     if(self) {
         
-        [self playBackground:@"Pablo The Pufferfish" extension:@"m4a"];
-        [self playTrack:@"m_intromusic_01" extension:@"m4a"];
+        [self playTrack:@"Pablo The Pufferfish" extension:@"m4a"];
+        [self playBackground:@"m_intromusic_01" extension:@"m4a"];
         
         __block ViewController *bself = self;
         
-        self.onAudioComplete = ^(AVAudioPlayer *player) {
+        int64_t delayInSeconds = 5.0f;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             
             [bself startTheGame];
-        };
+        });
         
 #if (TARGET_IPHONE_SIMULATOR)
         [self startTheGame];
@@ -174,10 +176,6 @@
     shell.position = position;
     
     [self.wrapperView.layer addSublayer:shell];
-    
-    [self playBackground:@"m_musicLoop_02" extension:@"m4a"];
-    
-    self.label.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
 }
 
 - (void)move:(int)amount {
@@ -827,22 +825,11 @@
     @"PABLO": @"Can you find the Pufferfish",
     } mutableCopy];
     
+    __block ViewController *bself = self;
+    
     void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
-        NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
-        
-        [self.audioPlayer stop];
-        self.audioPlayer.delegate = nil;
-        
-        NSError *error = nil;
-        
-        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        
-        self.audioPlayer.delegate = self;
-        
-#if !(TARGET_IPHONE_SIMULATOR)
-        [self.audioPlayer play];
-#endif
+        [bself playTrack:track extension:extension];
     };
     
     void (^playNextTrack)() = ^{
@@ -914,8 +901,6 @@
             }
         };
     };
-    
-    __block ViewController *bself = self;
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
         
@@ -1789,6 +1774,8 @@
     NSError *error = nil;
     
     self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    
+    self.musicPlayer.numberOfLoops = -1;
     
     self.musicPlayer.volume = 0.5f;
     

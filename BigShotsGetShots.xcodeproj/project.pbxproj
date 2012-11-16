@@ -13,6 +13,9 @@
 		5818738B1656199F009CE6B3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5818738A1656199F009CE6B3 /* Icon@2x.png */; };
 		5818739016561C95009CE6B3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5818738E16561C95009CE6B3 /* Default.png */; };
 		5818739116561C95009CE6B3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5818738F16561C95009CE6B3 /* Default@2x.png */; };
+		58187394165622C4009CE6B3 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 58187392165622C4009CE6B3 /* Default-Landscape.png */; };
+		58187395165622C4009CE6B3 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58187393165622C4009CE6B3 /* Default-Landscape@2x.png */; };
+		58187396165622E0009CE6B3 /* m_musicLoop_02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 586280B31655BDCC000809A5 /* m_musicLoop_02.m4a */; };
 		58627FC316525A8D000809A5 /* 4a_piece1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6D16525A8C000809A5 /* 4a_piece1.png */; };
 		58627FC416525A8D000809A5 /* 4a_piece1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6E16525A8C000809A5 /* 4a_piece1@2x.png */; };
 		58627FC516525A8D000809A5 /* 4a_piece1a.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6F16525A8C000809A5 /* 4a_piece1a.png */; };
@@ -238,6 +241,8 @@
 		5818738A1656199F009CE6B3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		5818738E16561C95009CE6B3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5818738F16561C95009CE6B3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		58187392165622C4009CE6B3 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		58187393165622C4009CE6B3 /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
 		58627F6D16525A8C000809A5 /* 4a_piece1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4a_piece1.png; sourceTree = "<group>"; };
 		58627F6E16525A8C000809A5 /* 4a_piece1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4a_piece1@2x.png"; sourceTree = "<group>"; };
 		58627F6F16525A8C000809A5 /* 4a_piece1a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4a_piece1a.png; sourceTree = "<group>"; };
@@ -746,6 +751,8 @@
 			children = (
 				5818738E16561C95009CE6B3 /* Default.png */,
 				5818738F16561C95009CE6B3 /* Default@2x.png */,
+				58187392165622C4009CE6B3 /* Default-Landscape.png */,
+				58187393165622C4009CE6B3 /* Default-Landscape@2x.png */,
 				5818738A1656199F009CE6B3 /* Icon@2x.png */,
 				5818738816561995009CE6B3 /* Icon.png */,
 				58AE6220164C85A0001CBB42 /* Resources */,
@@ -1031,6 +1038,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58187396165622E0009CE6B3 /* m_musicLoop_02.m4a in Resources */,
 				5862805D1652EA64000809A5 /* Beardfish.m4a in Resources */,
 				5862805E1652EA64000809A5 /* Can you find Pablos friends.m4a in Resources */,
 				5862805F1652EA64000809A5 /* Can you find the Beardfish.m4a in Resources */,
@@ -1205,6 +1213,8 @@
 				5818738B1656199F009CE6B3 /* Icon@2x.png in Resources */,
 				5818739016561C95009CE6B3 /* Default.png in Resources */,
 				5818739116561C95009CE6B3 /* Default@2x.png in Resources */,
+				58187394165622C4009CE6B3 /* Default-Landscape.png in Resources */,
+				58187395165622C4009CE6B3 /* Default-Landscape@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
