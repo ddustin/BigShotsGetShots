@@ -23,6 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forwardBtn;
+@property (weak, nonatomic) IBOutlet UIButton *centerBtn;
 
 // The number of the page (may contain a letter on the end ie. 5a).
 @property (nonatomic, readonly) NSString *pageNumber;
@@ -46,6 +47,8 @@
 @property (nonatomic, copy) void (^onPlacedPiece)(NSString *pieceName);
 @property (nonatomic, copy) void (^onFailedPiecePlacement)(NSString *pieceName);
 
+@property (nonatomic, copy) void (^onCenterBtnTap)();
+
 // When dragging pieces, how much should they be scaled up?
 @property (nonatomic, assign) CGFloat dragMultiplier;
 
@@ -67,7 +70,7 @@
 @synthesize draggables;
 @synthesize onAudioComplete;
 @synthesize onPieceTapped;
-@synthesize onPiecePickedUp, onPlacedPiece, onFailedPiecePlacement;
+@synthesize onPiecePickedUp, onPlacedPiece, onFailedPiecePlacement, onCenterBtnTap;
 
 - (void)startTheGame {
     
@@ -800,6 +803,12 @@
     };
 }
 
+- (IBAction)centerTap:(id)sender {
+    
+    if(self.onCenterBtnTap)
+        self.onCenterBtnTap();
+}
+
 - (void)beginPage5a {
     
     self.dragMultiplier = 1.3;
@@ -812,7 +821,6 @@
      @"TUNA_TRIPS": @"TUNA_TRIPS_DEST",
      @"KAT": @"KAT_DEST",
      @"SAMMY": @"SAMMY_DEST",
-     @"CHRIS": @"CHRIS_DEST",
      @"PABLO": @"PABLO_DEST",
      }];
     
@@ -875,11 +883,27 @@
         
         self.onAudioComplete = ^(AVAudioPlayer *player) {
             
-            self.onAudioComplete = nil;
+            bself.onAudioComplete = nil;
             
             if(!draggables.count) {
                 
                 playTrack(@"You're a bigshot!", @"m4a");
+                
+                bself.centerBtn.hidden = NO;
+                
+                CALayer *btnLayer = [bself.uiElements layerWithIdentifier:@"replay-btn-big-normal"];
+                CGSize size = bself.contentView.layer.frame.size;
+                
+                btnLayer.position = CGPointMake(size.width / 2, size.height / 2);
+                
+                [self.contentView.layer addSublayer:btnLayer];
+                
+                __block ViewController *cself = bself;
+                
+                bself.onCenterBtnTap = ^{
+                    
+                    [cself loadResource:_name];
+                };
             }
             else {
                 
@@ -904,7 +928,7 @@
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
         
-        if(bself.totalDragMovement > 20000)
+        if(bself.totalDragMovement > 15000)
             playTrack(@"Try Again", @"m4a");
     };
     
@@ -1429,6 +1453,8 @@
 
 - (void)loadResource:(NSString *)name {
     
+    self.centerBtn.hidden = YES;
+    
     self.label.hidden = YES;
     self.label.text = @"";
     self.label.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
@@ -1699,6 +1725,7 @@
     [self setWrapperView:nil];
     [self setSplashImage:nil];
     [self setLabel:nil];
+    [self setCenterBtn:nil];
     [super viewDidUnload];
 }
 
