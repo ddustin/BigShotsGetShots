@@ -116,18 +116,12 @@
         [self playTrack:@"Pablo The Pufferfish" extension:@"m4a"];
         [self playBackground:@"m_intromusic_01" extension:@"m4a"];
         
-        __block ViewController *bself = self;
-        
-        int64_t delayInSeconds = 5.0f;
+        int64_t delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             
-            [bself startTheGame];
+            [self beginBubblesOnto:self.splashImage.layer];
         });
-        
-#if (TARGET_IPHONE_SIMULATOR)
-        [self startTheGame];
-#endif
     }
     
     return self;
@@ -1622,7 +1616,7 @@
         objc_msgSend(self, selector);
 }
 
-- (void)bubbleTransitionOn:(CALayer*)layer {
+- (void)bubbleTransitionOn:(CALayer*)layer bubbles:(int)number speed:(float)duration {
     
     SVGDocument *bubbles = [SVGDocument documentNamed:@"bubbles"];
     
@@ -1642,8 +1636,6 @@
     ];
     
     NSMutableArray *bubbleIds = [origBubbles mutableCopy];
-    
-    int number = 70;
     
     for(int i = 0; i < number; i++) {
         
@@ -1680,7 +1672,7 @@
         
         animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
         
-        animation.duration = 2.5f;
+        animation.duration = duration;
         animation.fromValue = @0.0f;
         animation.toValue = @(2 * -dheight);
         
@@ -1688,6 +1680,11 @@
         
         [bubble addAnimation:animation forKey:nil];
     }
+}
+
+- (void)bubbleTransitionOn:(CALayer*)layer {
+    
+    [self bubbleTransitionOn:layer bubbles:70 speed:2.5f];
 }
 
 - (void)beginBubblesOnto:(CALayer*)layer {
@@ -1738,7 +1735,7 @@
         bubble.frame = (CGRect)
         {
             rand() % dwidth,
-            self.contentView.document.height + (rand() % dheight),
+            dheight + (rand() % dheight),
             bubble.frame.size
         };
         
@@ -1751,7 +1748,7 @@
         animation.repeatCount = 10000;
         animation.duration = 10.0f;
         animation.fromValue = @0.0f;
-        animation.toValue = @(3 * -self.contentView.document.height);
+        animation.toValue = @(3 * -dheight);
         
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         
