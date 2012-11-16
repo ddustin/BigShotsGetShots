@@ -51,6 +51,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *splashImage;
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 @end
 
 @implementation ViewController
@@ -167,6 +169,8 @@
     [self.wrapperView.layer addSublayer:shell];
     
     [self playBackground:@"m_musicLoop_02" extension:@"m4a"];
+    
+    self.label.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
 }
 
 - (void)move:(int)amount {
@@ -216,6 +220,8 @@
 }
 
 - (void)beginPage1 {
+    
+    self.label.text = @"Pablo the Big Shot";
     
     SVGView *svgView = self.contentView;
     CALayer *layer = svgView.layer;
@@ -302,6 +308,8 @@
 
 - (void)beginPage3 {
     
+    self.label.text = @"A Puff-less Pufferfish";
+    
     SVGView *svgView = self.contentView;
     
     [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
@@ -367,6 +375,8 @@
 }
 
 - (void)preloadPage4 {
+    
+    self.label.text = @"A Scary Sight!";
     
     SVGView *svgView = self.contentView;
     
@@ -656,6 +666,8 @@
 
 - (void)preloadPage5 {
     
+    self.label.text = @"Pablo’s Friends";
+    
     SVGView *svgView = self.contentView;
     
     float multiplier = 1.5f;
@@ -937,6 +949,8 @@
 
 - (void)beginPage6 {
     
+    self.label.text = @"Pablo meets Uma";
+    
     SVGView *svgView = self.contentView;
     
     [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
@@ -981,15 +995,21 @@
 
 - (void)beginPage7 {
     
+    self.label.text = @"Pablo Couldn’t Look";
+    
     [self animateSea];
 }
 
 - (void)beginPage8 {
     
+    self.label.text = @"Uma Says Hello";
+    
     [self animateSea];
 }
 
 - (void)preloadPage9 {
+    
+    self.label.text = @"Still No Needles for Pablo";
     
     SVGView *svgView = self.contentView;
     
@@ -1042,6 +1062,8 @@
 
 - (void)preloadPage10 {
     
+    self.label.text = @"Everyone’s Out Playing";
+    
     SVGView *svgView = self.contentView;
     
     [svgView.document layerWithIdentifier:@"BASEBALL"].hidden = YES;
@@ -1069,6 +1091,8 @@
 }
 
 - (void)preloadPage11 {
+    
+    self.label.text = @"Germ Starts Trouble";
     
     SVGView *svgView = self.contentView;
     
@@ -1192,6 +1216,8 @@
 
 - (void)beginPage12 {
     
+    self.label.text = @"Pablo Saves the Day";
+    
     [self animateSea];
     
     // PABLO
@@ -1200,6 +1226,8 @@
 }
 
 - (void)beginPage13 {
+    
+    self.label.text = @"Pablo is a Hero!";
     
     [self animateSea];
     
@@ -1224,6 +1252,10 @@
 }
 
 - (void)beginPage15 {
+    
+    self.label.text = @"Do you want to be a Big Shot like Pablo? Going to the doctor and getting your shots can help keep you and your friends safe from meanies like Germ. Go on, Big Shot. You can do it!";
+    
+    self.label.font = [self.label.font fontWithSize:19.0f];
     
     [self animateSea];
     
@@ -1405,6 +1437,10 @@
 
 - (void)loadResource:(NSString *)name {
     
+    self.label.hidden = YES;
+    self.label.text = @"";
+    self.label.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
+    
     self.audioPlayer.delegate = nil;
     
     [self.audioPlayer stop];
@@ -1466,7 +1502,17 @@
                             [containerView insertSubview:newContentView atIndex:0];
                         }
                         completion:^(BOOL finished) {
+                            
                             [self beginScene];
+                            
+                            self.label.alpha = 0.0f;
+                            self.label.hidden = NO;
+                            
+                            [UIView beginAnimations:nil context:nil];
+                            
+                            self.label.alpha = 1.0f;
+                            
+                            [UIView commitAnimations];
                         }];
     }
     else {
@@ -1474,6 +1520,15 @@
         [self.wrapperView insertSubview:newContentView atIndex:0];
         
         [self beginScene];
+        
+        self.label.alpha = 0.0f;
+        self.label.hidden = NO;
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        self.label.alpha = 1.0f;
+        
+        [UIView commitAnimations];
     }
 }
 
@@ -1651,6 +1706,7 @@
     [self setForwardBtn:nil];
     [self setWrapperView:nil];
     [self setSplashImage:nil];
+    [self setLabel:nil];
     [super viewDidUnload];
 }
 

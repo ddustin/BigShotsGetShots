@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5818737F165606A7009CE6B3 /* UI_pablo-NH.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5818737E165606A7009CE6B3 /* UI_pablo-NH.svg */; };
+		5818738116560EEA009CE6B3 /* filmotype_brooklyn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5818738016560EEA009CE6B3 /* filmotype_brooklyn.ttf */; };
 		58627FC316525A8D000809A5 /* 4a_piece1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6D16525A8C000809A5 /* 4a_piece1.png */; };
 		58627FC416525A8D000809A5 /* 4a_piece1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6E16525A8C000809A5 /* 4a_piece1@2x.png */; };
 		58627FC516525A8D000809A5 /* 4a_piece1a.png in Resources */ = {isa = PBXBuildFile; fileRef = 58627F6F16525A8C000809A5 /* 4a_piece1a.png */; };
@@ -230,6 +231,7 @@
 
 /* Begin PBXFileReference section */
 		5818737E165606A7009CE6B3 /* UI_pablo-NH.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "UI_pablo-NH.svg"; sourceTree = "<group>"; };
+		5818738016560EEA009CE6B3 /* filmotype_brooklyn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = filmotype_brooklyn.ttf; sourceTree = "<group>"; };
 		58627F6D16525A8C000809A5 /* 4a_piece1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4a_piece1.png; sourceTree = "<group>"; };
 		58627F6E16525A8C000809A5 /* 4a_piece1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4a_piece1@2x.png"; sourceTree = "<group>"; };
 		58627F6F16525A8C000809A5 /* 4a_piece1a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4a_piece1a.png; sourceTree = "<group>"; };
@@ -942,6 +944,7 @@
 		58AE6220164C85A0001CBB42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5818738016560EEA009CE6B3 /* filmotype_brooklyn.ttf */,
 				586280A916558E73000809A5 /* Default-Landscape.png */,
 				586280AA16558E73000809A5 /* Default-Landscape@2x.png */,
 				5862801E1652E99B000809A5 /* SFX */,
@@ -1193,6 +1196,7 @@
 				586280AC16558E73000809A5 /* Default-Landscape@2x.png in Resources */,
 				586280B2165593CE000809A5 /* MenuController.xib in Resources */,
 				5818737F165606A7009CE6B3 /* UI_pablo-NH.svg in Resources */,
+				5818738116560EEA009CE6B3 /* filmotype_brooklyn.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
