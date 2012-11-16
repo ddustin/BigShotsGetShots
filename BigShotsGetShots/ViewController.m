@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *wrapperView;
 
+@property (nonatomic, strong) AVAudioPlayer *sfxPlayer;
+
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
 @property (nonatomic, strong) AVAudioPlayer *musicPlayer;
@@ -79,7 +81,7 @@
     
     self.didStart = YES;
     
-    [self playTrack:@"s_pageturn_04" extension:@"m4a"];
+    [self playSfx:@"s_pageturn_04" extension:@"m4a"];
     [self playBackground:@"m_musicLoop_02" extension:@"m4a"];
     
     [self bubbleTransitionOn:self.splashImage.layer];
@@ -183,6 +185,8 @@
 
 - (void)move:(int)amount {
     
+    [self playSfx:@"s_click_01" extension:@"m4a"];
+    
     NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
     
     int index = [ary indexOfObject:_name];
@@ -207,14 +211,10 @@
 
 - (IBAction)goForward:(id)sender {
     
-    [self playTrack:@"s_click_01" extension:@"m4a"];
-    
     [self move:1];
 }
 
 - (IBAction)goBack:(id)sender {
-    
-    [self playTrack:@"s_click_01" extension:@"m4a"];
     
     [self move:-1];
 }
@@ -1759,6 +1759,32 @@
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
 	[[self.contentView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+}
+
+- (void)playSfx:(NSString*)track extension:(NSString*)extension {
+    
+    if(!track)
+        return;
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
+    
+    NSParameterAssert(url);
+    
+    if(!url)
+        return;
+    
+    [self.sfxPlayer stop];
+    self.sfxPlayer.delegate = nil;
+    
+    NSError *error = nil;
+    
+    self.sfxPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    
+    self.sfxPlayer.delegate = self;
+    
+#if !(TARGET_IPHONE_SIMULATOR)
+    [self.sfxPlayer play];
+#endif
 }
 
 - (void)playTrack:(NSString*)track extension:(NSString*)extension {
