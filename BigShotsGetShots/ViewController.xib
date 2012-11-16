@@ -53,7 +53,7 @@
 								<string key="NSFrame">{{20, 20}, {964, 728}}</string>
 								<reference key="NSSuperview" ref="992758291"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="811446725"/>
+								<reference key="NSNextKeyView" ref="262105865"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
 								<object class="NSArray" key="IBUIGestureRecognizers" id="0">
@@ -104,7 +104,7 @@
 								<string key="NSFrame">{{931, 0}, {73, 60}}</string>
 								<reference key="NSSuperview" ref="992758291"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="624876198"/>
+								<reference key="NSNextKeyView" ref="537423102"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -147,7 +147,7 @@
 								<reference key="IBUIFontDescription" ref="566736586"/>
 								<reference key="IBUIFont" ref="90326867"/>
 							</object>
-							<object class="IBUIButton" id="624876198">
+							<object class="IBUIButton" id="537423102">
 								<reference key="NSNextResponder" ref="992758291"/>
 								<int key="NSvFlags">301</int>
 								<string key="NSFrame">{{382, 282}, {200, 150}}</string>
@@ -168,7 +168,7 @@
 								<reference key="IBUIFontDescription" ref="566736586"/>
 								<reference key="IBUIFont" ref="90326867"/>
 							</object>
-							<object class="IBUILabel" id="811446725">
+							<object class="IBUILabel" id="262105865">
 								<reference key="NSNextResponder" ref="992758291"/>
 								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{60, 3}, {884, 100}}</string>
@@ -307,7 +307,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">label</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="811446725"/>
+						<reference key="destination" ref="262105865"/>
 					</object>
 					<int key="connectionID">123</int>
 				</object>
@@ -315,7 +315,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">centerBtn</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="624876198"/>
+						<reference key="destination" ref="537423102"/>
 					</object>
 					<int key="connectionID">127</int>
 				</object>
@@ -357,7 +357,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">centerTap:</string>
-						<reference key="source" ref="624876198"/>
+						<reference key="source" ref="537423102"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -403,8 +403,8 @@
 							<reference ref="142823235"/>
 							<reference ref="122220300"/>
 							<reference ref="980358158"/>
-							<reference ref="811446725"/>
-							<reference ref="624876198"/>
+							<reference ref="262105865"/>
+							<reference ref="537423102"/>
 						</object>
 						<reference key="parent" ref="647120888"/>
 					</object>
@@ -438,12 +438,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">122</int>
-						<reference key="object" ref="811446725"/>
+						<reference key="object" ref="262105865"/>
 						<reference key="parent" ref="992758291"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">124</int>
-						<reference key="object" ref="624876198"/>
+						<reference key="object" ref="537423102"/>
 						<reference key="parent" ref="992758291"/>
 					</object>
 				</object>
@@ -511,6 +511,52 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">ViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>centerTap:</string>
+							<string>goBack:</string>
+							<string>goForward:</string>
+							<string>menu:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>centerTap:</string>
+							<string>goBack:</string>
+							<string>goForward:</string>
+							<string>menu:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">centerTap:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">goBack:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">goForward:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">menu:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">

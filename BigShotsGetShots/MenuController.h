@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuController : UIViewController
+@interface MenuController : UIViewController<UIWebViewDelegate>
 
 @end
