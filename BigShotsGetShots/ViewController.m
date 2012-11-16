@@ -53,6 +53,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
+@property (nonatomic, assign) didStart;
+
 @end
 
 @implementation ViewController
@@ -68,6 +70,11 @@
 @synthesize onPiecePickedUp, onPlacedPiece, onFailedPiecePlacement;
 
 - (void)startTheGame {
+    
+    self.didStart = YES;
+    
+    if(!self.didStart)
+        return;
     
     [self playTrack:@"s_pageturn_04" extension:@"m4a"];
     [self playBackground:@"m_musicLoop_02" extension:@"m4a"];
@@ -108,8 +115,7 @@
         
         self.onAudioComplete = ^(AVAudioPlayer *player) {
             
-            if(bself->_name)
-                [bself startTheGame];
+            [bself startTheGame];
         };
         
 #if (TARGET_IPHONE_SIMULATOR)
@@ -1572,7 +1578,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    if(!_name) {
+    if(!self.didStart) {
         
         [self startTheGame];
         return;
