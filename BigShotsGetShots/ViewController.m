@@ -1790,6 +1790,8 @@
     
     self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
+    self.musicPlayer.volume = 0.5f;
+    
 #if !(TARGET_IPHONE_SIMULATOR)
     [self.musicPlayer play];
 #endif
