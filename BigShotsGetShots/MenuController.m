@@ -15,19 +15,41 @@
 
 @property (nonatomic, strong) SVGDocument *uiElements;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIView *pagesView;
+
+@property (nonatomic, weak) UIButton *lastButton;
 
 @end
 
 @implementation MenuController
 @synthesize uiElements;
 @synthesize webView;
+@synthesize lastButton;
+@synthesize pagesView;
 
 - (IBAction)pages:(id)sender {
     
+    self.pagesView.hidden = NO;
+    self.webView.hidden = YES;
+}
+
+- (IBAction)chapterTap:(UIButton*)sender {
+    
+    self.lastButton.selected = NO;
+    
+    NSLog(@"chapter %d", sender.tag);
+    
+    self.lastButton = sender;
+}
+
+- (IBAction)menuBtnTap:(id)sender {
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)aboutus:(id)sender {
     
+    self.pagesView.hidden = YES;
     self.webView.hidden = NO;
     
     NSURL *url = [NSURL URLWithString:@"http://www.3675design.com/Clients/hl/01-bigshots-getshots/about.html"];
@@ -37,6 +59,7 @@
 
 - (IBAction)credits:(id)sender {
     
+    self.pagesView.hidden = YES;
     self.webView.hidden = NO;
     
     NSURL *url = [NSURL URLWithString:@"http://www.3675design.com/Clients/hl/01-bigshots-getshots/credits.html"];
@@ -46,16 +69,12 @@
 
 - (IBAction)help:(id)sender {
     
+    self.pagesView.hidden = YES;
     self.webView.hidden = NO;
     
     NSURL *url = [NSURL URLWithString:@"http://www.3675design.com/Clients/hl/01-bigshots-getshots/help.html"];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
-}
-
-- (IBAction)menuTap:(id)sender {
-    
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad
@@ -99,6 +118,7 @@
 
 - (void)viewDidUnload {
     [self setWebView:nil];
+    [self setPagesView:nil];
     [super viewDidUnload];
 }
 
