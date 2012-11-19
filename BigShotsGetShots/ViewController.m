@@ -128,6 +128,29 @@
     return self;
 }
 
+- (void)addRightArrowOnSplash {
+    
+    float arrowFactor = 1.5f;
+    
+    self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH-v3"];
+    
+    CALayer *arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
+    
+    arrow_right.position = CGPointMake(arrow_right.frame.size.width / arrowFactor, arrow_right.frame.size.height / arrowFactor);
+    
+    arrow_right.affineTransform = CGAffineTransformMakeScale(1.0f / arrowFactor, 1.0f / arrowFactor);
+    
+    CGPoint position = self.backBtn.layer.position;
+    
+    position.y += 15.0f;
+    
+    position.x += 400.0f;
+    
+    arrow_right.position = position;
+    
+    [self.splashImage.layer addSublayer:arrow_right];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -181,6 +204,8 @@
     shell.position = position;
     
     [self.wrapperView.layer addSublayer:shell];
+    
+    [self addRightArrowOnSplash];
 }
 
 - (void)move:(int)amount {
