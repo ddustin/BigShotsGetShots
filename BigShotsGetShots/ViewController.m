@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) SVGDocument *uiElements;
 
+@property (nonatomic, strong) CALayer *arrow_right;
+
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forwardBtn;
 @property (weak, nonatomic) IBOutlet UIButton *centerBtn;
@@ -73,6 +75,7 @@
 @synthesize draggables;
 @synthesize onAudioComplete;
 @synthesize onPieceTapped;
+@synthesize arrow_right;
 @synthesize onPiecePickedUp, onPlacedPiece, onFailedPiecePlacement, onCenterBtnTap;
 
 - (void)startTheGame {
@@ -134,11 +137,11 @@
     
     self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH-v3"];
     
-    CALayer *arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
+    CALayer *arrow_rightTmp = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
     
-    arrow_right.position = CGPointMake(arrow_right.frame.size.width / arrowFactor, arrow_right.frame.size.height / arrowFactor);
+    arrow_rightTmp.position = CGPointMake(arrow_right.frame.size.width / arrowFactor, arrow_right.frame.size.height / arrowFactor);
     
-    arrow_right.affineTransform = CGAffineTransformMakeScale(1.0f / arrowFactor, 1.0f / arrowFactor);
+    arrow_rightTmp.affineTransform = CGAffineTransformMakeScale(1.0f / arrowFactor, 1.0f / arrowFactor);
     
     CGPoint position = self.backBtn.layer.position;
     
@@ -146,9 +149,9 @@
     
     position.x += 400.0f;
     
-    arrow_right.position = position;
+    arrow_rightTmp.position = position;
     
-    [self.splashImage.layer addSublayer:arrow_right];
+    [self.splashImage.layer addSublayer:arrow_rightTmp];
 }
 
 - (void)viewDidLoad {
@@ -179,7 +182,7 @@
 //    if(![self.pageNumber isEqualToString:@"1"])
 //        [self.backBtn.layer.superlayer insertSublayer:arrow_left atIndex:0];
     
-    CALayer *arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
+    arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
     
     arrow_right.position = CGPointMake(arrow_right.frame.size.width / arrowFactor, arrow_right.frame.size.height / arrowFactor);
     
@@ -610,12 +613,17 @@
     CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
     
     self.centerBtn.hidden = NO;
-    self.playAgain.hidden = NO;
+    
+    if(![self.pageNumber isEqualToString:@"15"])
+        self.playAgain.hidden = NO;
     
     btnLayer.opacity = 0.0f;
     btnLayer.opacity = 1.0f;
     
     btnLayer.position = CGPointMake(self.contentView.document.width / 2, self.contentView.document.height / 2);
+    
+    if([self.pageNumber isEqualToString:@"15"])
+        btnLayer.position = CGPointMake(self.contentView.document.width * .9, self.contentView.document.height * .9);
     
     [self.contentView.layer addSublayer:btnLayer];
     
@@ -1666,6 +1674,10 @@
     [self animateSea];
     
     // PABLO
+    
+    self.arrow_right.hidden = YES;
+    
+    [self addReplayButton];
 }
 
 - (void)preloadScene {
@@ -1846,6 +1858,7 @@
 
 - (void)loadResource:(NSString *)name {
     
+    self.arrow_right.hidden = NO;
     self.playAgain.hidden = YES;
     self.centerBtn.hidden = YES;
     
