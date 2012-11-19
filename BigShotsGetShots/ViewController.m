@@ -2379,11 +2379,11 @@
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, -100, 226, 312)]];
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 335, 232)]];
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-40, 200, 275, 310)]];
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 540, 319, 237)]];
         
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 200, 232, 319)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 316, 226)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 340, 226)]];
     }
     
     return ret;
@@ -2406,14 +2406,14 @@
     }
     else {
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 487, 417, 284)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 193, 300, 442)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(282, 351, 295, 420)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(282, 192, 420, 300)]];
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(446, 193, 420, 300)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(734, 193, 425, 300)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(574, 192, 424, 442)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(862, 192, 297, 297)]];
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(862, 350, 296, 420)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(568, 487, 429, 284)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(862, 351, 296, 419)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(440, 489, 567, 283)]];
     }
     
     return ret;
