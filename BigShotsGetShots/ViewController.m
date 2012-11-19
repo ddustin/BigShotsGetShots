@@ -635,17 +635,25 @@
     
     [self.contentView.layer addSublayer:btnLayer];
     
-    __weak ViewController *weakSelf = self;
-    
-    self.onCenterBtnTap = ^{
+    if(![self.pageNumber isEqualToString:@"15"]) {
         
-        __strong ViewController *strongSelf = weakSelf;
+        __weak ViewController *weakSelf = self;
         
-        if([strongSelf.pageNumber isEqualToString:@"15"])
-            [strongSelf loadResource:@"pg1"];
-        else
+        self.onCenterBtnTap = ^{
+            
+            __strong ViewController *strongSelf = weakSelf;
+            
+            strongSelf.onCenterBtnTap = nil;
+            
             [strongSelf loadResource:strongSelf->_name];
-    };
+        };
+    }
+}
+
+- (IBAction)bottomRightTap:(id)sender {
+    
+    if([self.pageNumber isEqualToString:@"15"])
+        [self loadResource:@"pg1"];
 }
 
 - (void)preloadPage4a {
@@ -2355,14 +2363,28 @@
     
     NSMutableArray *ret = [NSMutableArray array];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, -100, 312, 226)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 232, 335)]];
-    
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 540, 319, 237)]];
-    
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 200, 232, 319)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 316, 226)]];
+    if([self.pageNumber isEqualToString:@"4a"]) {
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, -100, 312, 226)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 232, 335)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 540, 319, 237)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 200, 232, 319)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 316, 226)]];
+    }
+    else {
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, -100, 226, 312)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 335, 232)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 540, 319, 237)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 200, 232, 319)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 316, 226)]];
+    }
     
     return ret;
 }
@@ -2371,14 +2393,28 @@
     
     NSMutableArray *ret = [NSMutableArray array];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 487, 417, 284)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 193, 300, 442)]];
-    
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(446, 193, 420, 300)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(734, 193, 425, 300)]];
-    
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(862, 350, 296, 420)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(568, 487, 429, 284)]];
+    if([self.pageNumber isEqualToString:@"4a"]) {
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 487, 417, 284)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 193, 300, 442)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(446, 193, 420, 300)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(734, 193, 425, 300)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(862, 350, 296, 420)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(568, 487, 429, 284)]];
+    }
+    else {
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 487, 417, 284)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 193, 300, 442)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(446, 193, 420, 300)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(734, 193, 425, 300)]];
+        
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(862, 350, 296, 420)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(568, 487, 429, 284)]];
+    }
     
     return ret;
 }
