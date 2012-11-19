@@ -727,15 +727,20 @@
             
             if(!draggables.count) {
                 
-                [UIView beginAnimations:nil context:nil];
-                
-                for(UIView *subview in svgView.subviews)
-                    if(subview)
-                        subview.alpha = 0.0f;
-                
-                [UIView commitAnimations];
-                
-                [self addReplayButton];
+                double delayInSeconds = 5.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    
+                    [UIView beginAnimations:nil context:nil];
+                    
+                    for(UIView *subview in svgView.subviews)
+                        if(subview)
+                            subview.alpha = 0.0f;
+                    
+                    [UIView commitAnimations];
+                    
+                    [self addReplayButton];
+                });
                 
                 playSfx(@"s_puzzlecomplete_01", @"m4a");
                 
@@ -1001,21 +1006,26 @@
                 
                 playTrack(@"You're a bigshot!", @"m4a");
                 
-                for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
+                double delayInSeconds = 5.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                     
-                    if([layer.name isEqualToString:@"CORAL"])
-                        continue;
+                    for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
+                        
+                        if([layer.name isEqualToString:@"CORAL"])
+                            continue;
+                        
+                        if([layer.name isEqualToString:@"SEA"])
+                            continue;
+                        
+                        if([layer.name isEqualToString:@"SEA_BACK"])
+                            continue;
+                        
+                        layer.opacity = 0.0f;
+                    }
                     
-                    if([layer.name isEqualToString:@"SEA"])
-                        continue;
-                    
-                    if([layer.name isEqualToString:@"SEA_BACK"])
-                        continue;
-                    
-                    layer.opacity = 0.0f;
-                }
-                
-                [bself addReplayButton];
+                    [bself addReplayButton];
+                });
             }
             else {
                 
@@ -1465,15 +1475,20 @@
                 
                 playTrack(@"You're a bigshot!", @"m4a");
                 
-                for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
+                double delayInSeconds = 5.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                     
-                    if([layer.name isEqualToString:@"SEA_BACK"])
-                        continue;
+                    for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
+                        
+                        if([layer.name isEqualToString:@"SEA_BACK"])
+                            continue;
+                        
+                        layer.opacity = 0.0f;
+                    }
                     
-                    layer.opacity = 0.0f;
-                }
-                
-                [bself addReplayButton];
+                    [bself addReplayButton];
+                });
             }
             else {
                 
@@ -1637,17 +1652,20 @@
             
             if(!draggables.count) {
                 
-                bself.centerBtn.hidden = NO;
-                
-                [UIView beginAnimations:nil context:nil];
-                
-                for(UIView *subview in svgView.subviews)
-                    if(subview)
-                        subview.alpha = 0.0f;
-                
-                [UIView commitAnimations];
-                
-                [bself addReplayButton];
+                int64_t delayInSeconds = 5.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    
+                    [UIView beginAnimations:nil context:nil];
+                    
+                    for(UIView *subview in svgView.subviews)
+                        if(subview)
+                            subview.alpha = 0.0f;
+                    
+                    [UIView commitAnimations];
+                    
+                    [bself addReplayButton];
+                });
                 
                 playSfx(@"s_puzzlecomplete_01", @"m4a");
                 
@@ -2353,14 +2371,14 @@
     
     NSMutableArray *ret = [NSMutableArray array];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 487, 400, 280)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(270, 178, 280, 400)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 487, 417, 284)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(281, 193, 300, 442)]];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(471, 181, 400, 280)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(736, 207, 400, 280)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(446, 193, 420, 300)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(734, 193, 425, 300)]];
     
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(852, 340, 280, 400)]];
-    [ret addObject:[NSValue valueWithCGRect:CGRectMake(580, 489, 400, 280)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(862, 350, 296, 420)]];
+    [ret addObject:[NSValue valueWithCGRect:CGRectMake(568, 487, 429, 284)]];
     
     return ret;
 }
