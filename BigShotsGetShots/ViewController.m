@@ -1636,9 +1636,7 @@
 
 - (void)beginPage15 {
     
-    self.label.text = @"Do you want to be a Big Shot like Pablo? Going to the doctor and getting your shots can help keep you and your friends safe from meanies like Germ. Go on, Big Shot. You can do it!";
-    
-    self.label.font = [self.label.font fontWithSize:19.0f];
+    self.label.text = @"Do you want to be a Big Shot like Pablo?";
     
     [self animateSea];
     
