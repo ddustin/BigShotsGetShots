@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forwardBtn;
 @property (weak, nonatomic) IBOutlet UIButton *centerBtn;
+@property (weak, nonatomic) IBOutlet UILabel *playAgain;
 
 // The number of the page (may contain a letter on the end ie. 5a).
 @property (nonatomic, readonly) NSString *pageNumber;
@@ -132,6 +133,9 @@
     [super viewDidLoad];
     
     self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH-v3"];
+    
+    self.playAgain.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
+    self.playAgain.hidden = YES;
     
     float arrowFactor = 1.5f;
     
@@ -576,6 +580,30 @@
     });
 }
 
+- (void)addReplayButton {
+    
+    CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
+    
+    self.centerBtn.hidden = NO;
+    self.playAgain.hidden = NO;
+    
+    btnLayer.opacity = 0.0f;
+    btnLayer.opacity = 1.0f;
+    
+    btnLayer.position = CGPointMake(self.contentView.document.width / 2, self.contentView.document.height / 2);
+    
+    [self.contentView.layer addSublayer:btnLayer];
+    
+    __weak ViewController *weakSelf = self;
+    
+    self.onCenterBtnTap = ^{
+        
+        __strong ViewController *strongSelf = weakSelf;
+        
+        [strongSelf loadResource:strongSelf->_name];
+    };
+}
+
 - (void)preloadPage4a {
     
     SVGView *svgView = self.contentView;
@@ -655,8 +683,6 @@
             
             if(!draggables.count) {
                 
-                bself.centerBtn.hidden = NO;
-                
                 [UIView beginAnimations:nil context:nil];
                 
                 for(UIView *subview in svgView.subviews)
@@ -665,19 +691,7 @@
                 
                 [UIView commitAnimations];
                 
-                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
-                
-                btnLayer.opacity = 0.0f;
-                btnLayer.opacity = 1.0f;
-                
-                btnLayer.position = CGPointMake(bself.contentView.document.width / 2, bself.contentView.document.height / 2);
-                
-                [self.contentView.layer addSublayer:btnLayer];
-                
-                bself.onCenterBtnTap = ^{
-                    
-                    [bself loadResource:_name];
-                };
+                [self addReplayButton];
                 
                 playSfx(@"s_puzzlecomplete_01", @"m4a");
                 
@@ -935,8 +949,6 @@
         
         playTrack(@"s_click_01", @"m4a");
         
-        __weak ViewController *cself = bself;
-        
         bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
             bself.onAudioComplete = nil;
@@ -945,25 +957,21 @@
                 
                 playTrack(@"You're a bigshot!", @"m4a");
                 
-                bself.centerBtn.hidden = NO;
-                
-                [bself.contentView.document layerWithIdentifier:@"PUZZLE_AREA"].opacity = 0.0f;
-                
-                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
-                
-                btnLayer.opacity = 0.0f;
-                btnLayer.opacity = 1.0f;
-                
-                btnLayer.position = CGPointMake(cself.contentView.document.width / 2, cself.contentView.document.height / 2);
-                
-                [self.contentView.layer addSublayer:btnLayer];
-                
-                __weak ViewController *dself = cself;
-                
-                cself.onCenterBtnTap = ^{
+                for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
                     
-                    [dself loadResource:_name];
-                };
+                    if([layer.name isEqualToString:@"CORAL"])
+                        continue;
+                    
+                    if([layer.name isEqualToString:@"SEA"])
+                        continue;
+                    
+                    if([layer.name isEqualToString:@"SEA_BACK"])
+                        continue;
+                    
+                    layer.opacity = 0.0f;
+                }
+                
+                [bself addReplayButton];
             }
             else {
                 
@@ -1405,8 +1413,6 @@
         
         playTrack(@"s_click_01", @"m4a");
         
-        __weak ViewController *cself = bself;
-        
         bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
             bself.onAudioComplete = nil;
@@ -1415,25 +1421,15 @@
                 
                 playTrack(@"You're a bigshot!", @"m4a");
                 
-                bself.centerBtn.hidden = NO;
-                
-                [bself.contentView.document layerWithIdentifier:@"PUZZLE_AREA"].opacity = 0.0f;
-                
-                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
-                
-                btnLayer.opacity = 0.0f;
-                btnLayer.opacity = 1.0f;
-                
-                btnLayer.position = CGPointMake(cself.contentView.document.width / 2, cself.contentView.document.height / 2);
-                
-                [self.contentView.layer addSublayer:btnLayer];
-                
-                __weak ViewController *dself = cself;
-                
-                cself.onCenterBtnTap = ^{
+                for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
                     
-                    [dself loadResource:_name];
-                };
+                    if([layer.name isEqualToString:@"SEA_BACK"])
+                        continue;
+                    
+                    layer.opacity = 0.0f;
+                }
+                
+                [bself addReplayButton];
             }
             else {
                 
@@ -1605,21 +1601,7 @@
                 
                 [UIView commitAnimations];
                 
-                CALayer *btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
-                
-                btnLayer.opacity = 0.0f;
-                btnLayer.opacity = 1.0f;
-                
-                btnLayer.position = CGPointMake(bself.contentView.document.width / 2, bself.contentView.document.height / 2);
-                
-                [self.contentView.layer addSublayer:btnLayer];
-                
-                __weak ViewController *cself = bself;
-                
-                bself.onCenterBtnTap = ^{
-                    
-                    [cself loadResource:_name];
-                };
+                [bself addReplayButton];
                 
                 playSfx(@"s_puzzlecomplete_01", @"m4a");
                 
@@ -1841,6 +1823,7 @@
 
 - (void)loadResource:(NSString *)name {
     
+    self.playAgain.hidden = YES;
     self.centerBtn.hidden = YES;
     
     self.label.hidden = YES;
@@ -2119,6 +2102,7 @@
     [self setSplashImage:nil];
     [self setLabel:nil];
     [self setCenterBtn:nil];
+    [self setPlayAgain:nil];
     [super viewDidUnload];
 }
 
@@ -2177,6 +2161,11 @@
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self.sfxPlayer play];
+#else
+    dispatch_async(dispatch_get_current_queue(), ^{
+        
+        [self audioPlayerDidFinishPlaying:nil successfully:YES];
+    });
 #endif
 }
 
@@ -2201,6 +2190,11 @@
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self.audioPlayer play];
+#else
+    dispatch_async(dispatch_get_current_queue(), ^{
+        
+        [self audioPlayerDidFinishPlaying:nil successfully:YES];
+    });
 #endif
 }
 

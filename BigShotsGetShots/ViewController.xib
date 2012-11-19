@@ -53,7 +53,7 @@
 								<string key="NSFrame">{{20, 20}, {964, 728}}</string>
 								<reference key="NSSuperview" ref="992758291"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="93843858"/>
+								<reference key="NSNextKeyView" ref="598700721"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
 								<object class="NSArray" key="IBUIGestureRecognizers" id="0">
@@ -104,7 +104,7 @@
 								<string key="NSFrame">{{931, 0}, {73, 60}}</string>
 								<reference key="NSSuperview" ref="992758291"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1003981298"/>
+								<reference key="NSNextKeyView" ref="766749474"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -147,7 +147,7 @@
 								<reference key="IBUIFontDescription" ref="566736586"/>
 								<reference key="IBUIFont" ref="90326867"/>
 							</object>
-							<object class="IBUIButton" id="1003981298">
+							<object class="IBUIButton" id="766749474">
 								<reference key="NSNextResponder" ref="992758291"/>
 								<int key="NSvFlags">301</int>
 								<string key="NSFrame">{{382, 282}, {200, 150}}</string>
@@ -168,7 +168,7 @@
 								<reference key="IBUIFontDescription" ref="566736586"/>
 								<reference key="IBUIFont" ref="90326867"/>
 							</object>
-							<object class="IBUILabel" id="93843858">
+							<object class="IBUILabel" id="598700721">
 								<reference key="NSNextResponder" ref="992758291"/>
 								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{60, 3}, {884, 100}}</string>
@@ -237,6 +237,38 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">Default-Landscape.png</string>
 						</object>
+					</object>
+					<object class="IBUILabel" id="356355222">
+						<reference key="NSNextResponder" ref="647120888"/>
+						<int key="NSvFlags">301</int>
+						<string key="NSFrame">{{367, 228}, {270, 62}}</string>
+						<reference key="NSSuperview" ref="647120888"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<string key="IBUIText">Play again?</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
+							<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">0</int>
+						<int key="IBUITextAlignment">1</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">1</int>
+							<double key="pointSize">25</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">25</double>
+							<int key="NSfFlags">16</int>
+						</object>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 				</object>
 				<string key="NSFrameSize">{1004, 768}</string>
@@ -307,7 +339,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">label</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="93843858"/>
+						<reference key="destination" ref="598700721"/>
 					</object>
 					<int key="connectionID">123</int>
 				</object>
@@ -315,9 +347,17 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">centerBtn</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="1003981298"/>
+						<reference key="destination" ref="766749474"/>
 					</object>
 					<int key="connectionID">127</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">playAgain</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="356355222"/>
+					</object>
+					<int key="connectionID">130</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -357,7 +397,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">centerTap:</string>
-						<reference key="source" ref="1003981298"/>
+						<reference key="source" ref="766749474"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -391,6 +431,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="992758291"/>
 							<reference ref="518087678"/>
+							<reference ref="356355222"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -403,8 +444,8 @@
 							<reference ref="142823235"/>
 							<reference ref="122220300"/>
 							<reference ref="980358158"/>
-							<reference ref="93843858"/>
-							<reference ref="1003981298"/>
+							<reference ref="598700721"/>
+							<reference ref="766749474"/>
 						</object>
 						<reference key="parent" ref="647120888"/>
 					</object>
@@ -438,13 +479,18 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">122</int>
-						<reference key="object" ref="93843858"/>
+						<reference key="object" ref="598700721"/>
 						<reference key="parent" ref="992758291"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">124</int>
-						<reference key="object" ref="1003981298"/>
+						<reference key="object" ref="766749474"/>
 						<reference key="parent" ref="992758291"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">129</int>
+						<reference key="object" ref="356355222"/>
+						<reference key="parent" ref="647120888"/>
 					</object>
 				</object>
 			</object>
@@ -463,6 +509,7 @@
 					<string>119.IBPluginDependency</string>
 					<string>122.IBPluginDependency</string>
 					<string>124.IBPluginDependency</string>
+					<string>129.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>93.IBPluginDependency</string>
 				</object>
@@ -471,6 +518,7 @@
 					<string>ViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -495,7 +543,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">128</int>
+			<int key="maxID">130</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -566,6 +614,7 @@
 							<string>contentView</string>
 							<string>forwardBtn</string>
 							<string>label</string>
+							<string>playAgain</string>
 							<string>scrollView</string>
 							<string>splashImage</string>
 							<string>toolbar</string>
@@ -577,6 +626,7 @@
 							<string>UIButton</string>
 							<string>SVGView</string>
 							<string>UIButton</string>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UIScrollView</string>
 							<string>UIImageView</string>
@@ -593,6 +643,7 @@
 							<string>contentView</string>
 							<string>forwardBtn</string>
 							<string>label</string>
+							<string>playAgain</string>
 							<string>scrollView</string>
 							<string>splashImage</string>
 							<string>toolbar</string>
@@ -618,6 +669,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">label</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">playAgain</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
