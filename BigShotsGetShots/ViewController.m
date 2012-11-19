@@ -1544,6 +1544,8 @@
     
     [self animateSea];
     
+    self.label.text = @"Pablo is Proud of Himself";
+    
     // Same as 13 plus
     // UMA
     // GROUND
