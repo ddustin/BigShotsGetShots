@@ -86,7 +86,7 @@
     
     [self bubbleTransitionOn:self.splashImage.layer];
     
-    __block ViewController *bself = self;
+    __weak ViewController *bself = self;
     
     bself.detailItem = @"pg1";
     
@@ -149,7 +149,8 @@
     
     arrow_left.position = position;
     
-    [self.backBtn.layer.superlayer insertSublayer:arrow_left atIndex:0];
+//    if(![self.pageNumber isEqualToString:@"1"])
+//        [self.backBtn.layer.superlayer insertSublayer:arrow_left atIndex:0];
     
     CALayer *arrow_right = [self.uiElements layerWithIdentifier:@"arrow-right-normal"];
     
@@ -163,7 +164,8 @@
     
     arrow_right.position = position;
     
-    [self.backBtn.layer.superlayer insertSublayer:arrow_right atIndex:0];
+    if(![self.pageNumber isEqualToString:@"15"])
+        [self.backBtn.layer.superlayer insertSublayer:arrow_right atIndex:0];
     
     CALayer *shell = [self.uiElements layerWithIdentifier:@"Shell-btn-normal"];
     
@@ -619,10 +621,9 @@
         [self.draggables setObject:[puzzleEnumerator nextObject] forKey:name];
     }
     
-    __block ViewController *bself = self;
+    __weak ViewController *bself = self;
     
     void (^playSfx)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
-        
         [bself playSfx:track extension:extension];
     };
     
@@ -648,9 +649,9 @@
         
         playSfx(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
         
-        self.onAudioComplete = ^(AVAudioPlayer *player) {
+        bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
-            self.onAudioComplete = nil;
+            bself.onAudioComplete = nil;
             
             if(!draggables.count) {
                 
@@ -673,11 +674,9 @@
                 
                 [self.contentView.layer addSublayer:btnLayer];
                 
-                __block ViewController *cself = bself;
-                
                 bself.onCenterBtnTap = ^{
                     
-                    [cself loadResource:_name];
+                    [bself loadResource:_name];
                 };
                 
                 playSfx(@"s_puzzlecomplete_01", @"m4a");
@@ -805,7 +804,7 @@
     
     [friends removeObject:@"PABLO"];
     
-    __block id bself = self;
+    __weak id bself = self;
     
     self.onPieceTapped = ^(NSString *pieceName) {
         
@@ -888,7 +887,7 @@
     @"PABLO": @"Can you find the Pufferfish",
     } mutableCopy];
     
-    __block ViewController *bself = self;
+    __weak ViewController *bself = self;
     
     void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
@@ -936,7 +935,7 @@
         
         playTrack(@"s_click_01", @"m4a");
         
-        __block ViewController *cself = bself;
+        __weak ViewController *cself = bself;
         
         bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
@@ -959,7 +958,7 @@
                 
                 [self.contentView.layer addSublayer:btnLayer];
                 
-                __block ViewController *dself = cself;
+                __weak ViewController *dself = cself;
                 
                 cself.onCenterBtnTap = ^{
                     
@@ -1358,7 +1357,7 @@
      @"PABLO": @"Can you find the Pufferfish",
      } mutableCopy];
     
-    __block ViewController *bself = self;
+    __weak ViewController *bself = self;
     
     void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
@@ -1406,7 +1405,7 @@
         
         playTrack(@"s_click_01", @"m4a");
         
-        __block ViewController *cself = bself;
+        __weak ViewController *cself = bself;
         
         bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
@@ -1429,7 +1428,7 @@
                 
                 [self.contentView.layer addSublayer:btnLayer];
                 
-                __block ViewController *dself = cself;
+                __weak ViewController *dself = cself;
                 
                 cself.onCenterBtnTap = ^{
                     
@@ -1561,7 +1560,7 @@
         [self.draggables setObject:[puzzleEnumerator nextObject] forKey:name];
     }
     
-    __block ViewController *bself = self;
+    __weak ViewController *bself = self;
     
     void (^playSfx)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
@@ -1615,7 +1614,7 @@
                 
                 [self.contentView.layer addSublayer:btnLayer];
                 
-                __block ViewController *cself = bself;
+                __weak ViewController *cself = bself;
                 
                 bself.onCenterBtnTap = ^{
                     
@@ -1945,7 +1944,7 @@
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"m4a"];
     
-    if(url) {
+    if(url && ![self.pageNumber isEqualToString:@"9"]) {
         
         self.audioPlayer.delegate = nil;
         
@@ -2046,7 +2045,7 @@
     
     transform = CGAffineTransformScale(transform, self.dragMultiplier, self.dragMultiplier);
     
-    NSLog(@"%@", NSStringFromCGRect(self.draggingLayer.frame));
+//    NSLog(@"%@", NSStringFromCGRect(self.draggingLayer.frame));
     
     self.draggingLayer.affineTransform = transform;
     
