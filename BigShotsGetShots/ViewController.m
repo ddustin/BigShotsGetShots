@@ -633,7 +633,10 @@
         
         __strong ViewController *strongSelf = weakSelf;
         
-        [strongSelf loadResource:strongSelf->_name];
+        if([strongSelf.pageNumber isEqualToString:@"15"])
+            [strongSelf loadResource:@"pg1"];
+        else
+            [strongSelf loadResource:strongSelf->_name];
     };
 }
 
