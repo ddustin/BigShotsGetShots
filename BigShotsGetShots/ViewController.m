@@ -6,7 +6,6 @@
 //
 
 #import "ViewController.h"
-#import "MenuController.h"
 #import <objc/message.h>
 
 @interface ViewController ()
@@ -233,6 +232,10 @@
 - (IBAction)menu:(id)sender {
     
     MenuController *controller = [MenuController new];
+    
+    controller.delegate = self;
+    
+    controller.curChapter = self.pageNumber.integerValue;
     
     @try {
         
@@ -1867,6 +1870,8 @@
 }
 
 - (void)loadResource:(NSString *)name {
+    
+    [self dismissModalViewControllerAnimated:YES];
     
     self.arrow_right.hidden = NO;
     self.playAgain.hidden = YES;

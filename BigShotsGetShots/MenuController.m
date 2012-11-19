@@ -10,6 +10,7 @@
 #import "SVGKit.h"
 #import "CALayerExporter.h"
 #import "CALayerCamera.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MenuController ()
 
@@ -17,15 +18,15 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIView *pagesView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *preview;
+
 @property (nonatomic, weak) UIButton *lastButton;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 @end
 
 @implementation MenuController
-@synthesize uiElements;
-@synthesize webView;
-@synthesize lastButton;
-@synthesize pagesView;
 
 - (IBAction)pages:(id)sender {
     
@@ -33,13 +34,35 @@
     self.webView.hidden = YES;
 }
 
+- (void)setCurChapter:(int)chapter {
+    
+    _curChapter = chapter;
+    
+    self.preview.image = [UIImage imageNamed:[NSString stringWithFormat:@"thumb-%d.png", chapter]];
+}
+
 - (IBAction)chapterTap:(UIButton*)sender {
+    
+    int num = sender.tag;
+    
+    if(self.curChapter == num) {
+        
+        [self.delegate loadResource:[NSString stringWithFormat:@"pg%d", sender.tag]];
+        return;
+    }
+    
+    self.curChapter = num;
     
     self.lastButton.selected = NO;
     
-    NSLog(@"chapter %d", sender.tag);
+    sender.selected = YES;
     
     self.lastButton = sender;
+}
+
+- (IBAction)goToCurChapter:(id)sender {
+    
+    [self.delegate loadResource:[NSString stringWithFormat:@"pg%d", self.curChapter]];
 }
 
 - (IBAction)menuBtnTap:(id)sender {
@@ -108,6 +131,23 @@
     shell.position = position;
     
     [self.view.layer addSublayer:shell];
+    
+    if(self.curChapter) {
+        
+        self.preview.image = [UIImage imageNamed:[NSString stringWithFormat:@"thumb-%d.png", self.curChapter]];
+        
+        for(UIButton *btn in self.buttons) {
+            
+            if(btn.tag == self.curChapter) {
+                
+                btn.selected = YES;
+                self.lastButton = btn;
+            }
+        }
+    }
+    
+    self.preview.layer.masksToBounds = YES;
+    self.preview.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,6 +159,8 @@
 - (void)viewDidUnload {
     [self setWebView:nil];
     [self setPagesView:nil];
+    [self setPreview:nil];
+    [self setButtons:nil];
     [super viewDidUnload];
 }
 

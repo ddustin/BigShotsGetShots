@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MenuControllerDelegate <NSObject>
+
+- (void)loadResource:(NSString*)resource;
+
+@end
+
 @interface MenuController : UIViewController
+
+@property (nonatomic, weak) id<MenuControllerDelegate> delegate;
+
+@property (nonatomic, assign) int curChapter;
 
 @end
