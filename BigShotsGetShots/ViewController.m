@@ -616,9 +616,9 @@
     CALayer *btnLayer = nil;
     
     if(![self.pageNumber isEqualToString:@"15"])
-        [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
+        btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-big-normal"];
     else
-        [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-small-normal"];
+        btnLayer = [[SVGDocument documentNamed:@"UI_pablo-NH-v3"] layerWithIdentifier:@"replay-btn-small-normal"];
     
     self.centerBtn.hidden = NO;
     
