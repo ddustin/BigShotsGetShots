@@ -1111,7 +1111,7 @@
     
     [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
     
-    float swimTime = 9.0f;
+    float swimTime = 10.0f;
     float sinkTime = 13.0f;
     
     CABasicAnimation *animation = nil;
@@ -1183,6 +1183,17 @@
     });
 }
 
+- (void)preloadPage7 {
+    
+    SVGView *svgView = self.contentView;
+    
+    CGAffineTransform t = CGAffineTransformMakeTranslation(-200.0f, 0.0f);
+    
+    t = CGAffineTransformScale(t, 0.25f, 0.25f);
+    
+//    svgView.layer.affineTransform = t;
+}
+
 - (void)beginPage7 {
     
     self.label.text = @"Pablo Couldn’t Look";
@@ -1191,12 +1202,45 @@
     
     SVGView *svgView = self.contentView;
     
-//    svgView.layer.affineTransform = CGAffineTransformMakeTranslation(600.0f, 0.0f);
+    CALayer *uma = [svgView.document layerWithIdentifier:@"UMA"];
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    
+	animation.duration = 0.375f;
+	animation.autoreverses = YES;
+	animation.repeatCount = 12;
+	animation.fromValue = @1.0f;
+	animation.toValue = @1.10f;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[uma addAnimation:animation forKey:nil];
+    
+    double delayInSeconds = 12.0f;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+        
+        animation.autoreverses = YES;
+        animation.duration = 0.15f;
+        animation.toValue = @-20.0f;
+        
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        [[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
+    });
+    
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
 //    
-//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+//    CGAffineTransform t = CGAffineTransformMakeTranslation(0.0f, 0.0f);
+//    
+//    t = CGAffineTransformScale(t, 1.25, 1.25);
+//    
+//    CATransform3DMakeAffineTransform(t);
 //    
 //    animation.duration = 7.0f;
-//    animation.toValue = @0.0f;
+//    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
 //    
 //    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
 //    
