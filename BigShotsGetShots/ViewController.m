@@ -233,6 +233,8 @@
     
     MenuController *controller = [MenuController new];
     
+    [self.audioPlayer pause];
+    
     controller.delegate = self;
     
     controller.curChapter = self.pageNumber.integerValue;
@@ -707,6 +709,10 @@
         [bself playSfx:track extension:extension];
     };
     
+    void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+        [bself playTrack:track extension:extension];
+    };
+    
     self.onPiecePickedUp = ^(NSString *pieceName) {
         
         playSfx(@"s_click_01", @"m4a");
@@ -727,7 +733,7 @@
         
         imgView.image = [UIImage imageNamed:name];
         
-        playSfx(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
+        playTrack(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
         
         bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
@@ -750,13 +756,13 @@
                     [self addReplayButton];
                 });
                 
-                playSfx(@"s_puzzlecomplete_01", @"m4a");
+                playTrack(@"s_puzzlecomplete_01", @"m4a");
                 
                 self.onAudioComplete = ^(AVAudioPlayer *player) {
                     
                     self.onAudioComplete = nil;
                     
-                    playSfx(@"You're a bigshot!", @"m4a");
+                    playTrack(@"You're a bigshot!", @"m4a");
                 };
             }
             else {
@@ -768,14 +774,14 @@
                 @"You're a bigshot!"
                 ];
                 
-                playSfx([sounds objectAtIndex:rand() % sounds.count], @"m4a");
+                playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
             }
         };
     };
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
         
-        playSfx(@"Try Again", @"m4a");
+        playTrack(@"Try Again", @"m4a");
     };
     
     [self playTrack:@"Jigsaw _can you put this jigsaw puzzle together_" extension:@"m4a"];
@@ -960,6 +966,11 @@
     
     __weak ViewController *bself = self;
     
+    void (^playSfx)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+        
+        [bself playSfx:track extension:extension];
+    };
+    
     void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
         [bself playTrack:track extension:extension];
@@ -1004,56 +1015,53 @@
         
         [trackByIdentifier removeObjectForKey:pieceName];
         
-        playTrack(@"s_click_01", @"m4a");
+        playSfx(@"s_click_01", @"m4a");
         
-        bself.onAudioComplete = ^(AVAudioPlayer *player) {
+        bself.onAudioComplete = nil;
+        
+        if(!draggables.count) {
             
-            bself.onAudioComplete = nil;
+            playTrack(@"You're a bigshot!", @"m4a");
             
-            if(!draggables.count) {
+            double delayInSeconds = 5.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 
-                playTrack(@"You're a bigshot!", @"m4a");
-                
-                double delayInSeconds = 5.0;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
                     
-                    for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
-                        
-                        if([layer.name isEqualToString:@"CORAL"])
-                            continue;
-                        
-                        if([layer.name isEqualToString:@"SEA"])
-                            continue;
-                        
-                        if([layer.name isEqualToString:@"SEA_BACK"])
-                            continue;
-                        
-                        layer.opacity = 0.0f;
-                    }
+                    if([layer.name isEqualToString:@"CORAL"])
+                        continue;
                     
-                    [bself addReplayButton];
-                });
-            }
-            else {
-                
-                NSArray *sounds =
-                @[
-                @"Great Job",
-                @"Way to go!",
-                @"You're a bigshot!"
-                ];
-                
-                playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
-                
-                self.onAudioComplete = ^(AVAudioPlayer *player) {
+                    if([layer.name isEqualToString:@"SEA"])
+                        continue;
                     
-                    self.onAudioComplete = nil;
+                    if([layer.name isEqualToString:@"SEA_BACK"])
+                        continue;
                     
-                    playNextTrack();
-                };
-            }
-        };
+                    layer.opacity = 0.0f;
+                }
+                
+                [bself addReplayButton];
+            });
+        }
+        else {
+            
+            NSArray *sounds =
+            @[
+            @"Great Job",
+            @"Way to go!",
+            @"You're a bigshot!"
+            ];
+            
+            playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
+            
+            self.onAudioComplete = ^(AVAudioPlayer *player) {
+                
+                self.onAudioComplete = nil;
+                
+                playNextTrack();
+            };
+        }
     };
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
@@ -1230,6 +1238,11 @@
 }
 
 - (void)beginPage9 {
+    
+    [self animateSea];
+}
+
+- (void)beginPage9a {
     
     SVGView *svgView = self.contentView;
     
@@ -1450,6 +1463,11 @@
         [bself playTrack:track extension:extension];
     };
     
+    void (^playSfx)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+        
+        [bself playSfx:track extension:extension];
+    };
+    
     void (^playNextTrack)() = ^{
         
         // Disabling can you find for now.
@@ -1489,7 +1507,7 @@
         
         [trackByIdentifier removeObjectForKey:pieceName];
         
-        playTrack(@"s_click_01", @"m4a");
+        playSfx(@"s_click_01", @"m4a");
         
         bself.onAudioComplete = ^(AVAudioPlayer *player) {
             
@@ -1643,6 +1661,11 @@
     
     __weak ViewController *bself = self;
     
+    void (^playTrack)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
+        
+        [bself playSfx:track extension:extension];
+    };
+    
     void (^playSfx)(NSString*, NSString*) = ^(NSString *track, NSString *extension) {
         
         [bself playSfx:track extension:extension];
@@ -1668,7 +1691,7 @@
         
         imgView.image = [UIImage imageNamed:name];
         
-        playSfx(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
+        playTrack(@"s_pilacecorrectpuzzlepiece_01", @"m4a");
         
         self.onAudioComplete = ^(AVAudioPlayer *player) {
             
@@ -1691,13 +1714,13 @@
                     [bself addReplayButton];
                 });
                 
-                playSfx(@"s_puzzlecomplete_01", @"m4a");
+                playTrack(@"s_puzzlecomplete_01", @"m4a");
                 
                 self.onAudioComplete = ^(AVAudioPlayer *player) {
                     
                     self.onAudioComplete = nil;
                     
-                    playSfx(@"You're a bigshot!", @"m4a");
+                    playTrack(@"You're a bigshot!", @"m4a");
                 };
             }
             else {
@@ -1709,14 +1732,14 @@
                 @"You're a bigshot!"
                 ];
                 
-                playSfx([sounds objectAtIndex:rand() % sounds.count], @"m4a");
+                playTrack([sounds objectAtIndex:rand() % sounds.count], @"m4a");
             }
         };
     };
     
     self.onFailedPiecePlacement = ^(NSString *pieceName) {
         
-        playSfx(@"Try Again", @"m4a");
+        playTrack(@"Try Again", @"m4a");
     };
     
     [self playTrack:@"Jigsaw _can you put this jigsaw puzzle together_" extension:@"m4a"];
@@ -2020,7 +2043,10 @@
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"m4a"];
     
-    if(url && ![self.pageNumber isEqualToString:@"9"]) {
+    if([self.pageNumber hasPrefix:@"9"])
+        url = nil;
+    
+    if(url) {
         
         self.audioPlayer.delegate = nil;
         

@@ -11,6 +11,7 @@
 #import "CALayerExporter.h"
 #import "CALayerCamera.h"
 #import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface MenuController ()
 
@@ -23,6 +24,8 @@
 @property (nonatomic, weak) UIButton *lastButton;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
+
+@property (nonatomic, strong) AVAudioPlayer *player;
 
 @end
 
@@ -41,7 +44,26 @@
     self.preview.image = [UIImage imageNamed:[NSString stringWithFormat:@"thumb-%d.png", chapter]];
 }
 
+
+
+- (void)playTrack:(NSString*)track extension:(NSString*)extension {
+    
+    if(!track)
+        return;
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
+    
+    if(!url)
+        return;
+    
+    NSError *error = nil;
+    
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+}
+
 - (IBAction)chapterTap:(UIButton*)sender {
+    
+    [self playTrack:@"s_click_01" extension:@"m4a"];
     
     int num = sender.tag;
     
@@ -148,6 +170,11 @@
     
     self.preview.layer.masksToBounds = YES;
     self.preview.layer.cornerRadius = 5;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [self.player stop];
 }
 
 - (void)didReceiveMemoryWarning
