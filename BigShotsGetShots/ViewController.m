@@ -1088,9 +1088,11 @@
     
     CALayer *ground = [svgView.document layerWithIdentifier:@"GROUND"];
     CALayer *uma = [svgView.document layerWithIdentifier:@"UMA"];
+    CALayer *friends = [svgView.document layerWithIdentifier:@"OTHER_FISH"];
     
-    [ground setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
-    [uma setAffineTransform:CGAffineTransformMakeTranslation(0, 500)];
+    [ground setAffineTransform:CGAffineTransformMakeTranslation(0, 400)];
+    [uma setAffineTransform:CGAffineTransformMakeTranslation(0, 400)];
+    [friends setAffineTransform:CGAffineTransformMakeTranslation(-500, 0)];
 }
 
 - (void)beginPage6 {
@@ -1101,11 +1103,14 @@
     
     [svgView.document layerWithIdentifier:@"PABLO"].hidden = NO;
     
+    float swimTime = 9.0f;
+    float sinkTime = 13.0f;
+    
     CABasicAnimation *animation = nil;
     
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
-	animation.duration = 4.5f;
+	animation.duration = swimTime;
 	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-600.0f, 0.0f)];
 	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
     
@@ -1113,17 +1118,28 @@
 	
 	[[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
     
+	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+    
+	animation.duration = swimTime;
+	animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-500.0f, 0.0f)];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, 0.0f)];
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	[[svgView.document layerWithIdentifier:@"OTHER_FISH"] addAnimation:animation forKey:nil];
+    
     CALayer *ground = [svgView.document layerWithIdentifier:@"GROUND"];
     CALayer *uma = [svgView.document layerWithIdentifier:@"UMA"];
     
-    double delayInSeconds = 13.0f;
+    double delayInSeconds = sinkTime;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
         
         animation.duration = 7.0f;
-        animation.fromValue = @500.0f;
         animation.toValue = @0.0f;
         animation.removedOnCompletion = NO;
         animation.fillMode = kCAFillModeForwards;
@@ -1149,7 +1165,7 @@
         
         animation.duration = 7.0f;
         animation.fromValue = @0.0f;
-        animation.toValue = @-80.0f;
+        animation.toValue = @-160.0f;
         animation.removedOnCompletion = NO;
         animation.fillMode = kCAFillModeForwards;
         
