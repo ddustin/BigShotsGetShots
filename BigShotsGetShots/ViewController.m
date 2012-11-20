@@ -1224,7 +1224,19 @@
 //	[uma addAnimation:animation forKey:nil];
 }
 
-- (void)preloadPage9 {
+- (void)beginPage9 {
+    
+    [self animateSea];
+    
+    __weak ViewController *weakSelf = self;
+    
+    self.onAudioComplete = ^(AVAudioPlayer *player) {
+        
+        [weakSelf loadResource:@"pg9a"];
+    };
+}
+
+- (void)preloadPage9a {
     
     self.label.text = @"Still No Needles for Pablo";
     
@@ -1237,11 +1249,6 @@
     [[svgView.document layerWithIdentifier:@"PABLO"] setAffineTransform:transform];
 }
 
-- (void)beginPage9 {
-    
-    [self animateSea];
-}
-
 - (void)beginPage9a {
     
     SVGView *svgView = self.contentView;
@@ -1250,7 +1257,7 @@
     
     CALayer *pablo = [svgView.document layerWithIdentifier:@"PABLO"];
     
-    double delayInSeconds = 8.5f;
+    double delayInSeconds = 0.0f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
         
