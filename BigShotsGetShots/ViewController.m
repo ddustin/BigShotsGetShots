@@ -1216,17 +1216,15 @@
 	
 	[uma addAnimation:animation forKey:nil];
     
-    double delayInSeconds = 12.0f;
+    double delayInSeconds = 13.0f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
         
         animation.autoreverses = YES;
-        animation.duration = 0.15f;
-        animation.toValue = @-20.0f;
-        
-        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        animation.duration = 0.10f;
+        animation.toValue = @1.25f;
         
         [[svgView.document layerWithIdentifier:@"PABLO"] addAnimation:animation forKey:nil];
     });
