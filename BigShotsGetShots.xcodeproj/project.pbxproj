@@ -238,7 +238,6 @@
 		58D08A1A1664A68300F2EFB1 /* pg11a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A051664A68300F2EFB1 /* pg11a.svg */; };
 		58D08A1B1664A68300F2EFB1 /* pg1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A061664A68300F2EFB1 /* pg1.svg */; };
 		58D08A1C1664A68300F2EFB1 /* pg5.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A071664A68300F2EFB1 /* pg5.svg */; };
-		58D08A1D1664A68300F2EFB1 /* pg11.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A081664A68300F2EFB1 /* pg11.svg */; };
 		58D08A1E1664A68300F2EFB1 /* pg12.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A091664A68300F2EFB1 /* pg12.svg */; };
 		58D08A1F1664A68300F2EFB1 /* pg9a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A0A1664A68300F2EFB1 /* pg9a.svg */; };
 		58D08A201664A68300F2EFB1 /* pg8.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A0B1664A68300F2EFB1 /* pg8.svg */; };
@@ -251,6 +250,7 @@
 		58D08A281664A68300F2EFB1 /* TOC-bg.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A131664A68300F2EFB1 /* TOC-bg.svg */; };
 		58D08A291664A68300F2EFB1 /* pg4a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A141664A68300F2EFB1 /* pg4a.svg */; };
 		58D08A2A1664A68300F2EFB1 /* pg14a.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A151664A68300F2EFB1 /* pg14a.svg */; };
+		58D08A391665FF4300F2EFB1 /* pg11.svg in Resources */ = {isa = PBXBuildFile; fileRef = 58D08A381665FF4300F2EFB1 /* pg11.svg */; };
 		58F552B3164F1D0700C601AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F552B2164F1D0700C601AB /* AVFoundation.framework */; };
 		58F552B4164F1D5E00C601AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E0E86164C40FC0000229A /* CoreGraphics.framework */; };
 		58F552BF1650646800C601AB /* BWQuincyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F552BC165063D600C601AB /* BWQuincyManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -536,7 +536,6 @@
 		58D08A051664A68300F2EFB1 /* pg11a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg11a.svg; sourceTree = "<group>"; };
 		58D08A061664A68300F2EFB1 /* pg1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg1.svg; sourceTree = "<group>"; };
 		58D08A071664A68300F2EFB1 /* pg5.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg5.svg; sourceTree = "<group>"; };
-		58D08A081664A68300F2EFB1 /* pg11.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg11.svg; sourceTree = "<group>"; };
 		58D08A091664A68300F2EFB1 /* pg12.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg12.svg; sourceTree = "<group>"; };
 		58D08A0A1664A68300F2EFB1 /* pg9a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg9a.svg; sourceTree = "<group>"; };
 		58D08A0B1664A68300F2EFB1 /* pg8.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg8.svg; sourceTree = "<group>"; };
@@ -549,6 +548,7 @@
 		58D08A131664A68300F2EFB1 /* TOC-bg.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "TOC-bg.svg"; sourceTree = "<group>"; };
 		58D08A141664A68300F2EFB1 /* pg4a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg4a.svg; sourceTree = "<group>"; };
 		58D08A151664A68300F2EFB1 /* pg14a.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg14a.svg; sourceTree = "<group>"; };
+		58D08A381665FF4300F2EFB1 /* pg11.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pg11.svg; sourceTree = "<group>"; };
 		58F552B2164F1D0700C601AB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		58F552BB165063D600C601AB /* BWQuincyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BWQuincyManager.h; path = BigShotsGetShots/BWQuincyManager.h; sourceTree = "<group>"; };
 		58F552BC165063D600C601AB /* BWQuincyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BWQuincyManager.m; path = BigShotsGetShots/BWQuincyManager.m; sourceTree = "<group>"; };
@@ -738,7 +738,7 @@
 				58D08A0C1664A68300F2EFB1 /* pg9.svg */,
 				58D08A0A1664A68300F2EFB1 /* pg9a.svg */,
 				58D08A041664A68300F2EFB1 /* pg10.svg */,
-				58D08A081664A68300F2EFB1 /* pg11.svg */,
+				58D08A381665FF4300F2EFB1 /* pg11.svg */,
 				58D08A051664A68300F2EFB1 /* pg11a.svg */,
 				58D08A091664A68300F2EFB1 /* pg12.svg */,
 				58D08A031664A68300F2EFB1 /* pg13.svg */,
@@ -1319,7 +1319,6 @@
 				58D08A1A1664A68300F2EFB1 /* pg11a.svg in Resources */,
 				58D08A1B1664A68300F2EFB1 /* pg1.svg in Resources */,
 				58D08A1C1664A68300F2EFB1 /* pg5.svg in Resources */,
-				58D08A1D1664A68300F2EFB1 /* pg11.svg in Resources */,
 				58D08A1E1664A68300F2EFB1 /* pg12.svg in Resources */,
 				58D08A1F1664A68300F2EFB1 /* pg9a.svg in Resources */,
 				58D08A201664A68300F2EFB1 /* pg8.svg in Resources */,
@@ -1332,6 +1331,7 @@
 				58D08A281664A68300F2EFB1 /* TOC-bg.svg in Resources */,
 				58D08A291664A68300F2EFB1 /* pg4a.svg in Resources */,
 				58D08A2A1664A68300F2EFB1 /* pg14a.svg in Resources */,
+				58D08A391665FF4300F2EFB1 /* pg11.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
