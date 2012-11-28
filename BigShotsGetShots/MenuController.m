@@ -27,11 +27,36 @@
 
 @property (nonatomic, strong) AVAudioPlayer *player;
 
+@property (weak, nonatomic) IBOutlet UIButton *pagesBtn;
+@property (weak, nonatomic) IBOutlet UIButton *aboutBtn;
+@property (weak, nonatomic) IBOutlet UIButton *creditBtn;
+@property (weak, nonatomic) IBOutlet UIButton *helpBtn;
+
 @end
 
 @implementation MenuController
 
+- (void)clearAllButtons {
+    
+    UIColor *defaultColor = [UIColor colorWithRed:235.0f / 255.0f green:237.0f / 255.0f blue:243.0f / 255.0f alpha:1.0f];
+    
+    [self.pagesBtn setTitleColor:defaultColor forState:UIControlStateNormal];
+    [self.aboutBtn setTitleColor:defaultColor forState:UIControlStateNormal];
+    [self.creditBtn setTitleColor:defaultColor forState:UIControlStateNormal];
+    [self.helpBtn setTitleColor:defaultColor forState:UIControlStateNormal];
+}
+
++ (UIColor*)activeColor {
+    
+    //1c453e
+    
+    return [UIColor colorWithRed:0x1c / 255.0f green:0x45 / 255.0f blue:0x3e / 255.0f alpha:1.0f];
+}
+
 - (IBAction)pages:(id)sender {
+    
+    [self clearAllButtons];
+    [self.pagesBtn setTitleColor:self.class.activeColor forState:UIControlStateNormal];
     
     self.pagesView.hidden = NO;
     self.webView.hidden = YES;
@@ -43,8 +68,6 @@
     
     self.preview.image = [UIImage imageNamed:[NSString stringWithFormat:@"thumb-%d.png", chapter]];
 }
-
-
 
 - (void)playTrack:(NSString*)track extension:(NSString*)extension {
     
@@ -59,6 +82,8 @@
     NSError *error = nil;
     
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    
+    [self.player play];
 }
 
 - (IBAction)chapterTap:(UIButton*)sender {
@@ -89,10 +114,15 @@
 
 - (IBAction)menuBtnTap:(id)sender {
     
+    [self playTrack:@"s_click_01" extension:@"m4a"];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)aboutus:(id)sender {
+    
+    [self clearAllButtons];
+    [self.aboutBtn setTitleColor:self.class.activeColor forState:UIControlStateNormal];
     
     self.pagesView.hidden = YES;
     self.webView.hidden = NO;
@@ -104,6 +134,9 @@
 
 - (IBAction)credits:(id)sender {
     
+    [self clearAllButtons];
+    [self.creditBtn setTitleColor:self.class.activeColor forState:UIControlStateNormal];
+    
     self.pagesView.hidden = YES;
     self.webView.hidden = NO;
     
@@ -113,6 +146,9 @@
 }
 
 - (IBAction)help:(id)sender {
+    
+    [self clearAllButtons];
+    [self.helpBtn setTitleColor:self.class.activeColor forState:UIControlStateNormal];
     
     self.pagesView.hidden = YES;
     self.webView.hidden = NO;
@@ -170,11 +206,8 @@
     
     self.preview.layer.masksToBounds = YES;
     self.preview.layer.cornerRadius = 5;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
     
-    [self.player stop];
+    [self.pagesBtn setTitleColor:self.class.activeColor forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -188,6 +221,10 @@
     [self setPagesView:nil];
     [self setPreview:nil];
     [self setButtons:nil];
+    [self setPagesBtn:nil];
+    [self setAboutBtn:nil];
+    [self setCreditBtn:nil];
+    [self setHelpBtn:nil];
     [super viewDidUnload];
 }
 

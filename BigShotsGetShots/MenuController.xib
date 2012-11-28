@@ -617,7 +617,6 @@
 								<string key="NSFrame">{{293, 12}, {91, 22}}</string>
 								<reference key="NSSuperview" ref="260949103"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -849,6 +848,38 @@
 						<bool key="addsContentToExistingCollection">NO</bool>
 					</object>
 					<int key="connectionID">476</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pagesBtn</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="313824654"/>
+					</object>
+					<int key="connectionID">479</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">aboutBtn</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1008665191"/>
+					</object>
+					<int key="connectionID">480</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">creditBtn</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1028169815"/>
+					</object>
+					<int key="connectionID">481</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">helpBtn</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="601527659"/>
+					</object>
+					<int key="connectionID">482</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1277,7 +1308,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">478</int>
+			<int key="maxID">482</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1324,11 +1355,31 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="aboutBtn">UIButton</string>
+						<string key="creditBtn">UIButton</string>
+						<string key="helpBtn">UIButton</string>
+						<string key="pagesBtn">UIButton</string>
 						<string key="pagesView">UIView</string>
 						<string key="preview">UIImageView</string>
 						<string key="webView">UIWebView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="aboutBtn">
+							<string key="name">aboutBtn</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="creditBtn">
+							<string key="name">creditBtn</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="helpBtn">
+							<string key="name">helpBtn</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="pagesBtn">
+							<string key="name">pagesBtn</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="pagesView">
 							<string key="name">pagesView</string>
 							<string key="candidateClassName">UIView</string>

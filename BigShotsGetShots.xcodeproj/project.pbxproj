@@ -743,8 +743,8 @@
 				58D08A091664A68300F2EFB1 /* pg12.svg */,
 				58D08A031664A68300F2EFB1 /* pg13.svg */,
 				58D08A021664A68300F2EFB1 /* pg14.svg */,
-				58D08A111664A68300F2EFB1 /* pg15.svg */,
 				58D08A151664A68300F2EFB1 /* pg14a.svg */,
+				58D08A111664A68300F2EFB1 /* pg15.svg */,
 			);
 			name = Pages;
 			sourceTree = "<group>";

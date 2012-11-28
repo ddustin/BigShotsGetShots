@@ -850,4 +850,18 @@
 	<path fill="url(#SVGID_38_)" d="M814.614,540.721c0,0-19.224,23.527-69.021,33.541c-51.771,10.409-76.913-0.771-76.913-0.771
 		s38.221,23.888,91.21,5.012C804.261,562.696,814.614,540.721,814.614,540.721z"/>
 </g>
+<g id="BUBBLES">
+	<circle fill="#FFFFFF" cx="839.017" cy="340.733" r="7.91"/>
+	<circle fill="#FFFFFF" cx="852.51" cy="310.488" r="5.583"/>
+	<circle fill="#FFFFFF" cx="836.689" cy="316.073" r="2.327"/>
+	<circle fill="#FFFFFF" cx="835.759" cy="284.433" r="1.861"/>
+	<circle fill="#FFFFFF" cx="835.294" cy="268.147" r="5.118"/>
+	<circle fill="#FFFFFF" cx="853.906" cy="290.48" r="3.257"/>
+	<circle fill="#FFFFFF" cx="819.008" cy="239.764" r="1.861"/>
+	<circle fill="#FFFFFF" cx="832.036" cy="225.805" r="1.861"/>
+	<circle fill="#FFFFFF" cx="853.905" cy="208.589" r="6.048"/>
+	<circle fill="#FFFFFF" cx="832.968" cy="187.651" r="1.861"/>
+	<circle fill="#FFFFFF" cx="824.127" cy="363.068" r="1.396"/>
+	<circle fill="#FFFFFF" cx="869.261" cy="301.184" r="2.326"/>
+</g>
 </svg>
