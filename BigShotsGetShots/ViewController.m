@@ -1814,37 +1814,41 @@
     
     __weak ViewController *weak = self;
     
-    void (^__block block)() = [^{
+    void (^__block block)(CALayer*) = [^(CALayer *lastRibbon){
+        
+        lastRibbon.opacity = 0.0f;
         
         if([weak.pageNumber isEqual:@"13"]) {
             
             NSArray *array = ribbons.sublayers;
+            CALayer *layer = nil;
             
-            int index = 0;
-            
-            while(array.count) {
+            while(!layer) {
                 
-                index = rand() % array.count;
+                layer = [array objectAtIndex:rand() % array.count];
                 
-                if([[array objectAtIndex:index] opacity] > 0.0f)
-                    continue;
-                
-                [[array objectAtIndex:index] setOpacity:1.0f];
-                
-                break;
+                if(layer.opacity > 0.0f)
+                    layer = nil;
             }
             
-            for(CALayer *sublayer in array)
-                if(index-- != 0)
-                    sublayer.opacity = 0.0f;
+            layer.opacity = 1.0f;
             
-            double delayInSeconds = 0.5;
+            double delayInSeconds = 0.45;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), block);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                
+                block(layer);
+            });
         }
     } copy];
     
-    block();
+    block(nil);
+    
+    double delayInSeconds = 0.13;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        block(nil);
+    });
     
     // RIBBONS
     // PABLO
