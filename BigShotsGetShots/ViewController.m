@@ -1514,6 +1514,8 @@
     
     animation.duration = 14.0f;
     animation.toValue = @0.0f;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeBoth;
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
