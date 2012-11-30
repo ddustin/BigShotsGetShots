@@ -59,6 +59,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *splashImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *largeLabel;
 
 @property (nonatomic, assign) BOOL didStart;
 
@@ -2047,7 +2048,8 @@
 
 - (void)beginPage15 {
     
-    self.label.text = @"Do you want to be a Big Shot like Pablo?";
+    self.largeLabel.text = @"Do you want to be a Big Shot like Pablo?";
+    self.largeLabel.hidden = NO;
     
     [self animateSea];
     
@@ -2252,6 +2254,10 @@
     self.label.hidden = YES;
     self.label.text = @"";
     self.label.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
+    
+    self.largeLabel.hidden = YES;
+    self.largeLabel.text = @"";
+    self.largeLabel.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
     
     self.audioPlayer.delegate = nil;
     [self.audioPlayer stop];
@@ -2537,6 +2543,7 @@
     [self setLabel:nil];
     [self setCenterBtn:nil];
     [self setPlayAgain:nil];
+    [self setLargeLabel:nil];
     [super viewDidUnload];
 }
 
