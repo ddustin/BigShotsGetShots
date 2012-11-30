@@ -1187,12 +1187,12 @@
 
 - (void)preloadPage7 {
     
-    SVGView *svgView = self.contentView;
-    
-    CGAffineTransform t = CGAffineTransformMakeTranslation(-200.0f, 0.0f);
-    
-    t = CGAffineTransformScale(t, 0.25f, 0.25f);
-    
+//    SVGView *svgView = self.contentView;
+//    
+//    CGAffineTransform t = CGAffineTransformMakeTranslation(-200.0f, 0.0f);
+//    
+//    t = CGAffineTransformScale(t, 0.25f, 0.25f);
+//    
 //    svgView.layer.affineTransform = t;
 }
 
