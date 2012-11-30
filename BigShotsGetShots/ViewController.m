@@ -747,6 +747,9 @@
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                     
+                    if(![bself.pageNumber isEqualToString:@"4a"])
+                        return;
+                    
                     [UIView beginAnimations:nil context:nil];
                     
                     for(UIView *subview in svgView.subviews)
@@ -1028,6 +1031,9 @@
             double delayInSeconds = 5.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                
+                if(![bself.pageNumber isEqualToString:@"5a"])
+                    return;
                 
                 for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
                     
@@ -1581,6 +1587,9 @@
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                     
+                    if(![bself.pageNumber isEqualToString:@"11a"])
+                        return;
+                    
                     for(CALayer *layer in [bself.contentView.layer.sublayers.lastObject sublayers]) {
                         
                         if([layer.name isEqualToString:@"SEA_BACK"])
@@ -1963,6 +1972,9 @@
                 int64_t delayInSeconds = 5.0;
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    
+                    if(![bself.pageNumber isEqualToString:@"14a"])
+                        return;
                     
                     [UIView beginAnimations:nil context:nil];
                     
