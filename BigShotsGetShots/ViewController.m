@@ -1500,13 +1500,13 @@
     
     animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
-    animation.beginTime = CACurrentMediaTime() + 7.0f;
-    animation.duration = 7.0f;
+    animation.beginTime = CACurrentMediaTime() + 2.0f;
+    animation.duration = 12.0f;
     animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0f, -0.0f)];
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeBoth;
     
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     [germ addAnimation:animation forKey:nil];
     
