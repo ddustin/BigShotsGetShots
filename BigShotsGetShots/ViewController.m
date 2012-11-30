@@ -1291,6 +1291,8 @@
 
 - (void)beginPage9 {
     
+    self.label.text = @"Uma Says Hello";
+    
     [self animateSea];
     
     __weak ViewController *weakSelf = self;
