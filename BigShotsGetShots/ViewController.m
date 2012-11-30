@@ -2713,28 +2713,43 @@
     
     if([self.pageNumber isEqualToString:@"4a"]) {
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, -100, 312, 226)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 232, 335)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, 0, 312, 226)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, 0, 232, 335)]];
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 250, 318, 237)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 540, 319, 237)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(0, 250, 318, 237)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(0, 540, 319, 237)]];
         
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 200, 232, 319)]];
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 316, 226)]];
     }
     else {
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, -100, 226, 312)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, -100, 335, 232)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(400, 0, 226, 312)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(770, 0, 335, 232)]];
         
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-40, 200, 275, 310)]];
-        [ret addObject:[NSValue valueWithCGRect:CGRectMake(-70, 540, 319, 237)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(0, 200, 275, 310)]];
+        [ret addObject:[NSValue valueWithCGRect:CGRectMake(0, 540, 320, 320)]];
         
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 200, 232, 319)]];
         [ret addObject:[NSValue valueWithCGRect:CGRectMake(1200, 560, 340, 226)]];
     }
     
-    return ret;
+    NSMutableArray *adjusted = [NSMutableArray array];
+    
+    // Modify the pieces by some factor
+    
+    for(NSValue *value in ret) {
+        
+        CGRect rect = [value CGRectValue];
+        
+        CGAffineTransform t = CGAffineTransformMakeScale(0.75f, 0.75f);
+        
+        rect.size = CGSizeApplyAffineTransform(rect.size, t);
+        
+        [adjusted addObject:[NSValue valueWithCGRect:rect]];
+    }
+    
+    return adjusted;
 }
 
 - (NSArray*)puzzlePositions {
