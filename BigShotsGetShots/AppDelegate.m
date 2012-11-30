@@ -69,7 +69,26 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if(self.viewController.currentIndex) {
+        
+        UIAlertView *alert = [UIAlertView new];
+        
+        alert.title = @"Continue";
+        alert.message = @"Would you like to continue the story from here?";
+        
+        [alert addButtonWithTitle:@"Restart"];
+        [alert addButtonWithTitle:@"Continue"];
+        
+        alert.delegate = self;
+        
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if(buttonIndex == 0)
+        [self.viewController moveToIndex:0];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

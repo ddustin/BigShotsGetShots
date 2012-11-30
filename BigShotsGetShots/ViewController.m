@@ -119,7 +119,7 @@
         [self playTrack:@"Pablo The Pufferfish" extension:@"m4a"];
         [self playBackground:@"m_intromusic_01" extension:@"m4a"];
         
-        int64_t delayInSeconds = 2.0;
+        double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             
@@ -210,15 +210,23 @@
     [self addRightArrowOnSplash];
 }
 
-- (void)move:(int)amount {
+- (int)currentIndex {
+    
+    NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
+    
+    NSUInteger index = [ary indexOfObject:_name];
+    
+    if(index == NSNotFound)
+        index = 0;
+    
+    return (int)index;
+}
+
+- (void)moveToIndex:(int)index {
     
     [self playSfx:@"s_click_01" extension:@"m4a"];
     
     NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
-    
-    int index = [ary indexOfObject:_name];
-    
-    index += amount;
     
     if(index >= (int)ary.count)
         index = ary.count - 1;
@@ -227,6 +235,15 @@
         index = 0;
     
     [self loadResource:[ary objectAtIndex:index]];
+}
+
+- (void)move:(int)amount {
+    
+    int index = self.currentIndex;
+    
+    index += amount;
+    
+    [self moveToIndex:index];
 }
 
 - (IBAction)menu:(id)sender {
@@ -1969,7 +1986,7 @@
             
             if(!draggables.count) {
                 
-                int64_t delayInSeconds = 5.0;
+                double delayInSeconds = 5.0;
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                     

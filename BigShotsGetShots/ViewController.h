@@ -22,4 +22,8 @@
 
 @property (nonatomic, retain) id detailItem;
 
+- (void)moveToIndex:(int)index;
+
+- (int)currentIndex;
+
 @end
