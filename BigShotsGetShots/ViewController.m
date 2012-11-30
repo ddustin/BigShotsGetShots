@@ -272,7 +272,12 @@
 
 - (IBAction)goForward:(id)sender {
     
-    [self move:1];
+    int amount = 1;
+    
+    if([self.pageNumber isEqualToString:@"9"])
+        amount = 2;
+    
+    [self move:amount];
 }
 
 - (IBAction)goBack:(id)sender {
