@@ -1434,8 +1434,8 @@
     
     animation = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
     
-    animation.beginTime = 6.0f + CACurrentMediaTime();
-    animation.duration = 5.0f;
+    animation.beginTime = 5.0f + CACurrentMediaTime();
+    animation.duration = 6.0f;
     animation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
     animation.fillMode = kCAFillModeBoth;
     animation.removedOnCompletion = NO;
