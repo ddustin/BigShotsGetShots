@@ -162,6 +162,9 @@
 {
     [super viewDidLoad];
     
+    for(UIButton *btn in self.buttons)
+        btn.transform = CGAffineTransformMakeScale(1.25f, 1.25f);
+    
     self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH-v3"];
     
     CALayer *layer = nil;
