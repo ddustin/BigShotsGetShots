@@ -2254,7 +2254,6 @@
     self.label.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:30.0f];
     
     self.audioPlayer.delegate = nil;
-    
     [self.audioPlayer stop];
     
     self.audioPlayer = nil;
@@ -2345,6 +2344,15 @@
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    
+    if(!flag)
+        return;
+    
+    if(self.presentedViewController)
+        return;
+    
+    if(player != self.audioPlayer)
+        return;
     
     NSString *resource = [NSString stringWithFormat:@"Page %@a", [self pageNumber]];
     
@@ -2576,8 +2584,8 @@
     if(!url)
         return;
     
-    [self.sfxPlayer stop];
     self.sfxPlayer.delegate = nil;
+    [self.sfxPlayer stop];
     
     NSError *error = nil;
     
@@ -2605,8 +2613,8 @@
     if(!url)
         return;
     
-    [self.audioPlayer stop];
     self.audioPlayer.delegate = nil;
+    [self.audioPlayer stop];
     
     NSError *error = nil;
     
@@ -2634,8 +2642,8 @@
     if(!url)
         return;
     
-    [self.musicPlayer stop];
     self.musicPlayer.delegate = nil;
+    [self.musicPlayer stop];
     
     NSError *error = nil;
     
