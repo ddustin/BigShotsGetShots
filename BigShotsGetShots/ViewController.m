@@ -283,6 +283,8 @@
 
 - (IBAction)goBack:(id)sender {
     
+    return;
+    
     [self move:-1];
 }
 
