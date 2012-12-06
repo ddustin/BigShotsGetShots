@@ -38,6 +38,8 @@
 
 @property (nonatomic, assign) CGFloat totalDragMovement;
 
+@property (weak, nonatomic) IBOutlet UILabel *menuView;
+
 // Keys are the layer names of the items that can be dragged.
 // Values are NSValue's holding CGRect's. Once dragged by the user, the named layer's
 // frame will be set to to this value.
@@ -157,6 +159,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.menuView.font = [UIFont fontWithName:@"Filmotype Brooklyn" size:20.0f];
     
     self.uiElements = [SVGDocument documentNamed:@"UI_pablo-NH-v3"];
     
@@ -2349,6 +2353,9 @@
         
         [UIView commitAnimations];
     }
+    
+    self.menuView.hidden = NO;
+    [self.menuView.superview bringSubviewToFront:self.menuView];
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
@@ -2546,6 +2553,7 @@
     [self setCenterBtn:nil];
     [self setPlayAgain:nil];
     [self setLargeLabel:nil];
+    [self setMenuView:nil];
     [super viewDidUnload];
 }
 
