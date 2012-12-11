@@ -1267,7 +1267,7 @@
 
 - (void)beginPage8 {
     
-    self.label.text = @"Uma Says Hello";
+    self.label.text = @"Needles Are There to Keep You Safe";
     
     [self animateSea];
     
@@ -1295,7 +1295,7 @@
 
 - (void)beginPage9 {
     
-    self.label.text = @"Uma Says Hello";
+    self.label.text = @"Still no needles for Pablo";
     
     [self animateSea];
     
