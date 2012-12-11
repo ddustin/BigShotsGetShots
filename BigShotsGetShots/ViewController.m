@@ -686,6 +686,11 @@
         [self loadResource:@"pg1"];
 }
 
+- (BOOL)hasBubblesOn4a {
+    
+    return NO;
+}
+
 - (void)preloadPage4a {
     
     SVGView *svgView = self.contentView;
@@ -708,8 +713,6 @@
     self.dragMultiplier = 1;
     
     SVGView *svgView = self.contentView;
-    
-    [self animateSea];
     
     self.draggables = [NSMutableDictionary dictionary];
     
@@ -971,11 +974,14 @@
     return nil;
 }
 
+- (BOOL)hasBubblesOn5a {
+    
+    return NO;
+}
+
 - (void)beginPage5a {
     
     self.dragMultiplier = 1.3;
-    
-    [self animateSea];
     
     [self setDraggablesUsingIdentifiers:
      @{
@@ -1358,8 +1364,6 @@
     
     SVGView *svgView = self.contentView;
     
-    [self animateSea];
-    
     CALayer *pablo = [svgView.document layerWithIdentifier:@"PABLO"];
     
     double delayInSeconds = 0.0f;
@@ -1532,11 +1536,14 @@
     // GERM
 }
 
+- (BOOL)hasBubblesOn11a {
+    
+    return NO;
+}
+
 - (void)beginPage11a {
     
     self.dragMultiplier = 1.3;
-    
-    [self animateSea];
     
     [self setDraggablesUsingIdentifiers:
      @{
@@ -1920,6 +1927,11 @@
     // GROUND
 }
 
+- (BOOL)hasBubblesOn14a {
+    
+    return NO;
+}
+
 - (void)preloadPage14a {
     
     SVGView *svgView = self.contentView;
@@ -2228,7 +2240,15 @@
 
 - (void)beginScene {
     
-    [self beginBubbles];
+    SEL hasBubbles = NSSelectorFromString([@"hasBubblesOn" stringByAppendingString:self.pageNumber]);
+    
+    BOOL showBubbles = YES;
+    
+    if([self respondsToSelector:hasBubbles])
+        showBubbles = ((BOOL (*)(__weak id, SEL))objc_msgSend)(self, hasBubbles);
+    
+    if(showBubbles)
+        [self beginBubbles];
     
     NSMutableString *str = [_name mutableCopy];
     
@@ -2586,8 +2606,13 @@
 	animation.toValue = @-30.0f;
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    CALayer *sea = [self.contentView.document layerWithIdentifier:@"SEA"];
+    
+    if(sea.shouldRasterize)
+        sea.shouldRasterize = YES;
 	
-	[[self.contentView.document layerWithIdentifier:@"SEA"] addAnimation:animation forKey:nil];
+	[sea addAnimation:animation forKey:nil];
 }
 
 - (void)playSfx:(NSString*)track extension:(NSString*)extension {
