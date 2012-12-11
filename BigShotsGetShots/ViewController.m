@@ -2474,13 +2474,11 @@
     totalDragMovement += fabsf(point.x - firstPoint.x) + fabsf(point.y - firstPoint.y);
     
     [CATransaction begin];
-    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    [CATransaction setDisableActions:YES];
     
     CGAffineTransform transform = CGAffineTransformMakeTranslation(point.x - firstPoint.x, point.y - firstPoint.y);
     
     transform = CGAffineTransformScale(transform, self.dragMultiplier, self.dragMultiplier);
-    
-//    NSLog(@"%@", NSStringFromCGRect(self.draggingLayer.frame));
     
     self.draggingLayer.affineTransform = transform;
     
