@@ -21,6 +21,8 @@
 
 @property (nonatomic, assign) NSInteger index;
 
+@property (nonatomic, weak) UIAlertView *alert;
+
 @end
 
 @implementation AppDelegate
@@ -28,6 +30,7 @@
 @synthesize viewController;
 @synthesize detailNames;
 @synthesize index;
+@synthesize alert = alert_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -71,6 +74,9 @@
 {
     if(self.viewController.currentIndex) {
         
+        self.alert.delegate = nil;
+        [self.alert dismissWithClickedButtonIndex:1 animated:NO];
+        
         UIAlertView *alert = [UIAlertView new];
         
         alert.title = @"Continue";
@@ -82,6 +88,8 @@
         alert.delegate = self;
         
         [alert show];
+        
+        self.alert = alert;
     }
 }
 
