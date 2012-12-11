@@ -1139,7 +1139,7 @@
 
 - (void)beginPage6 {
     
-    self.label.text = @"Pablo meets Uma";
+    self.label.text = @"Pablo Meets Uma";
     
     SVGView *svgView = self.contentView;
     
@@ -1780,7 +1780,7 @@
 
 - (void)beginPage13 {
     
-    self.label.text = @"Pablo is a Hero!";
+    self.label.text = @"Pablo is a Big Shot!";
     
     [self animateSea];
     
