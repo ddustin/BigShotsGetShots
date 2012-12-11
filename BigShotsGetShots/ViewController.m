@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "UIDevice+UIDevice_Hardware.h"
 #import <objc/message.h>
 
 @interface ViewController ()
@@ -310,6 +311,8 @@
     CABasicAnimation *animation = nil;
     
     [self animateSea];
+    
+    [[svgView.document layerWithIdentifier:@"FRIENDS_RIGHT"] setShouldRasterize:YES];
     
 	animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
     
@@ -2242,7 +2245,7 @@
     
     SEL hasBubbles = NSSelectorFromString([@"hasBubblesOn" stringByAppendingString:self.pageNumber]);
     
-    BOOL showBubbles = YES;
+    BOOL showBubbles = ![[UIDevice currentDevice] isCrappy];
     
     if([self respondsToSelector:hasBubbles])
         showBubbles = ((BOOL (*)(__weak id, SEL))objc_msgSend)(self, hasBubbles);
@@ -2337,26 +2340,36 @@
         if([oldPageNum hasSuffix:@"a"] && newPageNum.integerValue == oldPageNum.integerValue)
             transition = UIViewAnimationOptionTransitionCrossDissolve;
         
-        [UIView transitionWithView:containerView
-                          duration:1.5f
-                           options:transition
-                        animations:^{
-                            [lastContentView removeFromSuperview];
-                            [containerView insertSubview:newContentView atIndex:0];
-                        }
-                        completion:^(BOOL finished) {
-                            
-                            [self beginScene];
-                            
-                            self.label.alpha = 0.0f;
-                            self.label.hidden = NO;
-                            
-                            [UIView beginAnimations:nil context:nil];
-                            
-                            self.label.alpha = 1.0f;
-                            
-                            [UIView commitAnimations];
-                        }];
+        if([[UIDevice currentDevice] isCrappy]) {
+            
+            [containerView insertSubview:newContentView atIndex:0];
+            [lastContentView removeFromSuperview];
+            
+            [self beginScene];
+        }
+        else {
+            
+            [UIView transitionWithView:containerView
+                              duration:1.0f
+                               options:transition
+                            animations:^{
+                                [lastContentView removeFromSuperview];
+                                [containerView insertSubview:newContentView atIndex:0];
+                            }
+                            completion:^(BOOL finished) {
+                                
+                                [self beginScene];
+                                
+                                self.label.alpha = 0.0f;
+                                self.label.hidden = NO;
+                                
+                                [UIView beginAnimations:nil context:nil];
+                                
+                                self.label.alpha = 1.0f;
+                                
+                                [UIView commitAnimations];
+                            }];
+        }
     }
     else {
         
@@ -2364,14 +2377,17 @@
         
         [self beginScene];
         
-        self.label.alpha = 0.0f;
-        self.label.hidden = NO;
-        
-        [UIView beginAnimations:nil context:nil];
-        
-        self.label.alpha = 1.0f;
-        
-        [UIView commitAnimations];
+        if(![[UIDevice currentDevice] isCrappy]) {
+            
+            self.label.alpha = 0.0f;
+            self.label.hidden = NO;
+            
+            [UIView beginAnimations:nil context:nil];
+            
+            self.label.alpha = 1.0f;
+            
+            [UIView commitAnimations];
+        }
     }
     
     self.menuView.hidden = NO;
@@ -2597,6 +2613,14 @@
 
 - (void)animateSea {
     
+    CALayer *sea = [self.contentView.document layerWithIdentifier:@"SEA"];
+    
+    if(!sea.shouldRasterize)
+        sea.shouldRasterize = YES;
+	
+    if([[UIDevice currentDevice] isCrappy])
+        return;
+    
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
     
 	animation.duration = 3.0f;
@@ -2607,11 +2631,6 @@
     
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
-    CALayer *sea = [self.contentView.document layerWithIdentifier:@"SEA"];
-    
-    if(sea.shouldRasterize)
-        sea.shouldRasterize = YES;
-	
 	[sea addAnimation:animation forKey:nil];
 }
 

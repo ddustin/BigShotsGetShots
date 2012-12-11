@@ -11,6 +11,7 @@
 #import "SVGDocumentView.h"
 #import "ViewController.h"
 #import "BWQuincyManager.h"
+#import "UIDevice+UIDevice_Hardware.h"
 #import <AVFoundation/AVAudioSession.h>
 
 @interface AppDelegate()
@@ -50,6 +51,9 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"%@", [[UIDevice currentDevice] hardwareDescription]);
+    
     return YES;
 }
 
