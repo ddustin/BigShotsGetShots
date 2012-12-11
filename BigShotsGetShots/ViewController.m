@@ -2442,12 +2442,15 @@
         
         firstPoint = point;
         
-        self.draggingLayer.affineTransform = CGAffineTransformMakeScale(self.dragMultiplier, self.dragMultiplier);
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
         
         CALayer *superLayer = self.draggingLayer.superlayer;
         
         [self.draggingLayer removeFromSuperlayer];
         [superLayer addSublayer:self.draggingLayer];
+        
+        [CATransaction commit];
         
         if(self.onPiecePickedUp)
             self.onPiecePickedUp(layer.name);
