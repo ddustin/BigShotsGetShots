@@ -1129,7 +1129,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "Dusty Technologies";
+				ORGANIZATIONNAME = Healthline;
 			};
 			buildConfigurationList = 587E0E78164C40FB0000229A /* Build configuration list for PBXProject "BigShotsGetShots" */;
 			compatibilityVersion = "Xcode 3.2";
