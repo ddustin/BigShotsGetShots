@@ -74,6 +74,8 @@
     if(!track)
         return;
     
+    extension = @"aif";
+    
     NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
     
     if(!url)
