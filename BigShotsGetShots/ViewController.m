@@ -234,10 +234,8 @@
     
     NSArray *ary = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ResourceList" withExtension:@"plist"]];
     
-    if(index >= (int)ary.count) {
-        return;
+    if(index >= (int)ary.count)
         index = ary.count - 1;
-    }
     
     if(index < 0)
         index = 0;
@@ -2267,9 +2265,9 @@
     
     self.audioPlayer.delegate = self;
     
-//#if !(TARGET_IPHONE_SIMULATOR)
+#if !(TARGET_IPHONE_SIMULATOR)
     [self.audioPlayer play];
-//#endif
+#endif
     
     objc_msgSend(self, NSSelectorFromString([@"beginPage" stringByAppendingString:self.pageNumber]));
 }
@@ -2420,46 +2418,14 @@
         
         self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         
-//#if !(TARGET_IPHONE_SIMULATOR)
-        if([self.pageNumber hasPrefix:@"7"]) {
-            
-            double delayInSeconds = 4.5;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                
-                [self move:1];
-            });
-        }
-        
+#if !(TARGET_IPHONE_SIMULATOR)
         [self.audioPlayer play];
-//#endif
+#endif
     }
     else {
         
         if(self.onAudioComplete)
             self.onAudioComplete(player);
-        
-        if(player == self.audioPlayer) {
-            
-            if(!self.didStart) {
-                
-                double delayInSeconds = 1.5;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    
-                    [self startTheGame];
-                });
-            }
-            else {
-                
-                double delayInSeconds = 1.5;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    
-                    [self move:1];
-                });
-            }
-        }
     }
 }
 
@@ -2673,8 +2639,6 @@
     if(!track)
         return;
     
-    extension = @"mp3";
-    
     NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
     
     NSParameterAssert(url);
@@ -2691,22 +2655,20 @@
     
     self.sfxPlayer.delegate = self;
     
-//#if !(TARGET_IPHONE_SIMULATOR)
+#if !(TARGET_IPHONE_SIMULATOR)
     [self.sfxPlayer play];
-//#else
-//    dispatch_async(dispatch_get_current_queue(), ^{
-//        
-//        [self audioPlayerDidFinishPlaying:nil successfully:YES];
-//    });
-//#endif
+#else
+    dispatch_async(dispatch_get_current_queue(), ^{
+        
+        [self audioPlayerDidFinishPlaying:nil successfully:YES];
+    });
+#endif
 }
 
 - (void)playTrack:(NSString*)track extension:(NSString*)extension {
     
     if(!track)
         return;
-    
-    extension = @"aif";
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
     
@@ -2722,22 +2684,20 @@
     
     self.audioPlayer.delegate = self;
     
-//#if !(TARGET_IPHONE_SIMULATOR)
+#if !(TARGET_IPHONE_SIMULATOR)
     [self.audioPlayer play];
-//#else
-//    dispatch_async(dispatch_get_current_queue(), ^{
-//        
-//        [self audioPlayerDidFinishPlaying:nil successfully:YES];
-//    });
-//#endif
+#else
+    dispatch_async(dispatch_get_current_queue(), ^{
+        
+        [self audioPlayerDidFinishPlaying:nil successfully:YES];
+    });
+#endif
 }
 
 - (void)playBackground:(NSString*)track extension:(NSString*)extension {
     
     if(!track)
         return;
-    
-    extension = @"wav";
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:track withExtension:extension];
     
@@ -2755,9 +2715,9 @@
     
     self.musicPlayer.volume = 0.5f;
     
-//#if !(TARGET_IPHONE_SIMULATOR)
+#if !(TARGET_IPHONE_SIMULATOR)
     [self.musicPlayer play];
-//#endif
+#endif
 }
 
 - (void)animateUma {
